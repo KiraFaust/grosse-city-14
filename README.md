@@ -29,7 +29,12 @@ Space Station 14 это ремейк SS13, который работает на 
 
 ## Лицензия
 
-Весь код репозитория лицензирован под [MIT](https://github.com/space-syndicate/space-station-14/blob/master/LICENSE.TXT).
+Сборка Grosse лицензирована по условиям [License Agreement](LICENSE.TXT) ([RU](LICENSE-RU.TXT)):
+копирование и изменения для улучшения игры разрешены (с передачей изменений Grosse как Вклад),
+непубличный некоммерческий запуск/хостинг — тоже; коммерческое использование и публичный
+хостинг — только с прямого разрешения Лицензиара.
+
+Оригинальный код Space Station 14 и модификации Corvax остаются под [MIT](LICENSE-MIT.TXT) ([RU](LICENSE-MIT-RU.TXT)) и не ограничиваются этим соглашением.
 
 Большинство ассетов лицензированы под [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. Ассеты имеют свою лицензию и авторские права в файле метаданных. [Пример](https://github.com/space-syndicate/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
