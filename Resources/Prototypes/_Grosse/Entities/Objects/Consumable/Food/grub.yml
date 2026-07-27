@@ -1,0 +1,26 @@
+- type: entity
+  name: ядро муровьиной личинки
+  parent: FoodProduceBase
+  id: FoodAntlionGrubCore
+  description: It's a little piece of Eden.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - apple
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: AntlionGrubCore
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/mobs/antlions.rsi
+    layers:
+    - state: grub_nugget
+  - type: Tag
+    tags:
+    - Fruit
+    - GrubCore

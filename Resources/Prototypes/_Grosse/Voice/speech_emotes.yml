@@ -4,3 +4,17 @@
   available: false
   chatTriggers:
    - painZombie
+
+- type: emote
+  id: AntlionGrubIdle
+  available: false
+  name: idle
+  chatTriggers:
+   - idle
+
+- type: emote
+  id: AntlionIdle
+  available: false
+  name: idleAnt
+  chatTriggers:
+   - idleAnt

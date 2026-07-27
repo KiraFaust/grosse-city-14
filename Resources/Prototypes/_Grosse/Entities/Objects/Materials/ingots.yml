@@ -1,0 +1,83 @@
+- type: entity
+  parent: BaseItem
+  id: IronIngotMaterial
+  name: слиток
+  description: Железный слиток, вроде на вид обычный слиток, только структура у него странная, сам по себе он не особо горячий, вот только принимает форму совершенно легко, а самое главное, что после принятия формы, он застывает, лучше лишний раз его не трогать. Неправильный слиток.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/misc/material.rsi
+    layers:
+    - state: ironingot
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Tag
+    tags:
+    - ingotPiece
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      tags:
+      - FabricatorFlatter
+  - type: TriggerOnCollide
+    fixtureID: fix1
+    ignoreOtherNonHard: false
+  - type: SpawnOnTrigger
+    proto: RoundIronIngotMaterial
+  - type: DeleteOnTrigger
+
+- type: entity
+  parent: BaseItem
+  id: RoundIronIngotMaterial
+  name: круглая заготовка
+  description: Железная круглая заготовка, после пресса оно стало тверже. Неправильное железо.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/misc/material.rsi
+    layers:
+    - state: roundplate
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Tag
+    tags:
+    - roundingotPiece
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      tags:
+      - FabricatorCutter
+  - type: TriggerOnCollide
+    fixtureID: fix1
+    ignoreOtherNonHard: false
+  - type: SpawnOnTrigger
+    proto: ManhackBlade
+  - type: DeleteOnTrigger
+
+- type: entity
+  parent: BaseItem
+  id: CMBScrab
+  name: скрап
+  description: Скрап, а не скаб, дурак.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/misc/material.rsi
+    layers:
+    - state: sheet-scrapmetal_3
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,0,1
+  - type: Tag
+    tags:
+    - CMBScrab
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      tags:
+      - FabricatorCutter
+  - type: TriggerOnCollide
+    fixtureID: fix1
+    ignoreOtherNonHard: false
+  - type: SpawnOnTrigger
+    proto: ComponentMachinePieces
+  - type: DeleteOnTrigger

@@ -1,0 +1,254 @@
+- type: entity
+  parent: BaseMachine
+  id: CMBMachine
+  name: каркас машины
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.5,0.25,0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: Pullable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Sprite
+    sprite: Structures/Machines/parts.rsi
+    state: box_0
+    snapCardinals: true
+  - type: Construction
+    graph: CMBMachine
+    node: start
+
+- type: entity
+  parent: CMBMachine
+  id: CMBBaseMachine
+  name: машинная заготовка Альянса
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/parts.rsi
+    layers:
+    - state: 0
+  - type: Construction
+    graph: CMBBaseMachine
+    node: start
+
+- type: entity
+  parent: BaseStructureComputer
+  id: UnionComputerPiece
+  name: каркас консоли Альянса
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/structure/console.rsi
+    layers:
+    - state: console1
+  - type: Item
+    size: Huge
+    sprite: _Grosse/rsi/hlstaff/misc/inhand.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-console
+      right:
+      - state: inhand-console
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: HeldSpeedModifier
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 300
+        mask:
+        - Impassable 
+        - LowImpassable 
+        - BlobImpassable
+        layer:
+        - Opaque 
+        - BulletImpassable
+        - MidImpassable
+  - type: RequireProjectileTarget
+  - type: Tag
+    tags:
+    - UnionComputer
+
+- type: entity
+  parent: UnionComputerPiece
+  id: UnionComputerMonitorPiece
+  name: каркас монитора Альянса
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/structure/console.rsi
+    layers:
+    - state: monitor1
+  - type: Item
+    sprite: _Grosse/rsi/hlstaff/misc/inhand.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-monitor
+      right:
+      - state: inhand-monitor
+  - type: Tag
+    tags:
+    - UnionMonitor
+
+- type: entity
+  parent: BaseItem
+  id: UnfinishedDevice
+  name: заготовка устройства
+  description: Незаконченное устройство.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/misc/material.rsi
+    layers:
+    - state: claymoreframe
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Construction
+    graph: UnfinishedDevice
+    node: start
+
+- type: entity
+  parent: BaseItem
+  id: UnfinishedDeviceBlack
+  name: каркас устройства из черной стали
+  description: Незаконченное устройство из черной стали.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/misc/material.rsi
+    layers:
+    - state: claymoreframe
+      color: black
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Construction
+    graph: UnfinishedDevice
+    node: Black
+
+- type: entity
+  parent: BaseItem
+  id: UnfinishedMedkit
+  name: заготовка аптечки
+  description: Незаконченный медкит.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/medical.rsi
+    layers:
+    - state: aptejka
+      color: "#666666"
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Construction
+    graph: UnfinishedDevice
+    node: Device
+
+- type: entity
+  parent: BaseItem
+  id: UnfinishedHopperMine
+  name: каркас прыгающей мины
+  description: Незаконченное устройство.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/hoppermine.rsi
+    layers:
+    - state: landmine
+      color: black
+  - type: Item
+    shape:
+    - 0,0,0,1
+  - type: Construction
+    graph: HopperMine
+    node: start
+
+- type: entity
+  parent: BaseItem
+  id: UnfinishedManhack
+  name: каркас мэнхека
+  description: Незаконченное устройство.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/manhack.rsi
+    layers:
+    - state: manhack-carcas
+  - type: Item
+    shape:
+    - 0,0,0,1
+  - type: Construction
+    graph: UnfinishedManhack
+    node: start
+
+- type: entity
+  parent: BaseItem
+  id: ManhackBlade
+  name: лезвия мэнхека
+  description: Острые.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/manhack.rsi
+    layers:
+    - state: manhack-blades
+  - type: Item
+    shape:
+    - 0,0,0,1
+  - type: Tag
+    tags:
+    - ManhackBlade
+
+- type: entity
+  parent: BaseItem
+  id: UnfinishedManhack
+  name: каркас мэнхека
+  description: Незаконченное устройство.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/manhack.rsi
+    layers:
+    - state: manhack-carcas
+  - type: Item
+    shape:
+    - 0,0,0,1
+  - type: Construction
+    graph: UnfinishedManhack
+    node: start
