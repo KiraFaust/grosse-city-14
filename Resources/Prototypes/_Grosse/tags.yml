@@ -21,3 +21,81 @@
 
 - type: Tag
   id: MagazinePulseRifle
+
+- type: Tag
+  id: CMBMedkit
+
+- type: Tag
+  id: CMBHopperMine
+
+- type: Tag
+  id: CMBManhack
+
+- type: Tag
+  id: CombineElite
+
+- type: Tag
+  id: CombineLeader
+
+- type: Tag
+  id: MagazineLightMachineGunRPD
+
+- type: Tag
+  id: CouponC17
+
+- type: Tag
+  id: CMBDispencer
+
+- type: Tag
+  id: CMBBlackMaterial
+
+- type: Tag
+  id: MachineComponent
+
+- type: Tag
+  id: ingotPiece
+
+- type: Tag
+  id: roundingotPiece
+
+- type: Tag
+  id: AntlionGrubCoreJuice
+
+- type: Tag
+  id: GunPowderCMB
+
+- type: Tag
+  id: CMBScrab
+
+- type: Tag
+  id: UnionComputer
+
+- type: Tag
+  id: UnionMonitor
+
+- type: Tag
+  id: ExtractGrubCore
+
+- type: Tag
+  id: ManhackBlade
+
+- type: Tag
+  id: FabricatorCutter
+
+- type: Tag
+  id: FabricatorFlatter
+
+- type: Tag
+  id: FabricatorFormer
+
+- type: Tag
+  id: FabricatorHeater
+
+- type: Tag
+  id: AntlionFollower
+
+- type: Tag
+  id: GrubAntlion
+
+- type: Tag
+  id: GrubCore

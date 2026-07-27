@@ -153,3 +153,25 @@
     - HeadTop
     - HeadSide
     - FacialHair
+
+- type: entity
+  parent: ClothingMaskOTAC17
+  id: ClothingMaskOTAC17Shotgunner
+  name: overwatch soldier unit gasmask
+  description: A military-grade gas mask that can be connected to an air supply.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/gasmask/shotgunner.rsi
+  - type: Clothing
+    sprite: _Grosse/rsi/hlstaff/gasmask/shotgunner.rsi
+
+- type: entity
+  parent: ClothingMaskCPC17
+  id: ClothingMaskCPSeCC17
+  name: overwatch sectorial commander gasmask
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/gasmask/cpsec.rsi
+  - type: Clothing
+    sprite: _Grosse/rsi/hlstaff/gasmask/cpsec.rsi

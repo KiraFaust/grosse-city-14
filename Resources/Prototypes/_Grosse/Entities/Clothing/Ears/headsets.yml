@@ -15,7 +15,6 @@
   - type: Clothing
     sprite: _Grosse/rsi/Ears/Headsets/base.rsi
   - type: UnpoweredFlashlight
-  #- type: Unremoveable
   - type: PointLight
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png

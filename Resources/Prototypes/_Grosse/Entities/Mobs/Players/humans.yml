@@ -157,4 +157,12 @@
 #  components:
 #  - type: Loadout
 #    prototypes: [CivilProtectionOfficerGear]
+#- type: entity
+#  name: CP Sectorial Commander
+#  parent: MobHumanCPC17
+#  suffix: Альянс SeC
+#  id: MobHumanCPC17SeC
+#  components:
+#  - type: Loadout
+#    prototypes: [SectorialCommanderGear]
 #

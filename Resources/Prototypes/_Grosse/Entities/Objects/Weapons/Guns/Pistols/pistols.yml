@@ -1,0 +1,36 @@
+- type: entity
+  name: USP Match
+  parent: BaseWeaponPistol
+  id: WeaponPistolC17
+  suffix: Пистолет
+  description: Модифицированный Альянсом USP Match, созданный из местных материалов, состоит на вооружение офицеров Гражданской обороны.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/weapon/pistol.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: _Grosse/audio/blackmesa/hl2/weapon/pistol_fire2.ogg
+      params:
+        volume: -2
+    soundEmpty:
+      path: _Grosse/audio/blackmesa/hl2/weapon/pistol_empty.ogg
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: _Grosse/audio/blackmesa/hl2/weapon/pistol_reload1.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+            - MagazinePistolHighCapacity
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true

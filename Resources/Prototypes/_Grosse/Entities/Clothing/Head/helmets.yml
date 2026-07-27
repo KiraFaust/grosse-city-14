@@ -36,7 +36,6 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
-  #- type: Unremoveable
 
 - type: entity
   parent: ClothingHeadOTAC17
@@ -89,7 +88,6 @@
   #- type: ContainerContainer
   #  containers:
   #    toggleable-clothing: !type:ContainerSlot {}
-  #- type: Unremoveable
 
 - type: entity
   parent: 
@@ -129,7 +127,6 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
-  #- type: Unremoveable
 
 - type: entity
   parent: 
