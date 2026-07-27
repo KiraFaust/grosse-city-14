@@ -1,0 +1,7 @@
+- type: biomeTemplate
+  id: SplatDesert
+  layers:
+    # Fill layer
+    - !type:BiomeTileLayer
+      threshold: -1
+      tile: FloorAsteroidSand

@@ -1,0 +1,13 @@
+- type: damageModifierSet
+  id: Antlion
+  coefficients:
+    Blunt: 0.7
+    Slash: 0.5
+    Piercing: 0.7
+    Heat: 0.7
+    Shock: 1.8
+    Poison: 0.0
+    Radiation: 0.0
+    Asphyxiation: 0.0
+    Bloodloss: 0.0
+    Cellular: 0.0

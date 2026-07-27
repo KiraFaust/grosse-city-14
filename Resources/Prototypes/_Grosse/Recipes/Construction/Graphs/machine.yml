@@ -1,0 +1,288 @@
+- type: constructionGraph
+  id: UnfinishedManhack
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: Manhack
+        completed:
+          - !type:SpawnPrototype
+            prototype: ManhackConstructionInactiveC17
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tag: ManhackBlade
+            name: лопасти мэнхека
+            doAfter: 2
+          - tool: Screwing
+            doAfter: 5
+    - node: Manhack
+
+- type: constructionGraph
+  id: UnfinishedDevice
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: Device
+        completed:
+          - !type:SpawnPrototype
+            prototype: UnfinishedMedkit
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tool: Welding
+            doAfter: 5
+      - to: Heal
+        completed:
+          - !type:SpawnPrototype
+            prototype: AntlionGrubCoreJuice
+            amount: 3
+          - !type:DeleteEntity
+        steps:
+          - tag: GrubAntlion
+            name: муравьиная личинка
+            doAfter: 4
+      - to: Black
+        completed:
+          - !type:SpawnPrototype
+            prototype: UnfinishedDeviceBlack
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - material: BlackMaterialPiece
+            amount: 5
+            doAfter: 2
+    - node: Device
+      edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: MedkitC17
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tag: AntlionGrubCoreJuice
+            name: экстракт сока муравьиного льва
+            doAfter: 2
+      - to: Heal
+        completed:
+          - !type:SpawnPrototype
+            prototype: HealthvialC17
+            amount: 2
+          - !type:DeleteEntity
+        steps:
+          - tag: GrubCore
+            name: ядро муравьиной личинки
+            doAfter: 2
+    - node: Heal
+    - node: Black
+      edges:
+      - to: Device
+        completed:
+          - !type:SpawnPrototype
+            prototype: UnfinishedManhack
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tool: Welding
+            doAfter: 3
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: UnfinishedHopperMine
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - material: Steel
+            amount: 5
+            doAfter: 2
+          - tool: Welding
+            doAfter: 2
+          - tool: Anchoring
+            doAfter: 2
+
+- type: constructionGraph
+  id: HopperMine
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: CMBBaseMachine
+        completed:
+          - !type:SpawnPrototype
+            prototype: HopperMineInactiveC17
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tag: MachineComponent
+            name: детали
+            doAfter: 1
+          - tag: GunPowderCMB
+            name: порох
+            doAfter: 1
+    - node: CMBBaseMachine
+
+- type: constructionGraph
+  id: CMBMachine
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: CMBBaseMachine
+        conditions:
+          - !type:EntityAnchored
+        completed:
+          - !type:SpawnPrototype
+            prototype: CMBBaseMachine
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tag: roundingotPiece
+            name: круглая заготовка
+            doAfter: 1
+          - tool: Welding
+            doAfter: 1
+          - tag: MachineComponent
+            name: детали
+            doAfter: 1
+          - tool: Anchoring
+            doAfter: 2
+    - node: CMBBaseMachine
+
+- type: constructionGraph
+  id: CMBBaseMachine
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: CMBMachine
+        conditions:
+          - !type:EntityAnchored
+        completed:
+          - !type:SpawnPrototype
+            prototype: UnionComputerPiece
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tag: MachineComponent
+            name: детали
+            doAfter: 2
+          - material: BlackMaterialPiece
+            amount: 10
+            doAfter: 1
+      - to: CMBMachine2
+        conditions:
+          - !type:EntityAnchored
+        completed:
+          - !type:SpawnPrototype
+            prototype: UnionComputerMonitorPiece
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - tag: RoundIronIngotMaterial
+            name: круглая заготовка
+            doAfter: 2
+          - material: BlackMaterialPiece
+            amount: 10
+            doAfter: 1
+    - node: CMBMachine
+    - node: CMBMachine2
+
+- type: constructionGraph
+  id: ManhackPulsing
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: CMBBaseMachine
+        completed:
+          - !type:SpawnPrototype
+            prototype: ManhackInactiveC17
+            amount: 1
+          - !type:PlaySound
+            sound: _Grosse/audio/blackmesa/hoppermine/blade_loop1.ogg
+            params:
+              volume: 2
+          - !type:DeleteEntity
+        steps:
+          - tool: PulsingCombine
+            doAfter: 0
+      - to: CMBBaseMachine
+        completed:
+          - !type:SpawnPrototype
+            prototype: ManhackInactiveResistanceC17
+            amount: 1
+          - !type:PlaySound
+            sound: 
+              collection: sparks
+              params:
+                volume: 10
+          - !type:DeleteEntity
+        steps:
+          - tool: PulsingResistance
+            doAfter: 0
+    - node: CMBBaseMachine
+
+- type: constructionGraph
+  id: HopperMinePulsing
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: CMBBaseMachine
+        completed:
+          - !type:SpawnPrototype
+            prototype: HopperMineInactiveC17
+            amount: 1
+          - !type:PlaySound
+            sound: _Grosse/audio/blackmesa/hoppermine/deactivate1.ogg
+            params:
+              volume: 10
+          - !type:DeleteEntity
+        steps:
+          - tool: PulsingCombine
+            doAfter: 0
+      - to: CMBBaseMachine
+        completed:
+          - !type:SpawnPrototype
+            prototype: HopperMineInactiveResistanceC17
+            amount: 1
+          - !type:PlaySound
+            sound: 
+              collection: sparks
+              params:
+                volume: 12
+          - !type:DeleteEntity
+        steps:
+          - tool: PulsingResistance
+            doAfter: 0
+    - node: CMBBaseMachine
+      edges:
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: HopperMineExplosiveC17
+            amount: 1
+          - !type:PlaySound
+            sound: _Grosse/audio/blackmesa/hoppermine/blade_loop1.ogg
+            params:
+              volume: 10
+          - !type:DeleteEntity
+        steps:
+          - tool: PulsingCombine
+            doAfter: 0
+      - to: start
+        completed:
+          - !type:SpawnPrototype
+            prototype: HopperMineExplosiveResistanceC17
+            amount: 1
+          - !type:PlaySound
+            sound: 
+              collection: sparks
+              params:
+                volume: 12
+          - !type:DeleteEntity
+        steps:
+          - tool: PulsingResistance
+            doAfter: 0

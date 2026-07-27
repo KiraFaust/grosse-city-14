@@ -1,0 +1,136 @@
+- type: entity
+  id: FabricatorCutterMachine17
+  name: станок резака
+  description: Машина обрабадывающая резаком.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/misc/fabricator.rsi
+    layers:
+    - state: cutter
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,1.5"
+        hard: false
+        layer:
+        - Impassable
+  - type: PointLight
+    enabled: true
+    radius: 2
+    color: green
+  - type: Clickable
+  - type: Tag
+    tags:
+      - FabricatorCutter
+
+- type: entity
+  parent: FabricatorCutterMachine17
+  id: FabricatorHeaterMachine17
+  name: станок плавитель
+  description: Машина обрабадывающая огнем.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/misc/fabricator.rsi
+    layers:
+    - state: heater
+      offset: "0,-1"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-1.5,0.5,-0.5"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.5,0.2,0.5"
+        hard: false
+        layer:
+        - Impassable
+  - type: Tag
+    tags:
+      - FabricatorHeater
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      tags:
+      - CMBScrab
+  - type: TriggerOnCollide
+    fixtureID: fix2
+    ignoreOtherNonHard: false
+  - type: SpawnOnTrigger
+    proto: IronIngotMaterial
+  - type: DeleteOnTrigger
+    targetUser: true
+
+- type: entity
+  parent: FabricatorCutterMachine17
+  id: FabricatorFlatterMachine17
+  name: станок пресс
+  description: Машина обрабадывающая давлением.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/misc/fabricator.rsi
+    layers:
+    - state: flatter
+  - type: Tag
+    tags:
+      - FabricatorFlatter
+
+- type: entity
+  parent: FabricatorHeaterMachine17
+  id: FabricatorFormerMachine17
+  name: станок формировщик
+  description: Машина что формирует что-то из чего-то.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/misc/fabricator.rsi
+    layers:
+    - state: former
+      offset: "0,-1"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-1.5,0.5,-0.5"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.5,0.2,0.5"
+        hard: false
+        layer:
+        - Impassable
+  - type: Tag
+    tags:
+      - FabricatorHeater
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      tags:
+      - ingotPiece
+  - type: SpawnOnTrigger
+    proto: UnfinishedDevice

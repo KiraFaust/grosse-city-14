@@ -1,0 +1,45 @@
+- type: entity
+  parent: MaterialBase
+  id: BlackMaterialPiece
+  name: черная смола
+  description: Кусок черной смолы, созданный по чертежам Альянса для своих монструозных штук.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/misc/material.rsi
+    layers:
+    - state: sheet-resin
+      map: [ "base" ]
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 0
+  - type: PhysicalComposition
+    materialComposition:
+      BlackMaterial: 1
+  - type: Material
+  - type: Tag
+    tags:
+    - Sheet
+    - CMBBlackMaterial
+  - type: Appearance
+  - type: Stack
+    count: 10
+    stackType: BlackMaterialPiece
+    baseLayer: base
+    layerStates:
+    - sheet-resin
+    - sheet-resin_2
+    - sheet-resin_3
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+
+- type: entity
+  parent: BlackMaterialPiece
+  id: BlackMaterialPiece1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1

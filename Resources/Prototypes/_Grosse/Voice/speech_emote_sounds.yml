@@ -6,3 +6,21 @@
   sounds:
     PainZombie:
       collection: ZombiePain
+
+- type: emoteSounds
+  id: AntlionGrubIdleSound
+  params:
+    variation: 0.125
+    volume: -5
+  sounds:
+    AntlionGrubIdle:
+      collection: AntlionGrubIdle
+
+- type: emoteSounds
+  id: AntlionIdleSound
+  params:
+    variation: 0.125
+    volume: -5
+  sounds:
+    AntlionIdle:
+      collection: AntlionIdle

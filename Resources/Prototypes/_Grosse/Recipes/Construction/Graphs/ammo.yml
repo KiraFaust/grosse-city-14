@@ -1,0 +1,35 @@
+- type: constructionGraph
+  id: AshToPowder
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: GunPowder
+        completed:
+          - !type:SpawnPrototype
+            prototype: GunPowderCMB
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - material: BlackMaterialPiece
+            amount: 1
+            doAfter: 1
+    - node: GunPowder
+
+- type: constructionGraph
+  id: BulletBoxCMB
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: Black
+        completed:
+          - !type:SpawnPrototype
+            prototype: MagazineBoxPistol
+            amount: 1
+          - !type:DeleteEntity
+        steps:
+          - material: BlackMaterialPiece
+            amount: 5
+            doAfter: 2
+    - node: Black
