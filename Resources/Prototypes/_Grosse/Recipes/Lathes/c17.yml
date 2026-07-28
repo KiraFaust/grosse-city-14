@@ -1,0 +1,62 @@
+- type: latheRecipe
+  id: BlackMaterialPiece
+  result: BlackMaterialPiece1
+  completetime: 2
+  materials:
+    Steel: 100
+    Biomass: 5
+  icon:
+    sprite: _Grosse/rsi/hlstaff/misc/material.rsi
+    state: sheet-resin_3
+
+- type: latheRecipe
+  id: CMBMachineLathe
+  result: CMBMachine
+  completetime: 10
+  materials:
+    Steel: 3000
+  icon:
+    sprite: Structures/Machines/parts.rsi
+    state: box_0
+
+- type: latheRecipe
+  id: CMBScrab
+  result: CMBScrab
+  completetime: 2
+  materials:
+    Steel: 500
+  icon:
+    sprite: _Grosse/rsi/hlstaff/misc/material.rsi
+    state: sheet-scrapmetal_3
+
+- type: latheRecipe
+  id: RationDispenserLathe
+  result: RationDispenserC17Restock
+  completetime: 5
+  materials:
+    Biomass: 15
+    Steel: 500
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+
+- type: latheRecipe
+  id: DrBreenPrivateReserveLathe
+  result: DrBreenPrivateReserveC17Restock
+  completetime: 5
+  materials:
+    Steel: 500
+    BlackMaterial: 1
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+
+- type: latheRecipe
+  id: BiomassLathe
+  result: MaterialBiomass1
+  completetime: 1
+  materials:
+    Meaterial: 100
+  icon:
+    sprite: /Textures/Objects/Misc/monkeycube.rsi
+    state: cube

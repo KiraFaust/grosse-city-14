@@ -5,7 +5,6 @@
   suffix: noslip
   description: Обувь спецназа Nanotrasen, для боевых операций или боевых действий. Борьба - всё, борьба - всегда.
   components:
-  #- type: Unremoveable
   - type: Sprite
     sprite: Clothing/Shoes/Specific/swat.rsi
   - type: Clothing
@@ -30,7 +29,6 @@
   name: боевая обувь
   description: Обувь спецназа Nanotrasen, для боевых операций или боевых действий. Борьба - всё, борьба - всегда.
   components:
-  #- type: Unremoveable
   - type: Sprite
     sprite: Clothing/Shoes/Boots/jackboots.rsi
   - type: Clothing

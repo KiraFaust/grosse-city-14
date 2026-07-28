@@ -6,3 +6,21 @@
   ignoreActionBlocker: true
   force: true
   hiddenFromChatWindow: true
+
+- type: autoEmote
+  id: EmoteAntlionGrubIdle
+  emote: AntlionGrubIdle
+  interval: 4
+  chance: 0.8
+  ignoreActionBlocker: true
+  force: true
+  hiddenFromChatWindow: true
+
+- type: autoEmote
+  id: EmoteAntlionIdle
+  emote: AntlionIdle
+  interval: 8
+  chance: 0.4
+  ignoreActionBlocker: true
+  force: true
+  hiddenFromChatWindow: true

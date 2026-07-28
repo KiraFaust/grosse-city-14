@@ -1,0 +1,15 @@
+- type: stack
+  id: BlackMaterialPiece
+  name: stack-black-material
+  icon: { sprite: _Grosse/rsi/hlstaff/misc/material.rsi, state: sheet-resin_3 }
+  spawn: BlackMaterialPiece1
+  maxCount: 10
+
+- type: material
+  id: BlackMaterial
+  stackEntity: BlackMaterialPiece1
+  name: черная смола
+  unit: черная смола
+  icon: { sprite: _Grosse/rsi/hlstaff/misc/material.rsi, state: sheet-resin_3 }
+  color: "#8A9A5B"
+  price: 1

@@ -1,0 +1,34 @@
+- type: entity
+  id: MagazinePulseRifleC17
+  name: магазин черной материи
+  description: Малый магазин из черной стали, который способен удерживать черную материю.
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+      - MagazinePulseRifle
+  - type: BallisticAmmoProvider
+    mayTransfer: false
+    cycleable: false
+    capacity: 30
+    proto: PulseBulletCombine
+    whitelist:
+      tags:
+        - PulseBullet
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/weapon/magazine_ar2.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false

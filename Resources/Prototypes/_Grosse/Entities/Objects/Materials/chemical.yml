@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseItem
+  id: GunPowderCMB
+  name: порох Альянса
+  description: Довольно странный порох, но на удивление довольно эффективный, больше похож на слайм, чем на порох.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/misc/material.rsi
+    layers:
+    - state: ironpowder
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,0,1
+  - type: Tag
+    tags:
+    - GunPowderCMB
+  - type: Construction
+    graph: BulletBoxCMB
+    node: start

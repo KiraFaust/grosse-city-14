@@ -1,0 +1,36 @@
+- type: entity
+  parent: BaseItem
+  id: ExtractGrubCore
+  name: экстракт сока муравьиного льва
+  description: Экстракт сока муравьиного льва.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/medical.rsi
+    layers:
+    - state: aptejka-mini
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Tag
+    tags:
+    - ExtractGrubCore
+
+- type: entity
+  parent: BaseItem
+  id: AntlionGrubCoreJuice
+  name: экстракт сока личинки муравьиного льва
+  description: Экстракт того самого лечебного сока, совершенная медицина!
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/medical.rsi
+    layers:
+    - state: aptejka-mini
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,0,1
+  - type: Tag
+    tags:
+    - AntlionGrubCoreJuice
+    - ExtractGrubCore

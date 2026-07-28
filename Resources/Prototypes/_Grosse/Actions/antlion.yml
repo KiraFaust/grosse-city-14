@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseAction
+  id: ActionAntlionJump
+  name: прыгнуть
+  description: Ускориться, а затем взмыть в небеса на своих крыльях.
+  components:
+  - type: Action
+    useDelay: 30
+    icon:
+      sprite: _Grosse/rsi/hlstaff/mobs/antlions.rsi
+      state: grub_nugget
+  - type: InstantAction
+    event: !type:GravityJumpEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionChargGuardian
+  name: начать крушить
+  description: Ускориться, сбивая все на своем пути
+  components:
+  - type: Action
+    useDelay: 37
+    icon:
+      sprite: _Grosse/rsi/hlstaff/mobs/antlions.rsi
+      state: grub_nugget
+  - type: InstantAction
+    event: !type:GravityJumpEvent {}

@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseItem
+  id: ComponentMachinePieces
+  name: детали
+  description: Несколько деталей для работы какого-то механизма.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/hlstaff/misc/material.rsi
+    layers:
+    - state: sheet-scrapparts_3
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Tag
+    tags:
+    - MachineComponent

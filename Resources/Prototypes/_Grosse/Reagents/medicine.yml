@@ -1,0 +1,22 @@
+- type: reagent
+  id: AntlionGrubCore
+  name: сок личинки
+  group: Medicine
+  desc: Сок из личинки, прикольный.
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: medicine
+  color: "#00ff44"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ModifyBloodLevel
+        amount: 10
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -10
+            Toxin: -10
+            Airloss: -10
+            Brute: -10
+          types:
+            Bloodloss: -10

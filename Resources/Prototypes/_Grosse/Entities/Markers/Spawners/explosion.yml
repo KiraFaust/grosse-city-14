@@ -1,0 +1,13 @@
+- type: entity
+  id: SpawnerExplosionInstant
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+  - type: RepeatingTrigger
+    delay: 0.05
+  - type: SpawnOnTrigger
+    proto: ExplosionInstant
+  - type: DeleteOnTrigger
