@@ -148,17 +148,17 @@
   - type: ZombieImmune
   - type: TTS
     voice: Sylvanas
-  - type: LanguageSpeaker
-    currentLanguage: Xeno
-  - type: LanguageKnowledge
-    speaks:
-    - Xeno
-    understands:
-    - Xeno
-  - type: NightVision
-    animation: true
-    transitionSpeed: 100
-    color: "#80008011"
+#  - type: LanguageSpeaker
+#    currentLanguage: Xeno
+#  - type: LanguageKnowledge
+#    speaks:
+#    - Xeno
+#    understands:
+#    - Xeno
+#  - type: NightVision
+#    animation: true
+#    transitionSpeed: 100
+#    color: "#80008011"
   - type: TriggerOnMobstateChange
     mobState:
     - Dead

@@ -44,9 +44,9 @@
   description: Military-grade helmet for special overwatch units.
   components:
   - type: Sprite
-    sprite: _Groose/rsi/hlstaff/helmets/shotgunner.rsi
+    sprite: _Grosse/rsi/hlstaff/helmets/shotgunner.rsi
   - type: Clothing
-    sprite: _Groose/rsi/hlstaff/helmets/shotgunner.rsi
+    sprite: _Grosse/rsi/hlstaff/helmets/shotgunner.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingMaskOTAC17Shotgunner
 

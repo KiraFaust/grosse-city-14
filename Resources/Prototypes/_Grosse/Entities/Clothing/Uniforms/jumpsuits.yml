@@ -44,6 +44,6 @@
   name: overwatch soldier elite unit штаны
   components:
   - type: Sprite
-    sprite: /Uploaded/combine/rsi/hlstaff/suit/otaking.rsi
+    sprite: _Grosse/rsi/hlstaff/suit/otaking.rsi
   - type: Clothing
-    sprite: /Uploaded/combine/rsi/hlstaff/suit/otaking.rsi
+    sprite: _Grosse/rsi/hlstaff/suit/otaking.rsi

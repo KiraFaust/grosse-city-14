@@ -114,9 +114,9 @@
   description: Military-grade suit for special overwatch units.
   components:
   - type: Sprite
-    sprite: /Uploaded/combine/rsi/hlstaff/vests/otaking.rsi
+    sprite: _Grosse/rsi/hlstaff/vests/otaking.rsi
   - type: Clothing
-    sprite: /Uploaded/combine/rsi/hlstaff/vests/otaking.rsi
+    sprite: _Grosse/rsi/hlstaff/vests/otaking.rsi
   - type: Armor
     modifiers:
 #      armorLvls:

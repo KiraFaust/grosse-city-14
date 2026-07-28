@@ -35,9 +35,6 @@
   id: CombineElite
 
 - type: Tag
-  id: CombineLeader
-
-- type: Tag
   id: MagazineLightMachineGunRPD
 
 - type: Tag

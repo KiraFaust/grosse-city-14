@@ -98,7 +98,7 @@
         mask:
         - Impassable 
         - LowImpassable 
-        - BlobImpassable
+#       - BlobImpassable
         layer:
         - Opaque 
         - BulletImpassable
@@ -235,20 +235,3 @@
   - type: Tag
     tags:
     - ManhackBlade
-
-- type: entity
-  parent: BaseItem
-  id: UnfinishedManhack
-  name: каркас мэнхека
-  description: Незаконченное устройство.
-  components:
-  - type: Sprite
-    sprite: _Grosse/rsi/hlstaff/manhack.rsi
-    layers:
-    - state: manhack-carcas
-  - type: Item
-    shape:
-    - 0,0,0,1
-  - type: Construction
-    graph: UnfinishedManhack
-    node: start
