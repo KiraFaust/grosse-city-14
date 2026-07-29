@@ -167,3 +167,35 @@
       collection: AntlionDeath
       params:
         volume: 1
+
+- type: entity
+  id: MobBaseNpcDungeon
+  parent:
+  - MobBaseNpcSalvage
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MeleeWeapon
+    range: 1.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 300
+        mask:
+        - Impassable
+        - HighImpassable
+        - MidImpassable
+        #- BlobImpassable
+        layer:
+        - MobLayer
+      fix2:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1
+        hard: false
+        mask:
+        - HighImpassable
+        layer:
+        - MobLayer
