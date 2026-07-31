@@ -31,3 +31,21 @@
           amount: 7
         - id: MedkitC17
           amount: 4
+
+
+- type: entity
+  parent: ClothingBackpackCombineEliteC17
+  id: ClothingBackpackCombineEliteC17Filled
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxFlare
+        - id: CombineGrenadeC17
+          amount: 4
+        - id: MagazinePulseRifleC17
+          amount: 12
+        - id: HealthvialC17
+          amount: 5
+        - id: MedkitC17
+          amount: 8

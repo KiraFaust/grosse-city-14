@@ -1,0 +1,8 @@
+- type: DeviceNetwork
+  deviceNetId: Wired
+  receiveFrequencyId: SurveillanceCameraService
+  transmitFrequencyId: SurveillanceCamera
+- type: WirelessNetworkConnection
+  range: 500
+- type: SurveillanceCamera
+  networkSet: true

@@ -5,7 +5,7 @@
   description: Емкость для мусора, чтобы складировать мусор.
   components:
   - type: Sprite
-    sprite: /Uploaded/combine/rsi/hlstaff/structure/decor.rsi
+    sprite: _Grosse/rsi/hlstaff/structure/decor.rsi
     state: trash_can
     offset: "0, -0.25"
   - type: Storage
@@ -32,7 +32,7 @@
   description: Емкость для мусора, чтобы складировать много мусор.
   components:
   - type: Sprite
-    sprite: /Uploaded/combine/rsi/Structures/Decoration/trashcan.rsi
+    sprite: _Grosse/rsi/Structures/Decoration/trashcan.rsi
     layers:
     - state: tc1
       map: [ "enum.DamageStateVisualLayers.Base" ]

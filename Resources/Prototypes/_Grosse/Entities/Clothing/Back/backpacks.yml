@@ -14,23 +14,6 @@
     - 0,0,10,5
 
 - type: entity
-  parent: ClothingBackpackCombineEliteC17
-  id: ClothingBackpackCombineEliteC17Filled
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: StorageFill
-      contents:
-        - id: BoxFlare
-        - id: CombineGrenadeC17
-          amount: 4
-        - id: MagazinePulseRifleC17
-          amount: 12
-        - id: HealthvialC17
-          amount: 5
-        - id: MedkitC17
-          amount: 8
-
-- type: entity
   parent: ClothingBackpackCombineC17
   id: ClothingBackpackCombineEliteC17
   name: satchel
@@ -51,3 +34,31 @@
   components:
   - type: Sprite
     sprite: _Grosse/rsi/Backpacks/mvd.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicate
+  id: ClothingBackpackDuffelSyndicateFilledHopperMine
+  name: набор мин Альянса
+  components:
+    - type: StorageFill
+      contents:
+        - id: MultitoolCombineC17
+        - id: HopperMineInactiveC17
+          amount: 8
+
+- type: entity
+  id: CombineSoldierElite
+  parent: BaseItem
+  name: сумка снаряжение альянса
+  suffix: Elite
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Satchels/leather.rsi
+    layers:
+      - state: icon
+  - type: SpawnItemsOnUse
+    sound:
+      path: /Audio/Items/jumpsuit_equip.ogg
+    items:
+    - id: ActivatedCombineGrenadeC17
+      prob: 1

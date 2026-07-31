@@ -8,7 +8,7 @@
     bodyType: Dynamic
   - type: Marker
   - type: Sprite
-    sprite: /Uploaded/combine/rsi/hlstaff/mobs/antlions.rsi
+    sprite: _Grosse/rsi/hlstaff/mobs/antlions.rsi
     state: grub_nugget
   - type: Tag
     tags:
