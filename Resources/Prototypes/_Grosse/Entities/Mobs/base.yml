@@ -248,3 +248,112 @@
         - HighImpassable
         layer:
         - MobLayer
+
+- type: entity
+  abstract: true
+  name: ксено
+  id: BaseMobAntlion
+  parent: MobXeno
+  description: Угроза любой органической форме жизни
+  suffix: Antlion
+  components:
+  - type: GhostRole
+    prob: 0
+  - type: NameIdentifier
+    group: null
+  - type: HTN
+    rootTask:
+      task: AntlionCompound
+    blackboard:
+      VisionRadius: !type:Single
+        86
+      AggroVisionRadius: !type:Single
+        80
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: SolutionContainerManager
+  - type: AtmosExposed
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      300: Dead
+  - type: Internals
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Antlion
+  - type: Body
+    prototype: Bloodsucker
+    requiredLegs: 0
+  - type: Metabolizer
+    solutionOnBody: false
+    updateInterval: 0.25
+    metabolizerTypes: [ Bloodsucker ]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Biological
+  - type: Actions
+  - type: DoAfter
+  - type: Polymorphable
+  - type: Buckle
+  - type: Hands
+    showInHands: false
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4
+  - type: Stamina
+    critThreshold: 500
+  - type: Appearance
+  - type: Bloodstream
+    bloodMaxVolume: 0
+  - type: Puller
+    needsHands: false
+  - type: NoSlip
+  - type: IgnoreSpiderWeb
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Hivemind
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Hivemind
+  - type: NPCImprintingOnSpawnBehaviour
+    spawnFriendsSearchRadius: 10
+    whitelist:
+      tags:
+      - AntlionFollower
+  - type: ZombieImmune
+  - type: TTS
+    voice: Sylvanas
+#  - type: LanguageSpeaker
+#    currentLanguage: Xeno
+#  - type: LanguageKnowledge
+#    speaks:
+#    - Xeno
+#    understands:
+#    - Xeno
+#  - type: NightVision
+#    animation: true
+#    transitionSpeed: 100
+#    color: "#80008011"
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: AntlionDeath
+      params:
+        volume: 1
