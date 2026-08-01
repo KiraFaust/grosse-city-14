@@ -6,3 +6,23 @@
   range: 500
 - type: SurveillanceCamera
   networkSet: true
+
+- type: DeviceNetwork
+  deviceNetId: Wired
+  receiveFrequencyId: SurveillanceCameraSecurity
+  transmitFrequencyId: SurveillanceCamera
+- type: SurveillanceCamera
+  networkSet: true
+- type: Destructible
+  thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+              params:
+                volume: -8

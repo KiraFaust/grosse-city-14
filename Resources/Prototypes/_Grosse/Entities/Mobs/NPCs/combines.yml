@@ -391,3 +391,48 @@
       sprite: _Grosse/rsi/hlstaff/weapon/pistol.rsi
   - type: Loadout
     prototypes: [NPCCombinePatrolUnitRange]
+
+- type: entity
+  name: Солдат Альянса
+  id: MobCombineSoldierShotgun
+  parent: MobBaseCombine
+  suffix: suppa Shotgun Патруль Альянса 17
+  components:
+  - type: HTN
+    rootTask:
+      task: CombineSoldierCompound
+  - type: NPCImprintingOnSpawnBehaviour
+    whitelist:
+      tags:
+      - CombineLeader
+  - type: BallisticAmmoProvider
+    proto: ShellShotgun
+    capacity: 500
+    cycleable: false
+  - type: Gun
+    fireRate: 1
+    useKey: false
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot: 
+      collection: ShotgunshotCMB
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - state: equipped-INNERCLOTHING
+      sprite: _Grosse/rsi/hlstaff/suit/shotgunner.rsi
+    - state: equipped-HAND
+      sprite: Clothing/Hands/Gloves/Color/black.rsi
+    - state: equipped-FEET
+      sprite: Clothing/Shoes/Boots/combatboots.rsi
+    - state: equipped-MASK
+      sprite: _Grosse/rsi/hlstaff/gasmask/shotgunner.rsi
+    - state: equipped-HELMET
+      sprite: _Grosse/rsi/hlstaff/helmets/shotgunner.rsi
+    - state: equipped-OUTERCLOTHING
+      sprite: _Grosse/rsi/hlstaff/vests/shotgunner.rsi
+    - state: wielded-inhand-left
+      sprite: _Grosse/rsi/Objects/Weapons/Guns/spas-16/tiny.rsi
+  - type: Loadout
+    prototypes: [NPCCombineSoldierShotgun]

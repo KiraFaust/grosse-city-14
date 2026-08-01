@@ -22,3 +22,12 @@
       collection: CityScannerloop
       params:
         volume: 1
+
+- type: entity
+  parent: Binoculars
+  id: BinocularsRebels
+  suffix: Resistens
+  components:
+  - type: EyeCursorOffset
+    maxOffset: 20
+    pvsIncrease: 1.5

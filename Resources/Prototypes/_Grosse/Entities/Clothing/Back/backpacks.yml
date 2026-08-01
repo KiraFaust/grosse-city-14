@@ -62,3 +62,58 @@
     items:
     - id: ActivatedCombineGrenadeC17
       prob: 1
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackRefugeeC17
+  name: сумка из тряпок
+  description: Сумка созданная из подручных матераилов, вполне сносно, если не учитывать вон ту дырку на дне.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/backpacks/duffel.rsi
+  - type: Storage
+    grid:
+    - 0,0,2,3
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackArmyC17
+  name: армейский ранец
+  description: Довоенный армейский рюкзак, использовалась армиями многих стран еще до захвата Альянса.
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/backpacks/ataka.rsi
+  - type: Storage
+    grid:
+    - 0,0,3,6
+
+- type: entity
+  id: SaboteurBackpackEquip
+  name: сумка снаряжения диверсанта
+  description: This is where your favorite thief's supplies lie. Try to remember which ones.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Grosse/rsi/backpacks/ataka.rsi
+    state: icon
+  - type: ThiefUndeterminedBackpack
+    possibleSets:
+    - RebelTechSet
+    - RebelAssaulterSet
+    - RebelSupperterSet
+    maxSelectedSets: 1
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface
+
+#- type: construction
+#  id: BackpackRefugeeC17
+#  graph: constructBackpackRefugee
+#  startNode: start
+#  targetNode: icon
+#  category: construction-category-clothing
+#  objectType: Item
+#
