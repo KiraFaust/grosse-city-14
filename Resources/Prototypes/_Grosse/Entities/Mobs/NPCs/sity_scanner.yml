@@ -103,6 +103,15 @@
     prototypes: 
       - CityScanner
 
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraService
+    transmitFrequencyId: SurveillanceCamera
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: SurveillanceCamera
+    networkSet: true
+
 - type: entity
   parent: ReinforcementRadioCombineC17
   id: ReinforcementRadioCityScannerC17
