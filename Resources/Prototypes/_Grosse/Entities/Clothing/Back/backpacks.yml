@@ -5,7 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Grosse/rsi/Backpacks/mvd.rsi
+    sprite: _Grosse/rsi/backpacks/mvd.rsi
     color: black
   - type: Clothing
     sprite: _Grosse/rsi/hlstaff/field.rsi
@@ -20,7 +20,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Grosse/rsi/Backpacks/mvd.rsi
+    sprite: _Grosse/rsi/backpacks/mvd.rsi
   - type: Storage
     grid:
     - 0,0,14,5
@@ -33,7 +33,7 @@
   name: satchel
   components:
   - type: Sprite
-    sprite: _Grosse/rsi/Backpacks/mvd.rsi
+    sprite: _Grosse/rsi/backpacks/mvd.rsi
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
