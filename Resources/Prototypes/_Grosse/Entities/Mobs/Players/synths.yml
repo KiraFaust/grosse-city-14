@@ -121,7 +121,7 @@
   #    - id: DesantPod
   - type: Sprite
     drawdepth: Ghosts
-    sprite: _Grosse/rsi/gunship.rsi
+    sprite: _Grosse/rsi/Misc/gunship.rsi
     noRot: false
     state: gunship
   - type: ContentEye

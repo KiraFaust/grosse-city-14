@@ -55,11 +55,11 @@
     baseSprintSpeed: 5.5
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Grosse/rsi/hlstaff/mobs/cityscanner.rsi
+    sprite: _Grosse/rsi/Misc/Egg.rsi
     layers:
-    - state: cityscanner
+    - state: icon
       map: [ "enum.DamageStateVisualLayers.Base" ]
-    - state: cityscanner-unshaded
+    - state: open
       shader: unshaded
   - type: UnpoweredFlashlight
     toggleFlashlightSound: _Grosse/audio/blackmesa/mob/scanner/blip1.ogg

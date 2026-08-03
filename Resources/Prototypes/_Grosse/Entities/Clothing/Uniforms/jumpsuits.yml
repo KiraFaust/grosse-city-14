@@ -114,7 +114,6 @@
   name: армейская одежда
   components:
   - type: Sprite
-    sprite: _Grosse/rsi/Clothing/uniform/military2_uniform.rsi
+    sprite: _Grosse/rsi/hlstaff/suit/ota.rsi
   - type: Clothing
-    sprite: _Grosse/rsi/Clothing/uniform/military2_uniform.rsi
-
+    sprite: _Grosse/rsi/hlstaff/suit/ota.rsi
