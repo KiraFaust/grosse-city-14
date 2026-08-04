@@ -26,6 +26,9 @@
     {
         "name": "generator-layer",
         "directions": 4
+    },
+    {
+        "name": "icon"
     }
   ]
 }

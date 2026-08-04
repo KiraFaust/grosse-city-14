@@ -201,7 +201,6 @@
             prototype: ManhackInactiveC17
             amount: 1
           - !type:PlaySound
-            sound: !type:SoundSpecifier
             sound: /Audio/_Grosse/audio/blackmesa/hoppermine/blade_loop1.ogg
           - !type:DeleteEntity
         steps:
@@ -233,7 +232,6 @@
             prototype: HopperMineInactiveC17
             amount: 1
           - !type:PlaySound
-            sound: !type:SoundSpecifier
             sound: /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка; /Audio/_Grosse/audio/blackmesa/hoppermine/deactivate1.ogg
           - !type:DeleteEntity
         steps:
@@ -259,7 +257,6 @@
             prototype: HopperMineExplosiveC17
             amount: 1
           - !type:PlaySound
-            sound: !type:SoundSpecifier
             sound: /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка; /Audio/_Grosse/audio/blackmesa/hoppermine/blade_loop1.ogg
           - !type:DeleteEntity
         steps:
