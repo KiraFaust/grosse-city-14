@@ -25,7 +25,7 @@
   - type: DeleteOnTrigger
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/_Grosse/audio/blackmesa/hoppermine/blade_in.ogg
+      path: /Audio/_Grosse/audio/blackmesa/hoppermine/blade_loop1.ogg
       params:
         volume: 3
   - type: ExplosionResistance

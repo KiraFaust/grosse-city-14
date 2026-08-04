@@ -40,7 +40,6 @@
   - type: Item
     size: Small
     sprite: _Grosse/rsi/hlstaff/manhack.rsi
-    state: manhack-inactive
   - type: Sprite
     sprite: _Grosse/rsi/hlstaff/manhack.rsi
     state: manhack-inactive

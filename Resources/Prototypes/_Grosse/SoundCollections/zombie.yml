@@ -10,7 +10,9 @@
 
 - type: soundCollection
   id: ZombieScreemAlert
-  files:
-    - /Audio/_Grosse/audio/blackmesa/mob/zombies/alert1.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/zombies/alert2.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/zombies/alert3.ogg
+  saySound:
+    path: /Audio/_Grosse/audio/blackmesa/mob/zombies/alert1.ogg
+  askSound:
+    path: /Audio/_Grosse/audio/blackmesa/mob/zombies/alert2.ogg
+  exclaimSound:
+    path: /Audio/_Grosse/audio/blackmesa/mob/zombies/alert3.ogg
