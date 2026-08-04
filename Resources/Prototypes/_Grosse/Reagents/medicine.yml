@@ -7,7 +7,7 @@
   flavor: medicine
   color: "#00ff44"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:ModifyBloodLevel
         amount: 10

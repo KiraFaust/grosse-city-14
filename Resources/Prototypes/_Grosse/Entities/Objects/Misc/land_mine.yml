@@ -25,7 +25,7 @@
   - type: DeleteOnTrigger
   - type: EmitSoundOnTrigger
     sound:
-      path: _Grosse/audio/blackmesa/hoppermine/blade_in.ogg
+      path: /Audio/_Grosse/audio/blackmesa/hoppermine/blade_in.ogg
       params:
         volume: 3
   - type: ExplosionResistance
@@ -34,7 +34,7 @@
     volume: 2
     range: 4
     sound:
-      path: _Grosse/audio/blackmesa/hoppermine/active_loop.ogg
+      path: /Audio/_Grosse/audio/blackmesa/hoppermine/active_loop.ogg
   - type: Sprite
     drawdepth: Items
     sprite: _Grosse/rsi/hlstaff/hoppermine.rsi

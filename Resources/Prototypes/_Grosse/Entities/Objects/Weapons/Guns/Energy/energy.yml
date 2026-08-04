@@ -72,9 +72,9 @@
     minAngle: 24
     maxAngle: 45
     fireRate: 8
-    soundEmpty: /_Grosse/audio/blackmesa/hl2/weapon/ar2_empty.ogg
+    soundEmpty: /Audio/_Grosse/audio/blackmesa/hl2/weapon/ar2_empty.ogg
     soundGunshot:
-      path: /_Grosse/audio/blackmesa/hl2/weapon/ar2_fire.ogg
+      path: /Audio/_Grosse/audio/blackmesa/hl2/weapon/ar2_fire.ogg
   - type: MagazineAmmoProvider
     autoEject: false
   - type: ItemSlots
@@ -82,8 +82,8 @@
       gun_magazine:
         name: Magazine
         startingItem: MagazinePulseRifleC17
-        insertSound: /_Grosse/audio/blackmesa/hl2/weapon/ar2_reload.ogg
-        ejectSound: /_Grosse/audio/Weapon/Magout/divet_magout.ogg
+        insertSound: /Audio/_Grosse/audio/blackmesa/hl2/weapon/ar2_reload.ogg
+        ejectSound: /Audio/_Grosse/audio/Weapon/Magout/divet_magout.ogg
         priority: 1
         whitelist:
           tags:

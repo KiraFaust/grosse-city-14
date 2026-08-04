@@ -30,7 +30,7 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
-    soundGunshot: _Grosse/audio/blackmesa/hl2/weapon/ar2_fire.ogg
+    soundGunshot: /Audio/_Grosse/audio/blackmesa/hl2/weapon/ar2_fire.ogg
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -167,7 +167,7 @@
     availableModes:
       - FullAuto
     soundGunshot:
-      path: _Grosse/audio/blackmesa/hl2/weapon/pistol_fire2.ogg
+      path: /Audio/_Grosse/audio/blackmesa/hl2/weapon/pistol_fire2.ogg
       params:
         volume: -2
   - type: Sprite
@@ -220,7 +220,7 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
-    soundGunshot: _Grosse/audio/blackmesa/hl2/weapon/smg1_fire1.ogg
+    soundGunshot: /Audio/_Grosse/audio/blackmesa/hl2/weapon/smg1_fire1.ogg
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -314,7 +314,7 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
-    soundGunshot: _Grosse/audio/blackmesa/hl2/weapon/smg1_fire1.ogg
+    soundGunshot: /Audio/_Grosse/audio/blackmesa/hl2/weapon/smg1_fire1.ogg
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -369,7 +369,7 @@
     availableModes:
       - FullAuto
     soundGunshot:
-      path: _Grosse/audio/blackmesa/hl2/weapon/pistol_fire2.ogg
+      path: /Audio/_Grosse/audio/blackmesa/hl2/weapon/pistol_fire2.ogg
       params:
         volume: -2
   - type: Sprite
@@ -415,7 +415,7 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
-    soundGunshot: 
+    soundGunshot:
       collection: ShotgunshotCMB
   - type: Sprite
     drawdepth: Mobs

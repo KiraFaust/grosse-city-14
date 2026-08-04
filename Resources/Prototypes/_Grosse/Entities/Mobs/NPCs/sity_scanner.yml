@@ -5,7 +5,10 @@
   description: Городской сканер, также известный как Сканер типа I — легкобронированный робот (дрон), снабженный камерой для фото-видео съемки. Используется Альянсом для контроля над городом Сити 14.
   components:
   - type: Bloodstream
-    bloodMaxVolume: 0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: FlashImmunity
   - type: ZombieImmune
   - type: CombatMode
@@ -45,7 +48,7 @@
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
-          path: _Grosse/audio/blackmesa/mob/scanner/explode_crash.ogg
+          path: /Audio/_Grosse/audio/blackmesa/mob/scanner/explode_crash.ogg
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -62,7 +65,7 @@
     - state: open
       shader: unshaded
   - type: UnpoweredFlashlight
-    toggleFlashlightSound: _Grosse/audio/blackmesa/mob/scanner/blip1.ogg
+    toggleFlashlightSound: /Audio/_Grosse/audio/blackmesa/mob/scanner/blip1.ogg
   - type: PointLight
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
@@ -74,7 +77,7 @@
     volume: -8
     range: 9
     sound:
-      path: _Grosse/audio/blackmesa/mob/scanner/fly_loop.ogg
+      path: /Audio/_Grosse/audio/blackmesa/mob/scanner/fly_loop.ogg
   - type: Hands
     hands:
       hand1:
@@ -100,7 +103,7 @@
     - UnionCP
     - UnionAdmin
   - type: Loadout
-    prototypes: 
+    prototypes:
       - CityScanner
 
   - type: DeviceNetwork

@@ -14,12 +14,15 @@
   - type: Stamina
     critThreshold: 250
   - type: Bloodstream
-    bloodMaxVolume: 20
-    bloodlossThreshold: 0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   #- type: RespiratorImmunity
   - type: PressureImmunity
   - type: TemperatureProtection
   - type: Temperature
+  - type: TemperatureDamage
     damageCap: 0
   - type: TemperatureSpeed
     thresholds:
@@ -146,7 +149,7 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
-    soundGunshot: _Grosse/audio/blackmesa/hl2/weapon/ar2_fire.ogg
+    soundGunshot: /Audio/_Grosse/audio/blackmesa/hl2/weapon/ar2_fire.ogg
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -212,7 +215,6 @@
     rootTask:
       task: SimpleHostileCompound
   - type: Tool
-    speed: 1.8
     qualities:
       - Prying
   - type: Prying
@@ -224,6 +226,7 @@
       path: /Audio/Items/crowbar.ogg
   - type: TemperatureProtection
   - type: Temperature
+  - type: TemperatureDamage
     damageCap: 0
   - type: MobThresholds
     thresholds:
@@ -239,9 +242,7 @@
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
-    groups:
-    - id: Medicine
-    - id: Poison
+    stages: [ Digestion, Bloodstream, Metabolites ]
   - type: Tag
     tags:
       - CannotSuicide

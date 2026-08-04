@@ -9,7 +9,7 @@
     volume: -12
     range: 2
     sound:
-      path: _Grosse/audio/blackmesa/hl2/forcefield/force_field_loop1.ogg
+      path: /Audio/_Grosse/audio/blackmesa/hl2/forcefield/force_field_loop1.ogg
   - type: Sprite
     sprite: _Grosse/rsi/hlstaff/field.rsi
     layers:

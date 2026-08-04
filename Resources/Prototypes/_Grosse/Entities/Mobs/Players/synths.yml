@@ -10,7 +10,6 @@
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: Body
-    prototype: Gunship
   - type: Hands
     showInHands: false
   - type: MovementSpeedModifier
@@ -45,7 +44,10 @@
         Base: advisor_dead
         BaseUnshaded: advisor_dead-unshaded
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
@@ -66,7 +68,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: _Grosse/audio/blackmesa/mob/advisor/advisor_scream.ogg
+          path: /Audio/_Grosse/audio/blackmesa/mob/advisor/advisor_scream.ogg
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
     channels:
@@ -88,6 +90,7 @@
   #  - UnionCP
   #  - UnionOTA
   #  - UnionAdmin
+
 - type: entity
   parent: BaseMob
   id: MobCombineAirTransportC17
@@ -98,12 +101,11 @@
     volume: 1
     range: 5
     sound:
-      path: _Grosse/audio/gunship/engine_near_loop1.ogg
+      path: /Audio/_Grosse/audio/gunship/engine_near_loop1.ogg
   - type: CargoSellBlacklist
   - type: Input
     context: "human"
-#  - type: Body
-#    prototype: Gunship
+  - type: Body
   - type: Hands
     hands:
       hand1:

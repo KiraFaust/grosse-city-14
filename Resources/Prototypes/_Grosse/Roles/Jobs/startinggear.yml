@@ -949,7 +949,7 @@
 - type: startingGear
   id: SaboteurGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitlaziclas
+    jumpsuit: ClothingUniformMilitaryRU
     shoes: ClothingShoesBootsWork
     belt: ClothingBeltSalvageWebbing
     back: ClothingBackpackArmyC17

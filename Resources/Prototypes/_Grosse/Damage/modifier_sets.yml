@@ -22,7 +22,6 @@
     Heat: 0.1
     Radiation: 0.1
     Caustic: 0.1
-    Stun: 0.1
 
 - type: damageModifierSet
   id: CombineArmorCP
@@ -34,7 +33,6 @@
     Heat: 0.3
     Radiation: 0.1
     Caustic: 0.1
-    Stun: 0.1
 
 - type: damageModifierSet
   id: CombineArmorElite
@@ -46,5 +44,4 @@
     Heat: 0.01
     Radiation: 0.1
     Caustic: 0.1
-    Stun: 0.1
     Cellular: 0.0

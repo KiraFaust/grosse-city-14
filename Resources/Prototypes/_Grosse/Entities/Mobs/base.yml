@@ -47,8 +47,7 @@
   - type: Rotatable
   - type: InputMover
   - type: MobMover
-#  - type: Body
-#    prototype: Animal
+  - type: Body
   - type: Climbing
   - type: MeleeWeapon
     angle: 0
@@ -99,7 +98,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:ExplodeBehavior
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: Puller
   - type: Tag
@@ -147,19 +146,15 @@
       300: Dead
   - type: Internals
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Antlion
+  - type: Injurable
+    damageContainer: Biological
   - type: Body
-    prototype: Bloodsucker
-    requiredLegs: 0
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Bloodsucker ]
-    groups:
-    - id: Medicine
-    - id: Poison
-    - id: Biological
+    stages: [ Digestion, Bloodstream, Metabolites ]
   - type: Actions
   - type: DoAfter
   - type: Polymorphable
@@ -174,10 +169,13 @@
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4
   - type: Stamina
-    critThreshold: 500
+    baseCritThreshold: 500
   - type: Appearance
   - type: Bloodstream
-    bloodMaxVolume: 0
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: Puller
     needsHands: false
   - type: NoSlip

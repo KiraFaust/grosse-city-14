@@ -34,6 +34,9 @@
   - type: MindShield
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
+  - type: Temperature
+  - type: TemperatureDamage
+    damageCap: 0
   - type: TriggerOnSpawn
     keyOut: GotRemoved
   - type: RemoveComponentsOnTrigger
@@ -184,7 +187,7 @@
   - type: RandomMetadata
   - type: RandomHumanoidAppearance
   - type: Loadout
-    prototypes: 
+    prototypes:
       - ReferentGear
 
 - type: entity
@@ -193,7 +196,7 @@
   id: MobHumanUnionWorkerHeadC17
   components:
   - type: Loadout
-    prototypes: 
+    prototypes:
       - HeadUnionWorker
 
 - type: entity
@@ -202,7 +205,7 @@
   id: MobHumanUnionFactoryHeadC17
   components:
   - type: Loadout
-    prototypes: 
+    prototypes:
       - UnionFactoryHead
 
 - type: entity
@@ -215,7 +218,7 @@
     name: Рабочий
     description: Рабочий города 17, выполняет задачи Галактического Альянса.
   - type: Loadout
-    prototypes: 
+    prototypes:
       - CMBWorkerGear
   - type: Fixtures
     fixtures:
@@ -257,7 +260,7 @@
     name: Гражданин
     description: Гражданский города 17, не имеет при себе почти ничего.
   - type: Loadout
-    prototypes: 
+    prototypes:
       - CitizenGear
       - CitizenGear2
       - CitizenGear3

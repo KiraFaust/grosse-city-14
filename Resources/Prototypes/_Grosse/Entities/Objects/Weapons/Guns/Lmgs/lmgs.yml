@@ -33,15 +33,15 @@
     cameraRecoilScalar: 2
     fireRate: 5
     soundGunshot:
-      path: _Grosse/audio/Guns64/ak47.ogg
+      path: /Audio/_Grosse/audio/Guns64/ak47.ogg
   - type: ChamberMagazineAmmoProvider
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
         startingItem: MagazineLightMachineGun762x39
-        insertSound: _Grosse/audio/Guns64/ak47_reload.ogg
-        ejectSound: _Grosse/audio/Guns64/ak47_unload.ogg
+        insertSound: /Audio/_Grosse/audio/Guns64/ak47_reload.ogg
+        ejectSound: /Audio/_Grosse/audio/Guns64/ak47_unload.ogg
         priority: 2
         whitelist:
           tags:

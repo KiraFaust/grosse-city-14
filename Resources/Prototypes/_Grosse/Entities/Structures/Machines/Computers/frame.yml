@@ -293,7 +293,7 @@
           type: ShuttleConsoleBoundUserInterface
   - type: RadarConsole
 #  - type: WorldLoader
-    radius: 256
+    maxRange: 256
   - type: ItemSlots
     slots:
       disk_slot:
@@ -311,10 +311,10 @@
   - type: DeviceNetwork
     deviceNetId: Wired
   - type: DeviceList
-  - type: DeviceLinkSource
-    range: 30
-    ports:
-      - ShuttleConsoleSender
+  #- type: DeviceLinkSource
+    #range: 30
+    #ports:
+      #- ShuttleConsoleSender
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -372,7 +372,7 @@
   - type: CommunicationsConsole
     title: Альянса
     sound:
-      path: _Grosse/audio/ambience/apc_alarm_pass1.ogg
+      path: /Audio/_Grosse/audio/ambience/apc_alarm_pass1.ogg
       params:
         volume: -15
     canShuttle: False

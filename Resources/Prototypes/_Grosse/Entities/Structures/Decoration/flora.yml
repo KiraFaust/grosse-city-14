@@ -22,9 +22,10 @@
         - Opaque
   - type: Climbable
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
-    
+  - type: Injurable
+    damageContainer: Inorganic
+
 - type: entity
   parent: Rock0217
   id: Rock0117
@@ -41,28 +42,28 @@
         layer:
         - HalfWallLayer
         - Opaque
-    
+
 - type: entity
   parent: Rock0217
   id: Rock0317
   components:
   - type: Sprite
     state: rock3
-    
+
 - type: entity
   parent: Rock0217
   id: Rock0417
   components:
   - type: Sprite
     state: rock4
-    
+
 - type: entity
   parent: Rock0217
   id: Rock0517
   components:
   - type: Sprite
     state: rock5
-    
+
 - type: entity
   parent: Rock0217
   id: Rock0617

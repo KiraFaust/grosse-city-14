@@ -20,11 +20,11 @@
       map: [ "overlay" ]
   - type: TriggerOnUse
   - type: DeleteOnTrigger
-  - type: EmitSoundOnTrigger
-    sound:
-      collection: LearnBook
-      params:
-        volume: 1
+  #- type: EmitSoundOnTrigger
+    #sound:
+      #collection: LearnBook
+      #params:
+        #volume: 1
   - type: AddComponentsOnTrigger
     removeExisting: true
     targetUser: true
@@ -33,4 +33,4 @@
     - type: StaminaDamageOnHit
       damage: 20
     - type: Stamina
-      critThreshold: 300
+      baseCritThreshold: 300

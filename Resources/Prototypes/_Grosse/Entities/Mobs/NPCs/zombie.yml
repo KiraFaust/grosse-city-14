@@ -36,7 +36,7 @@
     angle: 0
     animation: WeaponArcClaw
     soundHit:
-        path: _Grosse/audio/blackmesa/mob/zombies/claw_strike.ogg
+        path: /Audio/_Grosse/audio/blackmesa/mob/zombies/claw_strike.ogg
         params:
           volume: 1
     damage:
@@ -60,6 +60,7 @@
         volume: 3
   - type: TemperatureProtection
   - type: Temperature
+  - type: TemperatureDamage
     damageCap: 0
   - type: ReplacementAccent
     accent: zombie
@@ -140,7 +141,7 @@
 
 #- type: entity
 #  id: MobHeadcrabedZombieSleep
-#  parent: 
+#  parent:
 #  - HeadcrabedZombieSleep
 #  - MobHeadcrabedZombie
 #  suffix: suppa Zombie Sleep

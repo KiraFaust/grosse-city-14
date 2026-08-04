@@ -29,8 +29,9 @@
   - type: Occluder
     boundingBox: "-1.5,-1.0,1.4,-0.25"
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

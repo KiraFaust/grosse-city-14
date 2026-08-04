@@ -28,7 +28,6 @@
   icon: { sprite: "_Grosse/rsi/hlstaff/misc/coupon.rsi", state: icon }
   spawn: CouponC17
   maxCount: 10
-  itemSize: 1
 
 - type: currency
   id: CouponC17

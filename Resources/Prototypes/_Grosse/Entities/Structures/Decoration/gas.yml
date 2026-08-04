@@ -39,6 +39,6 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/metalbreak.ogg
+      #- !type:PlaySoundBehavior
+        #sound:
+          #path: /Audio/Effects/metalbreak.ogg #Звука нет

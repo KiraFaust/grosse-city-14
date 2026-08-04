@@ -36,8 +36,9 @@
     closeSound:
       path: /Audio/Effects/door_close.ogg
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -69,8 +70,9 @@
   - type: Occluder
     enabled: false
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
+  - type: Injurable
+    damageContainer: Inorganic
 
 - type: entity
   id: MetalGrateDoorFallout
@@ -99,8 +101,9 @@
   - type: Sprite
     sprite: _Grosse/rsi/doors/wood/wood.rsi
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -138,7 +141,7 @@
     closeSound:
       path: /Audio/Effects/door_close.ogg
     denySound:
-      path: _Grosse/audio/combine/combine_button_locked.ogg
+      path: /Audio/_Grosse/audio/combine/combine_button_locked.ogg
       params:
         volume: 2
   - type: Destructible
@@ -206,7 +209,7 @@
         damage: 100
   - type: TriggerOnInteractHand
   - type: EmitSoundOnTrigger
-    sound: _Grosse/audio/combine/combine_button_locked.ogg
+    sound: /Audio/_Grosse/audio/combine/combine_button_locked.ogg
   - type: Fixtures
     fixtures:
       fix1:

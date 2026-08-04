@@ -35,9 +35,9 @@
         !type:DamageTrigger
         damage: 150
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/metalbreak.ogg
+      #- !type:PlaySoundBehavior
+        #sound:
+          #path: /Audio/Effects/metalbreak.ogg #Нету звука
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
@@ -45,8 +45,8 @@
   parent: RadSignC17
   id: CheSignC17
   name: знак "Химическая опасность"
-  description: На знаке изображён символ химической опасности, который информирует о химической опасности за знаком. Может, не стоит туда идти? 
-  suffix: 
+  description: На знаке изображён символ химической опасности, который информирует о химической опасности за знаком. Может, не стоит туда идти?
+  suffix:
   components:
   - type: Sprite
     layers:
@@ -91,9 +91,9 @@
         !type:DamageTrigger
         damage: 150
       behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/metalbreak.ogg
+      #- !type:PlaySoundBehavior
+        #sound:
+          #path: /Audio/Effects/metalbreak.ogg #Нету звука
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 

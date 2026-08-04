@@ -102,11 +102,12 @@
       mech-equipment-container: !type:Container
       mech-battery-slot: !type:ContainerSlot
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: MovementSound
     sound:
-      path: _Grosse/audio/vehicle/hummer_vehicle_drive_mono.ogg
+      path: /Audio/_Grosse/audio/vehicle/hummer_vehicle_drive_mono.ogg
       params:
         loop: True
   - type: UnpoweredFlashlight

@@ -17,7 +17,7 @@
     delay: 5.0
   - type: Flash
     sound:
-      path: _Grosse/audio/blackmesa/mob/scanner/photo1.ogg
+      path: /Audio/_Grosse/audio/blackmesa/mob/scanner/photo1.ogg
       params:
         volume: 2
   - type: Item
