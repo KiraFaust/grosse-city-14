@@ -1,7 +1,8 @@
 - type: soundCollection
   id: CityScannerloop
   files:
-  - /Audio/_Grosse/audio/blackmesa/mob/scanner/scan1.ogg
-  - /Audio/_Grosse/audio/blackmesa/mob/scanner/scan2.ogg
-  - /Audio/_Grosse/audio/blackmesa/mob/scanner/scan4.ogg
-  - /Audio/_Grosse/audio/blackmesa/mob/scanner/scan5.ogg
+  - /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка, заменить на /scanner/
+  #- /Audio/_Grosse/audio/blackmesa/mob/scanner/scan1.ogg
+  #- /Audio/_Grosse/audio/blackmesa/mob/scanner/scan2.ogg
+  #- /Audio/_Grosse/audio/blackmesa/mob/scanner/scan4.ogg
+  #- /Audio/_Grosse/audio/blackmesa/mob/scanner/scan5.ogg

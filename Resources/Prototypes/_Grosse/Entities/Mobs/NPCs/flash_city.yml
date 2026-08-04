@@ -17,7 +17,7 @@
     delay: 5.0
   - type: Flash
     sound:
-      path: /Audio/_Grosse/audio/blackmesa/mob/scanner/photo1.ogg
+      path: /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка, заменить на /scanner/ #/Audio/_Grosse/audio/blackmesa/mob/scanner/photo1.ogg
       params:
         volume: 2
   - type: Item

@@ -48,7 +48,7 @@
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound: !type:SoundSpecifier
-          path: /Audio/_Grosse/audio/blackmesa/mob/scanner/explode_crash.ogg
+          path: /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка, заменить на /scanner/ #/Audio/_Grosse/audio/blackmesa/mob/scanner/explode_crash.ogg
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -65,7 +65,7 @@
     - state: open
       shader: unshaded
   - type: UnpoweredFlashlight
-    toggleFlashlightSound: /Audio/_Grosse/audio/blackmesa/mob/scanner/blip1.ogg
+    toggleFlashlightSound: /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка, заменить на /scanner/ #/Audio/_Grosse/audio/blackmesa/mob/scanner/blip1.ogg
   - type: PointLight
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
@@ -77,7 +77,7 @@
     volume: -8
     range: 9
     sound: !type:SoundSpecifier
-      path: /Audio/_Grosse/audio/blackmesa/mob/scanner/fly_loop.ogg
+      path: /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка, заменить на /scanner/ #/Audio/_Grosse/audio/blackmesa/mob/scanner/fly_loop.ogg
   - type: Hands
     hands:
       hand1:

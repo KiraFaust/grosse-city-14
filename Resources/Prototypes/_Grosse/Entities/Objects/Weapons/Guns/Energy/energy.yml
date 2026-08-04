@@ -21,7 +21,6 @@
     availableModes:
       - FullAuto
     soundGunshot:
-    sound: !type:SoundSpecifier
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
   - type: ItemSlots
     slots:
@@ -75,7 +74,6 @@
     fireRate: 8
     soundEmpty: /Audio/_Grosse/audio/blackmesa/hl2/weapon/ar2_empty.ogg
     soundGunshot:
-    sound: !type:SoundSpecifier
       path: /Audio/_Grosse/audio/blackmesa/hl2/weapon/ar2_fire.ogg
   - type: MagazineAmmoProvider
     autoEject: false
@@ -126,7 +124,6 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-    sound: !type:SoundSpecifier
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
     projectileSpeed: 25
   - type: AmmoCounter
