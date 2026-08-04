@@ -48,7 +48,7 @@
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound: !type:SoundSpecifier
-          path: /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка, заменить на /scanner/ #/Audio/_Grosse/audio/blackmesa/mob/scanner/explode_crash.ogg
+          collection: MetalSlamы
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -76,8 +76,10 @@
   - type: AmbientSound
     volume: -8
     range: 9
-    sound: !type:SoundSpecifier
+    sound:
       path: /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка, заменить на /scanner/ #/Audio/_Grosse/audio/blackmesa/mob/scanner/fly_loop.ogg
+      params:
+        loop: true
   - type: Hands
     hands:
       hand1:

@@ -25,7 +25,15 @@
     },
     {
        "name": "glow",
-      "directions": 4
+       "directions": 4
+    },
+    {
+        "name": "lamppost",
+        "directions": 4
+    },
+    {
+        "name": "lamppost-unshaded",
+        "directions": 4
     }
   ]
 }
