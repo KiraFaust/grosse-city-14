@@ -222,7 +222,6 @@
   - type: PassiveDamage
     allowedStates:
     - Alive
-    damageCap: 0
     damage:
       types:
         Asphyxiation: 2
@@ -242,7 +241,6 @@
   - type: Pacified
     disallowAllCombat: true
   - type: SolutionRegeneration
-    solution: chemicals
     generated:
       reagents:
       - ReagentId: MuteToxin

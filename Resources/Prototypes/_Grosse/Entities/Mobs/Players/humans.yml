@@ -256,7 +256,6 @@
   - type: GhostRole
     raffle:
       settings: short
-    category: Ивенты
     name: Гражданин
     description: Гражданский города 17, не имеет при себе почти ничего.
   - type: Loadout

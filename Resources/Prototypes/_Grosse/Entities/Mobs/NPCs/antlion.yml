@@ -364,8 +364,8 @@
     baseSprintSpeed : 2
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 0
+      types:
+        Blunt: 0
   - type: Puller
     needsHands: true
   - type: Tag

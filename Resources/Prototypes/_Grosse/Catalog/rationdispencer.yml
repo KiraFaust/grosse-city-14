@@ -1,7 +1,3 @@
-- type: storeCategory
-  id: RationDispenserC17Inventory
-  name: раздатчик рационов
-
 - type: listing
   id: RationDispenserC17Inventory1
   productEntity: FoodC17Ration

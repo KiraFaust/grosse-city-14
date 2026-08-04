@@ -58,7 +58,6 @@
       - id: FoodMeatChicken
         amount: 2
     - type: DamageStateVisuals
-      rotate: false
       states:
         Alive:
           Base: headcrab

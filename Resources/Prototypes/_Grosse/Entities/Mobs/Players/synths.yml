@@ -181,7 +181,6 @@
     capacity: 16
     enteringRange: 1.5
     airtight: false
-    itemCanStoreMobs: true
     whitelist:
       tags:
         - CombineUnit

@@ -290,7 +290,7 @@
   name: Набор бойца поддержки
   description: Набор бойца поддержки сопротивления, огромная огневая поддержка.
   sprite:
-    sprite: _Grosse/Objects/Weapons/Guns/gunsx64/akms/big.rsi
+    sprite: _Grosse/rsi/Objects/Weapons/Guns/gunsx64/akms/big.rsi
     state: icon
   content:
     - MagazineLightMachineGun762x39

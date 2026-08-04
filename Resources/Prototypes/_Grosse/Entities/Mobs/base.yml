@@ -181,7 +181,7 @@
   - type: NoSlip
   - type: IgnoreSpiderWeb
   - type: IntrinsicRadioReceiver
-  - type: ActiveRadio
+  - type: ActiveRadio 
     channels:
     - Hivemind
   - type: IntrinsicRadioTransmitter

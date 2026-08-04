@@ -12,9 +12,9 @@
     - Biological
     damage:
       types: # these are all split across multiple types
-        Brute: -50
-        Burn: -50
-        Toxin: -50
+        Blunt: -50
+        Heat: -50
+        Poison: -50
     bloodlossModifier: -20
     delay: 1
     selfHealPenaltyMultiplier: 0
@@ -44,9 +44,9 @@
     - Biological
     damage:
       types: # these are all split across multiple types
-        Brute: -150
-        Burn: -150
-        Toxin: -150
+        Blunt: -150
+        Heat: -150
+        Poison: -150
     bloodlossModifier: -20
     delay: 1
     selfHealPenaltyMultiplier: 0
@@ -62,3 +62,4 @@
   - type: Tag
     tags:
       - CMBMedkit
+

@@ -47,7 +47,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
-        sound:
+        sound: !type:SoundSpecifier
           path: /Audio/_Grosse/audio/blackmesa/mob/scanner/explode_crash.ogg
   - type: MobThresholds
     thresholds:
@@ -76,7 +76,7 @@
   - type: AmbientSound
     volume: -8
     range: 9
-    sound:
+    sound: !type:SoundSpecifier
       path: /Audio/_Grosse/audio/blackmesa/mob/scanner/fly_loop.ogg
   - type: Hands
     hands:

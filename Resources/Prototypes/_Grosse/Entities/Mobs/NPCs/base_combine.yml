@@ -12,7 +12,7 @@
     speechSounds: Combine
     soundCooldownTime: 0.1
   - type: Stamina
-    critThreshold: 250
+    baseCritThreshold: 250
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
