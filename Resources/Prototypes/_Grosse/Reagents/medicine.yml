@@ -14,9 +14,8 @@
       - !type:HealthChange
         damage:
           types:
-            Burn: -10
-            Toxin: -10
-            Airloss: -10
-            Brute: -10
-          types:
+            Heat: -10
+            Poison: -10
+            Asphyxiation: -10
+            Blunt: -10
             Bloodloss: -10
