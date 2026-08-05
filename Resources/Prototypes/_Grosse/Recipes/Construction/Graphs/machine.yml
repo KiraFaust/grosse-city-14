@@ -209,7 +209,7 @@
       - to: CMBBaseMachine
         completed:
           - !type:SpawnPrototype
-            prototype: ManhackInactiveResistanceC17
+            prototype: MobManhackResistancec17 #ManhackInactiveResistanceC17
             amount: 1
           - !type:PlaySound
             sound: !type:SoundSpecifier
