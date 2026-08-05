@@ -8,7 +8,7 @@
     - /Audio/_Grosse/audio/blackmesa/mob/zombies/pain5.ogg
     - /Audio/_Grosse/audio/blackmesa/mob/zombies/pain6.ogg
 
-- type: soundCollection
+- type: speechSounds
   id: ZombieScreemAlert
   saySound:
     path: /Audio/_Grosse/audio/blackmesa/mob/zombies/alert1.ogg
@@ -16,3 +16,10 @@
     path: /Audio/_Grosse/audio/blackmesa/mob/zombies/alert2.ogg
   exclaimSound:
     path: /Audio/_Grosse/audio/blackmesa/mob/zombies/alert3.ogg
+
+- type: soundCollection
+  id: ZombieScreemAlert
+  files:
+    - /Audio/_Grosse/audio/blackmesa/mob/zombies/alert1.ogg
+    - /Audio/_Grosse/audio/blackmesa/mob/zombies/alert2.ogg
+    - /Audio/_Grosse/audio/blackmesa/mob/zombies/alert3.ogg
