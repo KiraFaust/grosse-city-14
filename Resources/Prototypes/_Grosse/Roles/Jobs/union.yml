@@ -11,7 +11,7 @@
   overrideConsoleVisibility: true
   startingGear: CivilProtectionGear
   icon: "JobIconUnion"
-  supervisors: Секториальному Командующему
+  supervisors: job-supervisors-sectorial-commander
   requirements:
     - !type:SpeciesRequirement
       species:
@@ -43,7 +43,7 @@
   overrideConsoleVisibility: true
   startingGear: CivilProtection02Gear
   icon: "JobIconUnionGold"
-  supervisors: Секториальному Командующему
+  supervisors: job-supervisors-sectorial-commander
   requirements:
     - !type:SpeciesRequirement
       species:
@@ -76,7 +76,7 @@
   overrideConsoleVisibility: true
   startingGear: CivilProtectionOfficerGear
   icon: "JobIconUnionCommander"
-  supervisors: Секториальному Командующему
+  supervisors: job-supervisors-sectorial-commander
   requirements:
     - !type:SpeciesRequirement
       species:
@@ -109,7 +109,7 @@
   overrideConsoleVisibility: true
   startingGear: HeadUnionWorker
   icon: "JobIconUnionGrey"
-  supervisors: Администратору Города
+  supervisors: job-supervisors-city-administrator
   requirements:
     - !type:SpeciesRequirement
       species:
@@ -141,7 +141,7 @@
   overrideConsoleVisibility: true
   startingGear: UnionFactoryHead
   icon: "JobIconUnionGrey"
-  supervisors: Администратору Города
+  supervisors: job-supervisors-city-administrator
   requirements:
     - !type:SpeciesRequirement
       species:
@@ -172,7 +172,7 @@
   overrideConsoleVisibility: true
   startingGear: CMBWorkerResearcherGear
   icon: "JobIconUnionWorker"
-  supervisors: Главе ГСР и Начальнику Завода
+  supervisors: job-supervisors-gsr-and-factory
   access:
     - UnionBase
   requirements:
@@ -197,7 +197,7 @@
   overrideConsoleVisibility: true
   startingGear: CMBWorkerMinerGear
   icon: "JobIconUnionMiner"
-  supervisors: Главе ГСР и Начальнику Завода
+  supervisors: job-supervisors-gsr-and-factory
   access:
     - UnionBase
   requirements:

@@ -12,7 +12,7 @@
           - !type:DeleteEntity
         steps:
           - tag: ManhackBlade
-            name: лопасти мэнхека
+            name: construction-insert-manhack-blades
             doAfter: 2
           - tool: Screwing
             doAfter: 5
@@ -41,7 +41,7 @@
           - !type:DeleteEntity
         steps:
           - tag: GrubAntlion
-            name: муравьиная личинка
+            name: construction-insert-antlion-grub
             doAfter: 4
       - to: Black
         completed:
@@ -63,7 +63,7 @@
           - !type:DeleteEntity
         steps:
           - tag: AntlionGrubCoreJuice
-            name: экстракт сока муравьиного льва
+            name: construction-insert-antlion-juice
             doAfter: 2
       - to: Heal
         completed:
@@ -73,7 +73,7 @@
           - !type:DeleteEntity
         steps:
           - tag: GrubCore
-            name: ядро муравьиной личинки
+            name: construction-insert-grub-core
             doAfter: 2
     - node: Heal
     - node: Black
@@ -116,10 +116,10 @@
           - !type:DeleteEntity
         steps:
           - tag: MachineComponent
-            name: детали
+            name: construction-insert-parts
             doAfter: 1
           - tag: GunPowderCMB
-            name: порох
+            name: construction-insert-gunpowder
             doAfter: 1
     - node: CMBBaseMachine
 
@@ -139,12 +139,12 @@
           - !type:DeleteEntity
         steps:
           - tag: roundingotPiece
-            name: круглая заготовка
+            name: construction-insert-round-blank
             doAfter: 1
           - tool: Welding
             doAfter: 1
           - tag: MachineComponent
-            name: детали
+            name: construction-insert-parts
             doAfter: 1
           - tool: Anchoring
             doAfter: 2
@@ -166,7 +166,7 @@
           - !type:DeleteEntity
         steps:
           - tag: MachineComponent
-            name: детали
+            name: construction-insert-parts
             doAfter: 2
           - material: BlackMaterialPiece
             amount: 10
@@ -181,7 +181,7 @@
           - !type:DeleteEntity
         steps:
           - tag: RoundIronIngotMaterial
-            name: круглая заготовка
+            name: construction-insert-round-blank
             doAfter: 2
           - material: BlackMaterialPiece
             amount: 10

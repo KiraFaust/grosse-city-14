@@ -1,0 +1,10 @@
+ent-DesantPod = двигатель
+    .desc = { ent-BaseItem.desc }
+ent-CombineGenerator17 = генератор Альянса
+    .desc = { ent-DebugSubstationRecharging.desc }
+    .suffix = Подстанция и генератор
+ent-CMBGeneratorDestroyed17 = отключенный генератор Альянса
+    .desc = { ent-MachineFrameDestroyed.desc }
+ent-ForceHoloDoorC17 = генератор силового поля
+    .desc = Слова мерцают, будто ничего не значат.
+    .suffix = CP доступ

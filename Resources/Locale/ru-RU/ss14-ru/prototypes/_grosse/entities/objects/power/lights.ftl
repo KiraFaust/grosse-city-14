@@ -1,0 +1,9 @@
+ent-MarkerLightSource = источник света
+    .desc = И сказал админ "Да будет свет!"
+    .suffix = Спавнер
+ent-MarkerLightSourceRed = { ent-MarkerLightSource }
+    .desc = { ent-MarkerLightSource.desc }
+    .suffix = Спавнер, Красный
+ent-MarkerLightSourcePink = { ent-MarkerLightSource }
+    .desc = { ent-MarkerLightSource.desc }
+    .suffix = Спавнер, Розовый

@@ -11,7 +11,8 @@
   overrideConsoleVisibility: true
   startingGear: CitizenGear
   icon: "JobIconUnionCivilian"
-  supervisors: Абсолютно всем
+  supervisors: job-supervisors-everyone
+
   requirements:
     - !type:SpeciesRequirement
       species:
@@ -35,7 +36,8 @@
   overrideConsoleVisibility: true
   startingGear: CMBWorkerNotReadyGear
   icon: "JobIconUnionPerson"
-  supervisors: Главе ГСР и Начальнику Завода
+  supervisors: job-supervisors-gsr-and-factory
+
   access:
     - UnionBase
     - Engineering

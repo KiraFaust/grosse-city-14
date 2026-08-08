@@ -1,0 +1,13 @@
+ent-ForceHoloWallC17 = генератор силового поля
+    .desc = Слова мерцают, будто ничего не значат.
+ent-HoloWallC17 = силовое поле
+    .desc = Слова мерцают, будто ничего не значат.
+ent-ForceHoloWallC17CannotCollide = { ent-ForceHoloWallC17 }
+    .desc = Слова мерцают, будто ничего не значат.
+    .suffix = коллайдер
+ent-HoloWallC17CannotCollide = { ent-ForceHoloWallC17 }
+    .desc = { ent-ForceHoloWallC17.desc }
+    .suffix = коллайдер
+ent-ForceHoloWallC17Disabled = { ent-ForceHoloWallC17CannotCollide }
+    .desc = { ent-ForceHoloWallC17CannotCollide.desc }
+    .suffix = отключён

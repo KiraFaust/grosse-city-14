@@ -1,0 +1,12 @@
+ent-MattressC17 = матрас
+    .desc = Лучше спать на этом, чем на полу, я думаю.
+ent-Mattress2C17 = { ent-MattressC17 }
+    .desc = { ent-MattressC17.desc }
+    .suffix = кроватный чистый матрас
+ent-Mattress3C17 = { ent-MattressC17 }
+    .desc = { ent-MattressC17.desc }
+    .suffix = кроватный грязный матрас
+ent-BedCarcaseC17 = кровать
+    .desc = На этом можно лежать, спать или пристегнуться. Отдых здесь крайне медленно восстанавливает здоровье.
+ent-BedCarcase2C17 = деревянная кровать
+    .desc = { ent-BedCarcaseC17.desc }

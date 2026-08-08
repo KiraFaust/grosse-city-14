@@ -1,0 +1,10 @@
+ent-BenchC17LeftSide = скамейка
+    .desc = Большой диван, на котором хочется выплакать все проблемы.
+    .suffix = Левая часть
+ent-BenchC17RightSide = { ent-BenchC17LeftSide }
+    .desc = { ent-BenchC17LeftSide.desc }
+    .suffix = Правая часть
+ent-ChairWoodC17 = { ent-ChairWood }
+    .desc = { ent-ChairWood.desc }
+ent-ChairWood2C17 = { ent-WoodenBench }
+    .desc = { ent-WoodenBench.desc }

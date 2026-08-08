@@ -1,6 +1,6 @@
 - type: radioChannel
   id: CMB
-  name: Альянс
+  name: chat-radio-cmb
   keycode: 'е'
   frequency: 1725
   color: "#fc0303"
@@ -8,7 +8,7 @@
 
 - type: radioChannel
   id: Hivemind
-  name: Коллективный разум
+  name: chat-radio-hivemind
   keycode: 'у'
   frequency: 2009
   color: "#d4d104"

@@ -370,7 +370,8 @@
   - type: AccessReader
     access: [["UnionCP"]]
   - type: CommunicationsConsole
-    title: Альянса
+    title: comms-console-announcement-title-alliance
+
     sound:
       path: /Audio/_Grosse/audio/ambience/apc_alarm_pass1.ogg
       params:

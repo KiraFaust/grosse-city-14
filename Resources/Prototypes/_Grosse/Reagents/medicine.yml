@@ -1,8 +1,8 @@
 - type: reagent
   id: AntlionGrubCore
-  name: сок личинки
+  name: reagent-name-antlion-grub-core
   group: Medicine
-  desc: Сок из личинки, прикольный.
+  desc: reagent-desc-antlion-grub-core
   physicalDesc: reagent-physical-desc-opaque
   flavor: medicine
   color: "#00ff44"

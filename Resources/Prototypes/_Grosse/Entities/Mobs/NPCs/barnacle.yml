@@ -129,8 +129,8 @@
     duration: null
     polymorphSound: /Audio/_Grosse/audio/blackmesa/mob/barnacle/attack.ogg
     exitPolymorphSound: /Audio/_Grosse/audio/blackmesa/mob/barnacle/digest.ogg
-    polymorphPopup: "Вы попали в щупальца барнакла!"
-    exitPolymorphPopup: "Вы спаслись из щупалец барнакла!"
+    polymorphPopup: barnacle-polymorph-popup
+    exitPolymorphPopup: barnacle-exit-polymorph-popup
 
 - type: entity
   id: BaseBarnacledHumanoid

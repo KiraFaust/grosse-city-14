@@ -1,0 +1,12 @@
+ent-Rock0217 = валун
+    .desc = Крупный окатанный обломок горной породы.
+ent-Rock0117 = { ent-Rock0217 }
+    .desc = { ent-Rock0217.desc }
+ent-Rock0317 = { ent-Rock0217 }
+    .desc = { ent-Rock0217.desc }
+ent-Rock0417 = { ent-Rock0217 }
+    .desc = { ent-Rock0217.desc }
+ent-Rock0517 = { ent-Rock0217 }
+    .desc = { ent-Rock0217.desc }
+ent-Rock0617 = { ent-Rock0217 }
+    .desc = { ent-Rock0217.desc }

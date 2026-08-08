@@ -19,7 +19,7 @@
     layers:
     - state: id_grey
   - type: IdCard
-    jobTitle: Гражданин
+    jobTitle: job-title-citizen
     jobIcon: JobIconUnionCivilian
 
 - type: entity
@@ -31,7 +31,7 @@
     layers:
     - state: id_green
   - type: IdCard
-    jobTitle: CMB Worker Group 6
+    jobTitle: job-title-cmb-worker
     jobIcon: JobIconUnionPerson
   #- type: ClothingGrantTag
   #  tag: CombineUnit
@@ -51,7 +51,7 @@
     layers:
     - state: id_navy
   - type: IdCard
-    jobTitle: CMB Researcher Group 2
+    jobTitle: job-title-cmb-researcher
     jobIcon: JobIconUnionWorker
   - type: Access
     tags:
@@ -66,7 +66,7 @@
     layers:
     - state: id_red
   - type: IdCard
-    jobTitle: CMB Miner Group 4
+    jobTitle: job-title-cmb-miner
     jobIcon: JobIconUnionMiner
   - type: Access
     tags:
@@ -81,7 +81,7 @@
     layers:
     - state: id_combine
   - type: IdCard
-    jobTitle: Администратор
+    jobTitle: job-title-administrator
     jobIcon: JobIconUnionGold
   #- type: ClothingGrantTag
   #  tag: CombineUnit
@@ -103,7 +103,7 @@
     layers:
     - state: id_combine
   - type: IdCard
-    jobTitle: Референт Администрации
+    jobTitle: job-title-administration-referent
     jobIcon: JobIconUnionGrey
   #- type: ClothingGrantTag
   #  tag: CombineUnit
@@ -125,7 +125,7 @@
     layers:
     - state: id_combine
   - type: IdCard
-    jobTitle: Глава ГСР
+    jobTitle: job-title-union-workers-head
     jobIcon: JobIconUnionGrey
   #- type: ClothingGrantTag
   #  tag: CombineUnit
@@ -146,7 +146,7 @@
     layers:
     - state: id_combine
   - type: IdCard
-    jobTitle: Начальник Завода
+    jobTitle: job-title-union-factory-head
     jobIcon: JobIconUnionGrey
   #- type: ClothingGrantTag
   #  tag: CombineUnit
@@ -167,7 +167,7 @@
     layers:
     - state: id_combine
   - type: IdCard
-    jobTitle: OTA Soldier
+    jobTitle: job-title-ota-soldier
     jobIcon: JobIconUnion
   #- type: ClothingGrantTag
   #  tag: CombineUnit
@@ -190,7 +190,7 @@
     layers:
     - state: id_combine
   - type: IdCard
-    jobTitle: OTA Elite Soldier
+    jobTitle: job-title-ota-elite-soldier
     jobIcon: JobIconUnionElite
   #- type: ClothingGrantTag
   #  tag: CombineUnit
@@ -213,7 +213,7 @@
     layers:
     - state: id_combine2
   - type: IdCard
-    jobTitle: Гражданская Оборона
+    jobTitle: job-title-civil-protection
     jobIcon: JobIconUnion
   - type: AgentIDCard
   - type: ActivatableUI
@@ -243,7 +243,7 @@
     layers:
     - state: id_combine
   - type: IdCard
-    jobTitle: Локальный Командир Гражданской Обороны
+    jobTitle: job-title-civil-protection-local-commander
     jobIcon: JobIconUnionGold
   - type: Access
     tags:
@@ -261,7 +261,7 @@
     layers:
     - state: id_combine
   - type: IdCard
-    jobTitle: Офицер Гражданской Обороны
+    jobTitle: job-title-civil-protection-officer
     jobIcon: JobIconUnionCommander
   - type: Access
     tags:
@@ -279,7 +279,7 @@
     layers:
     - state: id_combine
   - type: IdCard
-    jobTitle: Гражданская Оборона
+    jobTitle: job-title-civil-protection
     jobIcon: JobIconUnionElite
   #- type: ClothingGrantTag
   #  tag: CombineUnit
