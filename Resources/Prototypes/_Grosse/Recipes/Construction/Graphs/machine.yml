@@ -212,7 +212,7 @@
             prototype: MobManhackResistancec17 #ManhackInactiveResistanceC17
             amount: 1
           - !type:PlaySound
-            sound: !type:SoundSpecifier
+            sound: !type:SoundCollectionSpecifier
               collection: sparks
           - !type:DeleteEntity
         steps:
@@ -243,7 +243,7 @@
             prototype: HopperMineInactiveResistanceC17
             amount: 1
           - !type:PlaySound
-            sound: !type:SoundSpecifier
+            sound: !type:SoundCollectionSpecifier
               collection: sparks
           - !type:DeleteEntity
         steps:
@@ -268,7 +268,7 @@
             prototype: HopperMineExplosiveResistanceC17
             amount: 1
           - !type:PlaySound
-            sound: !type:SoundSpecifier
+            sound: !type:SoundCollectionSpecifier
               collection: sparks
           - !type:DeleteEntity
         steps:

@@ -47,8 +47,8 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
-        sound: !type:SoundSpecifier
-          collection: MetalSlamы
+        sound:
+          collection: MetalSlam
   - type: MobThresholds
     thresholds:
       0: Alive
