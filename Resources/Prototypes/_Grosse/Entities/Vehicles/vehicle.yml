@@ -81,7 +81,7 @@
     - DoorBumpOpener
   - type: Pullable
   - type: Physics
-    bodyType: Dynamic
+    bodyType: KinematicController
   - type: GravityAffected
   - type: Clickable
   - type: Fixtures

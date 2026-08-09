@@ -42,6 +42,7 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/parts.rsi
+    snapCardinals: false
     layers:
     - state: 0
   - type: Construction

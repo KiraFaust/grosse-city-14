@@ -12,6 +12,7 @@
     offset: "0, 1"
     drawdepth: Mobs
     noRot: true
+    snapCardinals: false
     layers:
     - map: ["enum.PoweredLightLayers.Base"]
       state: base
