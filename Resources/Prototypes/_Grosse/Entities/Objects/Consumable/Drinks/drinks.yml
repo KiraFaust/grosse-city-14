@@ -1,16 +1,13 @@
 - type: entity
-  parent: DrinkCanBaseFull
-  id: DrinkC17DrBreenPrivateReserve
-  name: Dr>Breen Private Reserve
+  abstract: true
+  parent: DrinkCanBase
+  id: DrinkC17DrBreenPrivateReserveBase
+  name: Dr.Breen Private Reserve
   description: Банка из под воды, поговаривают что вода вызывает побочные эффекты, но никто не помнит какой именно.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Water
-          Quantity: 30
+  - type: Solution
+    solution:
+      maxVol: 30
   - type: Item
     sprite: Objects/Consumable/Drinks/ice_tea_can.rsi
   - type: GenericVisualizer
@@ -24,6 +21,17 @@
     layers:
     - state: breen_can
       map: ["enum.OpenableVisuals.Layer"]
+
+- type: entity
+  parent: DrinkC17DrBreenPrivateReserveBase
+  id: DrinkC17DrBreenPrivateReserve
+  suffix: Full
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Water
+        Quantity: 30
   - type: Edible
     solution: drink
     destroyOnEmpty: true
@@ -31,21 +39,10 @@
     - DrinkC17DrBreenPrivateReserveOpened
 
 - type: entity
-  parent: DrinkC17DrBreenPrivateReserve
+  parent: [ DrinkBaseOpenableOpen, DrinkC17DrBreenPrivateReserveBase ]
   id: DrinkC17DrBreenPrivateReserveOpened
   suffix: Empty
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Water
-          Quantity: 0
-  - type: Openable
-    opened: true
-  - type: Sealable
-    sealed: false
   - type: Edible
     solution: drink
     destroyOnEmpty: true
@@ -55,7 +52,7 @@
 - type: entity
   parent: FoodPacketTrash
   id: DrinkC17DrBreenPrivateReserveTrash
-  name: Dr>Breen Private Reserve
+  name: Dr.Breen Private Reserve
   description: Банка из под воды, поговаривают что вода вызывает побочные эффекты, но никто не помнит какой именно.
   components:
   - type: Sprite
