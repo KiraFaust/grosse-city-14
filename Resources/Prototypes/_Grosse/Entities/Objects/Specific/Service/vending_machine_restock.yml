@@ -22,9 +22,9 @@
   name: ящик пополнение пункта выдачи рационов
   description: Запечатанная коробка пополнения рационов, чтобы никто не оставался голодным!
   components:
-  #- type: VendingMachineRestock
-    #canRestock:
-    #- RationDispenserC17Inventory
+  - type: VendingMachineRestock
+    canRestock:
+    - RationDispenserC17Inventory
   - type: Item
     size: Normal
   - type: Sprite

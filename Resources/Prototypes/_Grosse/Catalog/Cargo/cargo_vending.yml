@@ -1,0 +1,28 @@
+# Restock boxes must be cargo-purchasable (see TestAllRestocksAreAvailableToBuy).
+# Costs should stay above DumpRestockInventory value (NoCargoOrderArbitrage).
+
+- type: cargoProduct
+  id: CrateDrBreenPrivateReserveC17Restock
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: DrBreenPrivateReserveC17Restock
+  container:
+    entity: WrappedParcel
+    containerId: contents
+  cost: 600
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: CrateRationDispenserC17Restock
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: base
+  product: RationDispenserC17Restock
+  container:
+    entity: WrappedParcel
+    containerId: contents
+  cost: 2000
+  category: cargoproduct-category-name-service
+  group: market
