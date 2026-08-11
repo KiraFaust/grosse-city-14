@@ -190,7 +190,6 @@
       state: "creampie_human"
       visible: false
   - type: Transform
-    anchored: true
     noRot: true
   - type: Physics
     bodyType: KinematicController

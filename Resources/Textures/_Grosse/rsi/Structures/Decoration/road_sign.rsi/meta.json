@@ -11,8 +11,7 @@
       "name": "stop"
     },
     {
-      "name": "noturn",
-      "directions": 4
+      "name": "noturn"
     },
     {
       "name": "noparking"
