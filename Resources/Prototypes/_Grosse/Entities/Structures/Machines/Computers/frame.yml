@@ -57,6 +57,10 @@
   - type: Electrified
     enabled: false
     usesApcPower: true
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: []
 
 - type: entity
   parent: BaseUnionComputerC17
@@ -204,6 +208,10 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: []
 
 - type: entity
   parent: BaseUnionMonitorC17
@@ -275,6 +283,7 @@
   - type: ItemSlots
   - type: ContainerContainer
     containers:
+      board: !type:Container
       IdCardConsole-privilegedId: !type:ContainerSlot
       IdCardConsole-targetId: !type:ContainerSlot
 
@@ -307,6 +316,8 @@
           - ShuttleDestinationCoordinates
   - type: ContainerContainer
     containers:
+      board: !type:Container
+        ents: []
       disk_slot: !type:ContainerSlot {}
   - type: DeviceNetwork
     deviceNetId: Wired

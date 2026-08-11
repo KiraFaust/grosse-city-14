@@ -1,6 +1,6 @@
 - type: entity
   id: BaseBrokenMachineC17
-  parent: BaseStructure
+  parent: BaseStructureDynamic
   name: сломанное устройство
   description: Довоенное устройство, по идее можно починить, только толку то?
   abstract: true
@@ -11,8 +11,6 @@
     - state: b1
   - type: InteractionOutline
   - type: Clickable
-  - type: Physics
-    bodyType: Dynamic
   - type: Fixtures
     fixtures:
       fix1:

@@ -48,7 +48,6 @@
   - type: Transform
     noRot: true
   - type: Stealth
-  - type: StealthOnMove
   - type: Appearance
   - type: DeleteOnTrigger
   - type: TriggerOnCollide

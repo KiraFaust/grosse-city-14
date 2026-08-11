@@ -1,7 +1,7 @@
 - type: entity
   id: CombineWallRechargerC17
   name: combine wall charger
-  parent: [ BaseRecharger, BaseWallmount ]
+  parent: [ BaseItemRecharger, BaseWallmount ]
   components:
   - type: Sprite
     sprite: _Grosse/rsi/hlstaff/structure/wallmount.rsi
