@@ -193,7 +193,10 @@
     anchored: true
     noRot: true
   - type: Physics
-    bodyType: Static
+    bodyType: KinematicController
+  - type: BlockMovement
+    blockInteraction: false
+    blockUse: false
   #- type: TriggerOnMobstateChange
   #  keyOut: Escaped
   #  mobState:

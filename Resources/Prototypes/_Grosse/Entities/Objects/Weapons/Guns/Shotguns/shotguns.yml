@@ -8,9 +8,9 @@
   - type: Sprite
     sprite: _Grosse/rsi/Objects/Weapons/Guns/spas-16/big.rsi
   - type: Item
-    sprite: _Grosse/rsi/Objects/Weapons/Guns/spas-16
+    sprite: _Grosse/rsi/Objects/Weapons/Guns/spas-16/tiny.rsi
   - type: Clothing
-    sprite: _Grosse/rsi/Objects/Weapons/Guns/spas-16
+    sprite: _Grosse/rsi/Objects/Weapons/Guns/spas-16/tiny.rsi
   - type: BallisticAmmoProvider
     proto: ShellShotgunMagnum12
     capacity: 6
