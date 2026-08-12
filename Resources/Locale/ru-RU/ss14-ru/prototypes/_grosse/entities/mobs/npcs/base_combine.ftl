@@ -1,0 +1,11 @@
+ent-MobHumanCombine = Урист Макбайн
+    .desc = Жалкая кучка спецназа.
+ent-MobBaseCombine = Британец
+    .desc = Они приходят в основном по ночам. В основном.
+    .suffix = { ent-MobBaseHumanCombine.suffix }
+ent-MobCombineSoldierAR2 = Солдат Альянса
+    .desc = { ent-MobBaseCombine.desc }
+    .suffix = suppa AR2 Патруль Альянса 17
+ent-MobBaseHumanCombine = { ent-MobBaseNpcDungeon }
+    .desc = { ent-MobBaseNpcDungeon.desc }
+    .suffix = { ent-MobBaseNpcDungeon.suffix }

@@ -4,6 +4,7 @@
   name: прыгнуть
   description: Напрячь свои лапки чтобы совершить резкий рывок вперед.
   components:
+  - type: TargetAction
   - type: Action
     useDelay: 5
     icon:

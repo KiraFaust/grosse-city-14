@@ -11,8 +11,8 @@
   overrideConsoleVisibility: true
   startingGear: CitizenGear
   icon: "JobIconUnionCivilian"
-  supervisors: Абсолютно всем
-  canBeAntag: false
+  supervisors: job-supervisors-everyone
+
   requirements:
     - !type:SpeciesRequirement
       species:
@@ -21,6 +21,7 @@
   - !type:AddComponentSpecial
     components:
     - type: AntagImmune
+
 
 - type: playTimeTracker
   id: JobWorkerC17
@@ -35,8 +36,8 @@
   overrideConsoleVisibility: true
   startingGear: CMBWorkerNotReadyGear
   icon: "JobIconUnionPerson"
-  supervisors: Главе ГСР и Начальнику Завода
-  canBeAntag: false
+  supervisors: job-supervisors-gsr-and-factory
+
   access:
     - UnionBase
     - Engineering

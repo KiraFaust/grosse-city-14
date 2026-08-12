@@ -1,0 +1,11 @@
+ent-BaseVehicle = { "" }
+    .desc = { "" }
+    .suffix = Транспорт
+ent-VehicleMoskvich17 = модифицированный довоенный автомобиль
+    .desc = Модифицированная Альянсом авто для использование его в сложных условиях.
+    .suffix = { ent-BaseVehicle.suffix }
+ent-MoskvichLayer = передняя пассажирская дверь
+    .desc = { ent-BaseStructure.desc }
+ent-VehicleZIL17 = грузовик
+    .desc = Довоенный тяжелый транспорт для транспортировки множества вещей.
+    .suffix = { ent-BaseVehicle.suffix }

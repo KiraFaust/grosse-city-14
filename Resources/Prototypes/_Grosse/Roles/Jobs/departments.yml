@@ -1,7 +1,7 @@
 - type: department
   id: City14
-  name: Гражданский Союз Рабочих
-  description: Роли города 14.
+  name: department-City14
+  description: department-City14-description
   color: "#9e6715"
   weight: -15
   roles:
@@ -14,8 +14,8 @@
 
 - type: department
   id: City14CivilProtection
-  name: Гражданская Оборона
-  description: Роли города 14.
+  name: department-City14CivilProtection
+  description: department-City14CivilProtection-description
   color: "Blue"
   weight: -16
   roles:

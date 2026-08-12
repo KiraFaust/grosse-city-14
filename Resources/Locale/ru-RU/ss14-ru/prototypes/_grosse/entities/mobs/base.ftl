@@ -1,0 +1,9 @@
+ent-MobBaseNpc = Базированная База НПЦ
+    .desc = Просто тело, будь спокоен.
+    .suffix = { ent-BaseSimpleMob.suffix }
+ent-BaseMobAntlion = ксено
+    .desc = Угроза любой органической форме жизни
+    .suffix = Муравьиный лев
+ent-MobBaseNpcDungeon = { ent-MobBaseNpcSalvage }
+    .desc = { ent-MobBaseNpcSalvage.desc }
+    .suffix = { ent-MobBaseNpcSalvage.suffix }

@@ -1,0 +1,17 @@
+ent-MobAntlion = муравьиный лев
+    .desc = Львиный муровей.
+    .suffix = { ent-BaseMobAntlion.suffix }
+ent-MobAntlionWorker = муравьиный рабочий
+    .desc = Белый муровей, если его товарищ лев, то он прав.
+    .suffix = { ent-BaseMobAntlion.suffix }
+ent-AntlionSpitBullet = кислотный плевок
+    .desc = { ent-BulletDisablerPractice.desc }
+ent-MobAntlionGuardian = Страж
+    .desc = Неостановимая сила улья, сносит всех кто подходит слишком близко.
+    .suffix = { ent-BaseMobAntlion.suffix }
+ent-MobYoungAntlion = молодой муравьиный лев
+    .desc = Львиный муровей.
+    .suffix = { ent-BaseMobAntlion.suffix }
+ent-MobAntlionLarva = личинка
+    .desc = Личинка муровьиного льва. Маленький.
+    .suffix = { ent-BaseMobAntlion.suffix }

@@ -1,0 +1,9 @@
+ent-MobBaseHeadcrabedZombie = { ent-MobBaseNpcDungeon }
+    .desc = { ent-MobBaseNpcDungeon.desc }
+    .suffix = зомби
+ent-MobHeadcrabedZombie = зомбированный
+    .desc = { ent-MobBaseHeadcrabedZombie.desc }
+    .suffix = зомби
+ent-MobBaseNpcSalvage = { ent-MobBaseNpc }
+    .desc = { ent-MobBaseNpc.desc }
+    .suffix = { ent-MobBaseNpc.suffix }

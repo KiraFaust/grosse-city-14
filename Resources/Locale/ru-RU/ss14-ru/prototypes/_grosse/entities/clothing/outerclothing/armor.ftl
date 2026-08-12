@@ -1,0 +1,17 @@
+ent-ClothingOuterEVASuitBaseC17 = базовый скафандр
+    .desc = { ent-ClothingOuterBase.desc }
+ent-ClothingOuterArmorCPC17 = бронежилет гражданской обороны
+    .desc = Полицейский жилет для защиты гражданской обороны.
+ent-ClothingOuterArmorOTAC17 = броня бойца ОТА
+    .desc = Военный костюм для особых подразделений Овервотч.
+ent-ClothingOuterArmorResistenceC17 = броня солдата Альянса
+    .desc = Переделанный сопротивлением бронежилет солдата Альянса для более удобного ношения в бою.
+    .suffix = Сопротивление
+ent-ClothingOuterArmorOTAC17Shotgunner = броня бойца ОТА
+    .desc = Военный костюм для особых подразделений Овервотч.
+ent-ClothingOuterArmorOTAEliteC17 = костюм элитного бойца ОТА
+    .desc = Военный костюм для особых подразделений Овервотч.
+ent-ClothingOuterArmorCPSeCC17 = пальто секториального командира
+    .desc = Пальто секториального командира.
+ent-ClothingOuterWorkerCMBC17 = костюм рабочего Альянса
+    .desc = На форме присутствует маркировка «CMB Worker Group 6». На груди заметна крупная «6», а под ней написано — «Бригада».

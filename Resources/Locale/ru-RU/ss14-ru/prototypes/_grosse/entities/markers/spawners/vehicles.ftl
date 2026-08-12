@@ -1,0 +1,6 @@
+ent-SpawnerVehicleMoskvich17 = спавнер машины
+    .desc = { ent-MarkerBase.desc }
+    .suffix = Городской спавнер
+ent-SpawnerVehicleZIL17 = спавнер грузовика
+    .desc = { ent-SpawnerVehicleMoskvich17.desc }
+    .suffix = { ent-SpawnerVehicleMoskvich17.suffix }

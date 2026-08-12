@@ -1,0 +1,4 @@
+- type: vendingMachineInventory
+  id: RationDispenserC17Inventory
+  startingInventory:
+    FoodC17Ration: 15

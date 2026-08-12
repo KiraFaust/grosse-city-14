@@ -1,4 +1,4 @@
-ent-KvassTank = бочка кваса
+ent-KvassTank = { ent-StorageTank }
     .desc = { ent-StorageTank.desc }
     .suffix = Пустой
 ent-KvassTankFull = { ent-KvassTank }

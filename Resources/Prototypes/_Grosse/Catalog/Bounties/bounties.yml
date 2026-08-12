@@ -4,19 +4,19 @@
 - type: cargoBounty
   id: BountyUnionConsole
   reward: 10000
-  description: Поступил запрос на создание нескольких консолей, нам нужно что-бы вы произвели их.
+  description: bounty-description-union-console
   group: CombineJob
   idPrefix: CMB
   sprite:
-    sprite: /Uploaded/combine/rsi/hlstaff/structure/console.rsi
+    sprite: _Grosse/rsi/hlstaff/structure/console.rsi
     state: console1
   entries:
-  - name: консоль Альянса
+  - name: bounty-item-union-console
     amount: 10
     whitelist:
       tags:
       - UnionMonitor
-  - name: монитор Альянса
+  - name: bounty-item-union-monitor
     amount: 10
     whitelist:
       tags:
@@ -25,14 +25,14 @@
 - type: cargoBounty
   id: BountyUnionMedkits
   reward: 10000
-  description: Патруль Города 13 запрашивает новую партию аптечек, их местные производественные линии не могут справиться.
+  description: bounty-description-union-medkits
   group: CombineJob
   idPrefix: CMB
   sprite:
-    sprite: /Uploaded/combine/rsi/hlstaff/medical.rsi
+    sprite: _Grosse/rsi/hlstaff/medical.rsi
     state: aptejka
   entries:
-  - name: аптечки
+  - name: bounty-item-union-medkits
     amount: 30
     whitelist:
       tags:
@@ -41,14 +41,14 @@
 - type: cargoBounty
   id: BountyUnionManhacks
   reward: 10000
-  description: Фауна Зена продолжает наперать на трущебы, отправлять силы ГэО слишком опасно, а у ОТА щас своих проблем навалом, нужно произвести мэнхеков чтобы те зачистили трущебы.
+  description: bounty-description-union-manhacks
   group: CombineJob
   idPrefix: CMB
   sprite:
-    sprite: /Uploaded/combine/rsi/hlstaff/manhack.rsi
+    sprite: _Grosse/rsi/hlstaff/manhack.rsi
     state: manhack
   entries:
-  - name: Мэнхеки
+  - name: bounty-item-union-manhacks
     amount: 30
     whitelist:
       tags:
@@ -57,14 +57,14 @@
 - type: cargoBounty
   id: BountyUnionDispencer
   reward: 10000
-  description: Ближайший Город запрашивает допольнительные рационы, так как их снабжение прекратилось из-за большой активности муравьиных львов.
+  description: bounty-description-union-dispencer
   group: CombineJob
   idPrefix: CMB
   sprite:
-    sprite: /Uploaded/combine/rsi/hlstaff/food.rsi
+    sprite: _Grosse/rsi/hlstaff/food.rsi
     state: standard_ration
   entries:
-  - name: ящики пополнения рационов
+  - name: bounty-item-union-rations
     amount: 30
     whitelist:
       tags:
@@ -73,14 +73,14 @@
 - type: cargoBounty
   id: BountyUnionAlyx
   reward: 10000
-  description: Мы получили донесение, что какая-то одна женщина смогла полностью уничтожить отряды стабилизации в секторе B14, а так же умыкнула все запасы черной смолы. Бойцам просто не из чего делать боеприпасы.
+  description: bounty-description-union-alyx
   group: CombineJob
   idPrefix: CMB
   sprite:
-    sprite: /Uploaded/combine/rsi/hlstaff/misc/material.rsi
+    sprite: _Grosse/rsi/hlstaff/misc/material.rsi
     state: sheet-resin
   entries:
-  - name: черная смола
+  - name: bounty-item-union-black-material
     amount: 120
     whitelist:
       tags:
@@ -89,19 +89,19 @@
 - type: cargoBounty
   id: BountyUnionHopperMine
   reward: 10000
-  description: Сверх-Человеческий Отдел запросил партию противо-пехотных мин, как они сказали, их прошлые мины кто-то украл...
+  description: bounty-description-union-hopper-mine
   group: CombineJob
   idPrefix: CMB
   sprite:
-    sprite: /Uploaded/combine/rsi/hlstaff/hoppermine.rsi
+    sprite: _Grosse/rsi/hlstaff/hoppermine.rsi
     state: landmine
   entries:
-  - name: прыгающие мины
+  - name: bounty-item-union-hopper-mine
     amount: 10
     whitelist:
       tags:
       - CMBHopperMine
-  - name: Мэнхеки
+  - name: bounty-item-union-manhacks
     amount: 20
     whitelist:
       tags:

@@ -3,3 +3,5 @@ ent-MobLing = Урист МакКрад
     .suffix = Неантаг
 ent-ChangelingFleshClothingAbilityStoreDummy = { "" }
     .desc = { "" }
+ent-ChangelingVoiceMimicDummy = { "" }
+    .desc = { "" }

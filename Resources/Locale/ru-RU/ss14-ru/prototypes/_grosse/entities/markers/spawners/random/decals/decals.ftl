@@ -1,0 +1,14 @@
+ent-DecalSpawnerFloraMedivalBase = { ent-DecalSpawnerBase }
+    .desc = { ent-DecalSpawnerBase.desc }
+ent-DecalSpawnerBushesACMedival = { ent-DecalSpawnerFloraMedivalBase }
+    .desc = { ent-DecalSpawnerFloraMedivalBase.desc }
+    .suffix = Кусты (средневековье)
+ent-DecalSpawnerFlowersMedival = { ent-DecalSpawnerFloraMedivalBase }
+    .desc = { ent-DecalSpawnerFloraMedivalBase.desc }
+    .suffix = Цветы (средневековье)
+ent-DecalSpawnerGrassyRockMedival = { ent-DecalSpawnerFloraMedivalBase }
+    .desc = { ent-DecalSpawnerFloraMedivalBase.desc }
+    .suffix = Травянистый камень (средневековье)
+ent-DecalSpawnerGrassABMedival = { ent-DecalSpawnerFloraMedivalBase }
+    .desc = { ent-DecalSpawnerFloraMedivalBase.desc }
+    .suffix = Трава (средневековье)

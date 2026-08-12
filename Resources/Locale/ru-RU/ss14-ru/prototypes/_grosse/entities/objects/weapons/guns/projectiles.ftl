@@ -1,0 +1,8 @@
+ent-PulseBullet = импульсная пуля
+    .desc = { ent-BaseBullet.desc }
+ent-PulseBulletCombine = импульсная пуля
+    .desc = { ent-PulseBullet.desc }
+ent-PelletShotgunMagnum12Spread = { ent-PelletShotgun }
+    .desc = { ent-PelletShotgun.desc }
+ent-BulletCMBKinetic = кинетический заряд
+    .desc = Не так уж плохо, но всё равно не хочется под него попасть.

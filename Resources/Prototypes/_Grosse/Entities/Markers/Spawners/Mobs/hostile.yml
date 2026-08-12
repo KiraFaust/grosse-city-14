@@ -127,7 +127,7 @@
 - type: entity
   id: SpawnerBarnacle
   parent: MarkerBase
-  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite
     layers:

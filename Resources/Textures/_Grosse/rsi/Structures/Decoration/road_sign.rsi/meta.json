@@ -1,5 +1,7 @@
 {
   "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from the Internet",
   "size": {
     "x": 32,
     "y": 48
@@ -9,8 +11,7 @@
       "name": "stop"
     },
     {
-      "name": "noturn",
-      "directions": 4
+      "name": "noturn"
     },
     {
       "name": "noparking"

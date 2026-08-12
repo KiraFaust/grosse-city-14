@@ -12,7 +12,7 @@
           - !type:DeleteEntity
         steps:
           - tag: ManhackBlade
-            name: лопасти мэнхека
+            name: construction-insert-manhack-blades
             doAfter: 2
           - tool: Screwing
             doAfter: 5
@@ -41,7 +41,7 @@
           - !type:DeleteEntity
         steps:
           - tag: GrubAntlion
-            name: муравьиная личинка
+            name: construction-insert-antlion-grub
             doAfter: 4
       - to: Black
         completed:
@@ -63,7 +63,7 @@
           - !type:DeleteEntity
         steps:
           - tag: AntlionGrubCoreJuice
-            name: экстракт сока муравьиного льва
+            name: construction-insert-antlion-juice
             doAfter: 2
       - to: Heal
         completed:
@@ -73,7 +73,7 @@
           - !type:DeleteEntity
         steps:
           - tag: GrubCore
-            name: ядро муравьиной личинки
+            name: construction-insert-grub-core
             doAfter: 2
     - node: Heal
     - node: Black
@@ -116,10 +116,10 @@
           - !type:DeleteEntity
         steps:
           - tag: MachineComponent
-            name: детали
+            name: construction-insert-parts
             doAfter: 1
           - tag: GunPowderCMB
-            name: порох
+            name: construction-insert-gunpowder
             doAfter: 1
     - node: CMBBaseMachine
 
@@ -139,12 +139,12 @@
           - !type:DeleteEntity
         steps:
           - tag: roundingotPiece
-            name: круглая заготовка
+            name: construction-insert-round-blank
             doAfter: 1
           - tool: Welding
             doAfter: 1
           - tag: MachineComponent
-            name: детали
+            name: construction-insert-parts
             doAfter: 1
           - tool: Anchoring
             doAfter: 2
@@ -166,7 +166,7 @@
           - !type:DeleteEntity
         steps:
           - tag: MachineComponent
-            name: детали
+            name: construction-insert-parts
             doAfter: 2
           - material: BlackMaterialPiece
             amount: 10
@@ -181,7 +181,7 @@
           - !type:DeleteEntity
         steps:
           - tag: RoundIronIngotMaterial
-            name: круглая заготовка
+            name: construction-insert-round-blank
             doAfter: 2
           - material: BlackMaterialPiece
             amount: 10
@@ -201,9 +201,7 @@
             prototype: ManhackInactiveC17
             amount: 1
           - !type:PlaySound
-            sound: _Grosse/audio/blackmesa/hoppermine/blade_loop1.ogg
-            params:
-              volume: 2
+            sound: /Audio/_Grosse/audio/blackmesa/hoppermine/blade_loop1.ogg
           - !type:DeleteEntity
         steps:
           - tool: PulsingCombine
@@ -211,13 +209,11 @@
       - to: CMBBaseMachine
         completed:
           - !type:SpawnPrototype
-            prototype: ManhackInactiveResistanceC17
+            prototype: MobManhackResistancec17 #ManhackInactiveResistanceC17
             amount: 1
           - !type:PlaySound
-            sound: 
+            sound: !type:SoundCollectionSpecifier
               collection: sparks
-              params:
-                volume: 10
           - !type:DeleteEntity
         steps:
           - tool: PulsingResistance
@@ -236,9 +232,7 @@
             prototype: HopperMineInactiveC17
             amount: 1
           - !type:PlaySound
-            sound: _Grosse/audio/blackmesa/hoppermine/deactivate1.ogg
-            params:
-              volume: 10
+            sound: /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка; /Audio/_Grosse/audio/blackmesa/hoppermine/deactivate1.ogg
           - !type:DeleteEntity
         steps:
           - tool: PulsingCombine
@@ -249,10 +243,8 @@
             prototype: HopperMineInactiveResistanceC17
             amount: 1
           - !type:PlaySound
-            sound: 
+            sound: !type:SoundCollectionSpecifier
               collection: sparks
-              params:
-                volume: 12
           - !type:DeleteEntity
         steps:
           - tool: PulsingResistance
@@ -265,9 +257,7 @@
             prototype: HopperMineExplosiveC17
             amount: 1
           - !type:PlaySound
-            sound: _Grosse/audio/blackmesa/hoppermine/blade_loop1.ogg
-            params:
-              volume: 10
+            sound: /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка; /Audio/_Grosse/audio/blackmesa/hoppermine/blade_loop1.ogg
           - !type:DeleteEntity
         steps:
           - tool: PulsingCombine
@@ -278,10 +268,8 @@
             prototype: HopperMineExplosiveResistanceC17
             amount: 1
           - !type:PlaySound
-            sound: 
+            sound: !type:SoundCollectionSpecifier
               collection: sparks
-              params:
-                volume: 12
           - !type:DeleteEntity
         steps:
           - tool: PulsingResistance

@@ -8,8 +8,8 @@
 - type: material
   id: BlackMaterial
   stackEntity: BlackMaterialPiece1
-  name: черная смола
-  unit: черная смола
+  name: materials-black-material
+  unit: materials-unit-piece
   icon: { sprite: _Grosse/rsi/hlstaff/misc/material.rsi, state: sheet-resin_3 }
   color: "#8A9A5B"
   price: 1

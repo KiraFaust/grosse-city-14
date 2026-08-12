@@ -1,0 +1,22 @@
+#- type: reagent
+#  id: AntlionGrubCore
+#  name: reagent-name-antliongrubcore
+#  group: Medicine
+#  desc: reagent-desc-antliongrubcore
+#  physicalDesc: reagent-physical-desc-soothing
+#  flavor: medicine
+#  color: "#6cfc05"
+#  metabolisms:
+#    Medicine:
+#      effects:
+#      - !type:ModifyBloodLevel
+#        amount: 10
+#      - !type:HealthChange
+#        damage:
+#          groups:
+#            Heat: -10
+#            Toxin: -10
+#            Airloss: -10
+#            Blunt: -10
+#            Bloodloss: -10
+
