@@ -36,6 +36,8 @@
   name: пункт выдачи рационов
   description: Пункт установленный Альянсом для выдачи питательных рационов.
   components:
+  - type: Transform
+    noRot: false
   - type: VendingMachine
     pack: RationDispenserC17Inventory
     dispenseOnHitChance: 0
@@ -45,7 +47,9 @@
     normalState: rationdispenser
     initialStockQuality: 0
   - type: Sprite
-    noRot: false
+    # Parent VendingMachine uses snapCardinals; that asserts on 4-directional RSI states.
+    snapCardinals: false
+    noRot: true
     sprite: _Grosse/rsi/hlstaff/structure/ration-dispenser.rsi
     layers:
     - state: "rationdispenser"

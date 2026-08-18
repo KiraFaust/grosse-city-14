@@ -23,3 +23,7 @@ department-City14 = Гражданский Союз Рабочих
 department-City14-description = Роли города 14.
 department-City14CivilProtection = Гражданская Оборона
 department-City14CivilProtection-description = Роли города 14.
+
+# Salvage job board ranks on City 14
+salvage-job-rank-title-city14 = [color=gray]Город 14[/color]
+salvage-job-rank-title-city14-MAX = [color=gold]Город 14[/color]

@@ -23,3 +23,7 @@ department-City14 = Civil Workers Union
 department-City14-description = City 14 roles.
 department-City14CivilProtection = Civil Protection
 department-City14CivilProtection-description = City 14 roles.
+
+# Salvage job board ranks on City 14
+salvage-job-rank-title-city14 = [color=gray]City 14[/color]
+salvage-job-rank-title-city14-MAX = [color=gold]City 14[/color]
