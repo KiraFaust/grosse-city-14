@@ -51,20 +51,58 @@ namespace Content.Server.Database
 
             if (synchronous)
             {
-                prefsCtx.Database.Migrate();
+                try
+                {
+                    ApplySqliteMigrations(prefsCtx, opsLog);
+                }
+                finally
+                {
+                    prefsCtx.Dispose();
+                }
+
                 _dbReadyTask = Task.CompletedTask;
-                prefsCtx.Dispose();
             }
             else
             {
                 _dbReadyTask = Task.Run(() =>
                 {
-                    prefsCtx.Database.Migrate();
-                    prefsCtx.Dispose();
+                    try
+                    {
+                        ApplySqliteMigrations(prefsCtx, opsLog);
+                    }
+                    finally
+                    {
+                        prefsCtx.Dispose();
+                    }
                 });
             }
 
             cfg.OnValueChanged(CCVars.DatabaseSqliteDelay, v => _msDelay = v, true);
+        }
+
+        /// <summary>
+        /// EF Core 9+ takes a row in <c>__EFMigrationsLock</c> and retries forever if that row is left behind
+        /// (killed debugger, crashed server). The game thread then sits in
+        /// <c>IncrementRoundNumber</c> → <c>BlockWaitOnTask</c> with no logs.
+        /// </summary>
+        private static void ApplySqliteMigrations(SqliteServerDbContext prefsCtx, ISawmill log)
+        {
+            log.Info("Applying SQLite migrations...");
+
+            try
+            {
+                prefsCtx.Database.OpenConnection();
+                using var cmd = prefsCtx.Database.GetDbConnection().CreateCommand();
+                cmd.CommandText = """DROP TABLE IF EXISTS "__EFMigrationsLock";""";
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                log.Warning($"Could not clear leftover SQLite migrations lock: {e.Message}");
+            }
+
+            prefsCtx.Database.Migrate();
+            log.Info("SQLite migrations complete");
         }
 
         #region Ban

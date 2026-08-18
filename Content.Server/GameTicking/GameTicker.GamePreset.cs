@@ -270,13 +270,15 @@ public sealed partial class GameTicker
         // TODO FIXME AAAAAAAAAAAAAAAAAAAH THIS IS BROKEN
         // Task.Run as a terrible dirty workaround to avoid synchronization context deadlock from .Result here.
         // This whole setup logic should be made asynchronous so we can properly wait on the DB AAAAAAAAAAAAAH
+        _sawmill.Info("Creating new round in database...");
         var task = Task.Run(async () =>
         {
-            var server = await _dbEntryManager.ServerEntity;
-            return await _db.AddNewRound(server, playerIds);
+            var server = await _dbEntryManager.ServerEntity.ConfigureAwait(false);
+            return await _db.AddNewRound(server, playerIds).ConfigureAwait(false);
         });
 
         _taskManager.BlockWaitOnTask(task);
         RoundId = task.GetAwaiter().GetResult();
+        _sawmill.Info($"Created round {RoundId} in database");
     }
 }
