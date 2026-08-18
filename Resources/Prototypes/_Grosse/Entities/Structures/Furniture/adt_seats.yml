@@ -1,0 +1,225 @@
+# Ported from AdventureTimeSS14/space_station_ADT (MIT / CC-BY-SA 3.0).
+# Construction graphs omitted; map IDs kept so city14.yml loads.
+
+- type: entity
+  abstract: true
+  parent: ChairBase
+  id: ADTChairBase
+  name: chair
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: true
+
+- type: entity
+  abstract: true
+  parent: ADTChairBase
+  id: ADTSofaBase
+  name: sofa
+  description: It looks comfy.
+
+- type: entity
+  parent: ADTChairBase
+  id: ADTArmchairBlack
+  name: black armchair
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Chairs/armchairsluna.rsi
+    state: black_armchair
+    noRot: false
+
+- type: entity
+  parent: ADTChairBase
+  id: ADTArmchairBrown
+  name: brown armchair
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Chairs/armchairsluna.rsi
+    state: brown_armchair
+    noRot: false
+
+- type: entity
+  parent: ADTChairBase
+  id: ADTArmchairRed
+  name: red armchair
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
+    state: red_armchair
+    noRot: false
+
+- type: entity
+  parent: ADTChairBase
+  id: ADTBlackChair
+  name: comfy black chair
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: comfy_black
+    noRot: false
+
+- type: entity
+  parent: ADTChairBase
+  id: ADTLeatherChair
+  name: leather armchair
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Chairs/armchairsyuna.rsi
+    state: brown_armchair
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTSofaBlackLeftSide
+  name: sofa left side
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/black_sofa.rsi
+    state: sofa_left
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTSofaBlackMiddle
+  name: sofa middle
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/black_sofa.rsi
+    state: sofa_middle
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTSofaBlackRightSide
+  name: sofa right side
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/black_sofa.rsi
+    state: sofa_right
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTSofaRedLeftSide
+  name: red sofa left side
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/red_sofa.rsi
+    state: sofa_left
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTSofaRedMiddle
+  name: red sofa middle
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/red_sofa.rsi
+    state: sofa_middle
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTSofaRedRightSide
+  name: red sofa right side
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/red_sofa.rsi
+    state: sofa_right
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTSofaVioletLeftSide
+  name: violet sofa left side
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/violet_sofa.rsi
+    state: sofa_left
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTSofaVioletMiddle
+  name: violet sofa middle
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/violet_sofa.rsi
+    state: sofa_middle
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTSofaVioletRightSide
+  name: violet sofa right side
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/violet_sofa.rsi
+    state: sofa_right
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTLeatherSofaLeftSide
+  name: leather sofa left side
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/leather_sofa.rsi
+    state: sofa_left
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTLeatherSofaMiddle
+  name: leather sofa middle
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/leather_sofa.rsi
+    state: sofa_middle
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTLeatherSofaRightSide
+  name: leather sofa right side
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/leather_sofa.rsi
+    state: sofa_right
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTSofaBrownLeftSide2
+  name: brown sofa left side
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_left_02
+    noRot: false
+
+- type: entity
+  parent: ADTSofaBase
+  id: ADTSofaBrownRightSide2
+  name: brown sofa right side
+  components:
+  - type: Sprite
+    sprite: _Grosse/ADT/Structures/Furniture/Sofas/sofa_brown.rsi
+    state: brownsofa_right_02
+    noRot: false
+
+- type: entity
+  parent: Bed
+  id: ADTDoubleBedBottom
+  name: double bed
+  suffix: Bottom
+  description: A large bed for two people.
+
+- type: entity
+  parent: Bed
+  id: ADTDoubleBedTop
+  name: double bed
+  suffix: Top
+  description: A large bed for two people.
