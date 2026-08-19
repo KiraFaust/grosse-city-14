@@ -1,0 +1,221 @@
+# Stubs for map-only IDs without a portable MIT source. Keep exact IDs so city14.yml loads.
+
+- type: entity
+  parent: TableWood
+  id: TableWoodReinforced
+  name: reinforced wood table
+
+- type: entity
+  parent: PoweredSmallLight
+  id: PoweredSmallLightMaintenanceRed
+  suffix: Maintenance, Red
+  components:
+  - type: PointLight
+    enabled: true
+    color: "#FF4020"
+
+- type: entity
+  parent: Brutepack
+  id: Brutepack5
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: Brutepack
+    count: 5
+
+- type: entity
+  parent: Gauze
+  id: Gauze5
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: Gauze
+    count: 5
+
+- type: entity
+  parent: Ointment
+  id: Ointment5
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: Ointment
+    count: 5
+
+- type: entity
+  parent: Bed
+  id: LPPBedDoubleDown
+  name: double bed
+  suffix: Down
+
+- type: entity
+  parent: Bed
+  id: LPPBedDoubleUp
+  name: double bed
+  suffix: Up
+
+- type: entity
+  parent: BedsheetBrown
+  id: DoubleBedsheetBrown
+  name: double brown bedsheet
+
+- type: entity
+  parent: BedsheetWhite
+  id: DoubleBedsheetWhite
+  name: double white bedsheet
+
+- type: entity
+  parent: DrinkTeapot
+  id: ADTDrinkTeapot
+  name: teapot
+
+- type: entity
+  parent: CurtainsRed
+  id: ADTHospitalCurtainsRed
+  name: hospital curtains
+  suffix: Red
+
+- type: entity
+  parent: KitchenKnife
+  id: ADTObjectsWeaponsMeleeFoldingKnife
+  name: folding knife
+
+- type: entity
+  parent: ClosetSteelBase
+  id: ClosetTaipanSteel
+  name: steel closet
+  suffix: Taipan
+
+- type: entity
+  parent: Paper
+  id: BloodPaper
+  name: bloody paper
+
+- type: entity
+  parent: BaseItem
+  id: Hairball
+  name: hairball
+  description: A clump of hair. Gross.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/poppy.rsi
+    state: produce
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: FaxMachineBase
+  id: PhotocopierBase
+  name: photocopier
+
+- type: entity
+  parent: BaseItem
+  id: PhotocopierTonerCartridge
+  name: toner cartridge
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: charger_APC
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: BaseItem
+  id: ClusterChinesePetardDragonFox
+  name: dragon fox petard
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    state: icon
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: FloraTree
+  id: SakuraTreeLarge
+  name: large sakura tree
+
+- type: entity
+  parent: StatueVenusRed
+  id: Fountain
+  name: fountain
+
+- type: entity
+  parent: FoodBakedCookie
+  id: FoodBakedGingerbreadBear
+  name: gingerbread bear
+
+- type: entity
+  parent: FoodBakedCookie
+  id: FoodSakuraFlower
+  name: sakura flower
+
+- type: entity
+  parent: BaseItem
+  id: DarkFlower
+  name: dark flower
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/poppy.rsi
+    state: produce
+
+- type: entity
+  parent: DarkFlower
+  id: PinkFlower
+  name: pink flower
+
+- type: entity
+  parent: DarkFlower
+  id: PurpleFlower
+  name: purple flower
+
+- type: entity
+  parent: DarkFlower
+  id: RedFlower
+  name: red flower
+
+- type: entity
+  parent: DarkFlower
+  id: WhiteFlower
+  name: white flower
+
+- type: entity
+  parent: DarkFlower
+  id: YellowFlower
+  name: yellow flower
+
+- type: entity
+  parent: ClothingHeadHelmetBasic
+  id: ClothingHeadFSCPHelmetArmored
+  name: armored helmet
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ClothingOuterArmorUSSPjuggernaut
+  name: USSP juggernaut armor
+
+- type: entity
+  parent: ClothingUniformJumpsuitColorBlack
+  id: ClothingUniformJumpsuitSuitSssp
+  name: SSSP suit
+
+- type: entity
+  parent: ClothingUnderSocksBee
+  id: ClothingUnderCandyCaneg_knee
+  name: candy cane socks
+  suffix: Knee
+
+- type: entity
+  parent: ClothingUnderSocksBee
+  id: ClothingUnderSocks_knee
+  name: knee socks
+  suffix: Knee
+
+- type: entity
+  parent: ClothingUniformJumpsuitColorWhite
+  id: ClothingUnderwearBottomBoxersWhite
+  name: white boxers
+
+- type: entity
+  parent: ClothingUniformJumpsuitColorWhite
+  id: ClothingUnderwearTopBraWhite
+  name: white bra

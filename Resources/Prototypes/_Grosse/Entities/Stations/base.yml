@@ -5,5 +5,7 @@
   - type: SalvageJobsData
     rankThresholds:
       0:
-        title: Город 14
+        title: salvage-job-rank-title-city14
         bountyGroup: CombineJob
+    maxRank:
+      title: salvage-job-rank-title-city14-MAX

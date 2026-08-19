@@ -207,6 +207,18 @@ namespace Content.MapRenderer.Painters
                 var h = (maxY - minY + 1) * tileYSize;
                 var customOffset = new Vector2();
 
+                // ImageSharp's contiguous allocator rejects buffers >= 1GB. A sparse grid with a huge AABB
+                // (one tile far from the rest) would try to allocate several gigabytes of empty canvas.
+                var pixelCount = (long)w * h;
+                const long maxPixels = 250_000_000;
+                if (pixelCount <= 0 || pixelCount > maxPixels)
+                {
+                    Console.WriteLine($"Warning: Grid {uid} canvas {w}x{h} ({pixelCount} pixels, {tiles.Count} tiles) exceeds renderer limit. Skipping.");
+                    continue;
+                }
+
+                Console.WriteLine($"Painting grid {uid} canvas {w}x{h} ({tiles.Count} tiles)");
+
                 //MapGrids don't have LocalAABB, so we offset them to align the bottom left corner with 0,0 coordinates
                 if (grid.LocalAABB.IsEmpty())
                     customOffset = new Vector2(-minX, -minY);

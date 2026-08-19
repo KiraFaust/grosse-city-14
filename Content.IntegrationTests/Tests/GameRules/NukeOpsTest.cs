@@ -49,6 +49,7 @@ public sealed class NukeOpsTest : GameTest
     /// Check that a nuke ops game mode can start without issue. I.e., that the nuke station and such all get loaded.
     /// </summary>
     [Test]
+    [Ignore("City14 is not an NT station; nuke ops roundstart is not supported.")]
     public async Task TryStopNukeOpsFromConstantlyFailing()
     {
         var pair = Pair;

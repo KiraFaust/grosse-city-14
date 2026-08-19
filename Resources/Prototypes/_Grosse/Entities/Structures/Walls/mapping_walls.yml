@@ -1,0 +1,76 @@
+# Mapping-only Strong / Indestructible variants so city14.yml loads.
+
+- type: entity
+  parent: WallSolid
+  id: StrongWallSolid
+  suffix: Strong
+
+- type: entity
+  parent: WallWood
+  id: StrongWallWood
+  suffix: Strong
+
+- type: entity
+  parent: WallReinforced
+  id: StrongWallReinforced
+  suffix: Strong
+
+- type: entity
+  parent: WallBrick
+  id: StrongWallBrick
+  suffix: Strong
+
+- type: entity
+  parent: WallCobblebrick
+  id: StrongWallCobblebrick
+  suffix: Strong
+
+- type: entity
+  parent: WallSandCobblebrick
+  id: StrongWallSandCobblebrick
+  suffix: Strong
+
+- type: entity
+  parent: WallBasaltCobblebrick
+  id: StrongWallBasaltCobblebrick
+  suffix: Strong
+
+- type: entity
+  parent: [WallSolid, WallIndestructible]
+  id: WallSolidIndestructible
+  suffix: Indestructible
+
+- type: entity
+  parent: [WallWood, WallIndestructible]
+  id: WallWoodIndestructible
+  suffix: Indestructible
+
+- type: entity
+  parent: [WallCobblebrick, WallIndestructible]
+  id: WallCobblebrickIndestructible
+  suffix: Indestructible
+
+- type: entity
+  parent: [WallBasaltCobblebrick, WallIndestructible]
+  id: WallBasaltCobblebrickIndestructible
+  suffix: Indestructible
+
+- type: entity
+  parent: [WallRock, WallIndestructible]
+  id: WallRockIndestructible
+  suffix: Indestructible
+
+- type: entity
+  parent: [Window, WallIndestructible]
+  id: WindowIndestructible
+  suffix: Indestructible
+
+- type: entity
+  parent: [WindowDirectional, WallIndestructible]
+  id: WindowDirectionalIndestructible
+  suffix: Indestructible
+
+- type: entity
+  parent: [MeteorRock, WallIndestructible]
+  id: MeteorRockIndestructible
+  suffix: Indestructible
