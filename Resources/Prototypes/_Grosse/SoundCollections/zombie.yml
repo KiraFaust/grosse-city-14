@@ -1,25 +1,25 @@
 - type: soundCollection
   id: ZombiePain
   files:
-    - /Audio/_Grosse/audio/blackmesa/mob/zombies/pain1.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/zombies/pain2.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/zombies/pain3.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/zombies/pain4.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/zombies/pain5.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/zombies/pain6.ogg
+    - /Audio/_Grosse/Mobs/Zombie/pain1.ogg
+    - /Audio/_Grosse/Mobs/Zombie/pain2.ogg
+    - /Audio/_Grosse/Mobs/Zombie/pain3.ogg
+    - /Audio/_Grosse/Mobs/Zombie/pain4.ogg
+    - /Audio/_Grosse/Mobs/Zombie/pain5.ogg
+    - /Audio/_Grosse/Mobs/Zombie/pain6.ogg
 
 - type: speechSounds
   id: ZombieScreemAlert
   saySound:
-    path: /Audio/_Grosse/audio/blackmesa/mob/zombies/alert1.ogg
+    path: /Audio/_Grosse/Mobs/Zombie/alert1.ogg
   askSound:
-    path: /Audio/_Grosse/audio/blackmesa/mob/zombies/alert2.ogg
+    path: /Audio/_Grosse/Mobs/Zombie/alert2.ogg
   exclaimSound:
-    path: /Audio/_Grosse/audio/blackmesa/mob/zombies/alert3.ogg
+    path: /Audio/_Grosse/Mobs/Zombie/alert3.ogg
 
 - type: soundCollection
   id: ZombieScreemAlert
   files:
-    - /Audio/_Grosse/audio/blackmesa/mob/zombies/alert1.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/zombies/alert2.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/zombies/alert3.ogg
+    - /Audio/_Grosse/Mobs/Zombie/alert1.ogg
+    - /Audio/_Grosse/Mobs/Zombie/alert2.ogg
+    - /Audio/_Grosse/Mobs/Zombie/alert3.ogg

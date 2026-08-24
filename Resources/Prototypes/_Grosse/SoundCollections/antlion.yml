@@ -1,25 +1,25 @@
 - type: soundCollection
   id: AntlionGrubIdle
   files:
-    - /Audio/_Grosse/audio/blackmesa/mob/grub/idle1.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/grub/idle2.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/grub/idle3.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/grub/idle4.ogg
+    - /Audio/_Grosse/Mobs/Antlion_grub/idle1.ogg
+    - /Audio/_Grosse/Mobs/Antlion_grub/idle2.ogg
+    - /Audio/_Grosse/Mobs/Antlion_grub/idle3.ogg
+    - /Audio/_Grosse/Mobs/Antlion_grub/idle4.ogg
 
 - type: soundCollection
   id: AntlionDeath
   files:
-    - /Audio/_Grosse/audio/blackmesa/mob/antlion/pain1.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/antlion/pain2.ogg
+    - /Audio/_Grosse/Mobs/Antlion_grub/pain1.ogg
+    - /Audio/_Grosse/Mobs/Antlion_grub/pain2.ogg
 
 - type: soundCollection
   id: AntlionFootstep
   files:
-    - /Audio/_Grosse/audio/blackmesa/mob/antlion/pain1.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/antlion/pain2.ogg
+    - /Audio/_Grosse/Mobs/Antlion_grub/pain1.ogg
+    - /Audio/_Grosse/Mobs/Antlion_grub/antlion/pain2.ogg
 
 - type: soundCollection
   id: AntlionIdle
   files:
-    - /Audio/_Grosse/audio/blackmesa/mob/antlion/pain1.ogg
-    - /Audio/_Grosse/audio/blackmesa/mob/antlion/pain2.ogg
+    - /Audio/_Grosse/Mobs/Antlion_grub/pain1.ogg
+    - /Audio/_Grosse/Mobs/Antlion_grub/pain2.ogg
