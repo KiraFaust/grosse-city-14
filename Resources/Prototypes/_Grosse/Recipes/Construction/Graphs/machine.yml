@@ -257,7 +257,7 @@
             prototype: HopperMineExplosiveC17
             amount: 1
           - !type:PlaySound
-            sound: sound: /Audio/_Grosse/Mobs/Hoppermine/blade_loop1.ogg
+            sound: /Audio/_Grosse/Mobs/Hoppermine/blade_loop1.ogg
           - !type:DeleteEntity
         steps:
           - tool: PulsingCombine

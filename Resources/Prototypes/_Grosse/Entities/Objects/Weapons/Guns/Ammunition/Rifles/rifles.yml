@@ -28,7 +28,7 @@
     maxAngle: 35
     fireRate: 5
     soundGunshot:
-      path: /Audio/_Grosse/audio/Guns64/ak47.ogg
+      path: /Audio/_Grosse/Weapons/Ranged/ak47.ogg
   - type: ChamberMagazineAmmoProvider
   - type: ItemSlots
     slots:

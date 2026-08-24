@@ -19,7 +19,7 @@
   - type: GunRequiresWield
   - type: Gun
     soundGunshot:
-      path: /Audio/_Grosse/audio/blackmesa/hl2/weapon/smg1_fire1.ogg
+      path: /Audio/_Grosse/Weapons/Ranged/smg1_fire1.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
