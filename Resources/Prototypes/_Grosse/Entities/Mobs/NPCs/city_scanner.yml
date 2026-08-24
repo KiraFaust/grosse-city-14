@@ -65,7 +65,7 @@
     - state: open
       shader: unshaded
   - type: UnpoweredFlashlight
-    toggleFlashlightSound: /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка, заменить на /scanner/ #/Audio/_Grosse/audio/blackmesa/mob/scanner/blip1.ogg
+    toggleFlashlightSound: /Audio/_Grosse/Effects/blip1.ogg
   - type: PointLight
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
@@ -77,7 +77,7 @@
     volume: -8
     range: 9
     sound:
-      path: /Audio/_Grosse/audio/manhack/grind_flesh1.ogg #Заглушка, заменить на /scanner/ #/Audio/_Grosse/audio/blackmesa/mob/scanner/fly_loop.ogg
+      collection: CityScannerloop
       params:
         loop: true
   - type: Hands

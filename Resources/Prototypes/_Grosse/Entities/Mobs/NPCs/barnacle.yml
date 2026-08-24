@@ -1,7 +1,7 @@
 - type: entity
   name: барнакл
   id: MobBarnacle
-  description: Барнакл, весь слизиться, еще его мерзкий язык, фу.
+  description: Барнакл, весь слизится, еще его мерзкий язык, фу.
   parent: BaseBarricade
   suffix: Xen
   components:
@@ -70,7 +70,7 @@
         Asphyxiation: 20
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Grosse/audio/blackmesa/mob/barnacle/latch.ogg
+      path: /Audio/_Grosse/Mobs/Barnacle/latch.ogg
       params:
         volume: 2
   - type: RequireProjectileTarget
@@ -109,7 +109,7 @@
         - MobLayer
   - type: EmitSoundOnSpawn
     sound:
-      path: /Audio/_Grosse/audio/blackmesa/mob/barnacle/die.ogg
+      path: /Audio/_Grosse/Mobs/Barnacle/die.ogg
       params:
         volume: 2
 
@@ -126,8 +126,8 @@
     revertOnDelete: false
     transferHumanoidAppearance: true
     duration: null
-    polymorphSound: /Audio/_Grosse/audio/blackmesa/mob/barnacle/attack.ogg
-    exitPolymorphSound: /Audio/_Grosse/audio/blackmesa/mob/barnacle/digest.ogg
+    polymorphSound: /Audio/_Grosse/Mobs/Barnacle/attack.ogg
+    exitPolymorphSound: /Audio/_Grosse//Mobs/Barnacle/digest.ogg
     polymorphPopup: barnacle-polymorph-popup
     exitPolymorphPopup: barnacle-exit-polymorph-popup
 
