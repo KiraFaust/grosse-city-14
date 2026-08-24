@@ -137,11 +137,11 @@
     openTimeOne: 0
     openTimeTwo: 0
     openSound:
-      path: /Audio/Effects/door_open.ogg
+      path: /Audio/_Grosse/Effects/combine_button1.ogg # Звук изменён на hl-овский path: /Audio/Effects/door_open.ogg
     closeSound:
       path: /Audio/Effects/door_close.ogg
     denySound:
-      path: /Audio/_Grosse/audio/combine/combine_button_locked.ogg
+      path: /Audio/_Grosse/Effects/combine_button_locked.ogg
       params:
         volume: 2
   - type: Destructible
@@ -209,7 +209,7 @@
         damage: 100
   - type: TriggerOnInteractHand
   - type: EmitSoundOnTrigger
-    sound: /Audio/_Grosse/audio/combine/combine_button_locked.ogg
+    sound: /Audio/_Grosse/Effects/combine_button_locked.ogg
   - type: Fixtures
     fixtures:
       fix1:

@@ -7,10 +7,10 @@
     volume: 2
     range: 45
     sound:
-      path: /Audio/_Grosse/audio/gunship/engine_distant_loop1.ogg
+      path: /Audio/_Grosse/Mobs/Gunship/engine_distant_loop1.ogg
   - type: ItemToggleActiveSound
     activeSound:
-      path: /Audio/_Grosse/audio/gunship/dropping_pod_loop1.ogg
+      path: /Audio/_Grosse/Mobs/Gunship/dropping_pod_loop1.ogg
       params:
         volume: 3
   - type: Sprite
@@ -119,7 +119,7 @@
     volume: -12
     range: 2
     sound:
-      path: /Audio/_Grosse/audio/blackmesa/hl2/forcefield/force_field_loop1.ogg
+      path: /Audio/_Grosse/Effects/force_field_loop1.ogg
   - type: Sprite
     sprite: _Grosse/rsi/hlstaff/field.rsi
     layers:
