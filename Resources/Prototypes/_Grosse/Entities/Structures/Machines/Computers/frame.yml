@@ -384,7 +384,7 @@
     title: comms-console-announcement-title-alliance
 
     sound:
-      path: /Audio/_Grosse/audio/ambience/apc_alarm_pass1.ogg
+      path: /Audio/_Grosse/Ambience/apc_alarm_pass1.ogg
       params:
         volume: -15
     canShuttle: False

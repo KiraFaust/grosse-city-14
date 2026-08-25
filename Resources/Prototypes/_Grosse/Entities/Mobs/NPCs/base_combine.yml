@@ -149,7 +149,7 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
-    soundGunshot: /Audio/_Grosse/audio/blackmesa/hl2/weapon/ar2_fire.ogg
+    soundGunshot: /Audio/_Grosse/Weapons/Ranged/ar2_fire.ogg
   - type: Sprite
     drawdepth: Mobs
     layers:

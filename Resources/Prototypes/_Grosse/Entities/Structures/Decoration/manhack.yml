@@ -14,7 +14,7 @@
     items:
       - id: MobManhackc17
     sound:
-      path: /Audio/_Grosse/audio/blackmesa/hoppermine/deploy1.ogg
+      path: /Audio/_Grosse/Mobs/Hoppermine/deploy1.ogg
   - type: Construction
     graph: ManhackPulsing
     node: start

@@ -28,7 +28,7 @@
     - type: MeleeWeapon
       hidden: true
       soundHit:
-        path: /Audio/_Grosse/audio/blackmesa/mob/headcrab/headbite.ogg
+        path: /Audio/_Grosse/Mobs/Headcrab/headbite.ogg
       angle: 0
       animation: WeaponArcSmash
       damage:
@@ -84,5 +84,5 @@
       action: ActionHeadcrabJump
       jumpDistance: 4
       jumpThrowSpeed: 10
-      jumpSound: /Audio/_Grosse/audio/blackmesa/mob/headcrab/attack2.ogg
+      jumpSound: /Audio/_Grosse/Mobs/Headcrab/attack2.ogg
       canCollide: false

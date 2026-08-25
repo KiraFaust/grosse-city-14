@@ -1,17 +1,17 @@
 - type: speechSounds
   id: Combine
   saySound:
-    path: /Audio/_Grosse/audio/Effects/Gasp/off2.ogg
+    path: /Audio/_Grosse/Mobs/Combine/off2.ogg
   askSound:
-    path: /Audio/_Grosse/audio/Effects/Gasp/off3.ogg
+    path: /Audio/_Grosse/Mobs/Combine/off3.ogg
   exclaimSound:
-    path: /Audio/_Grosse/audio/Effects/Gasp/off1.ogg
+    path: /Audio/_Grosse/Mobs/Combine/off1.ogg
 
 - type: speechSounds
   id: Metrocop
   saySound:
-    path: /Audio/_Grosse/audio/Effects/Gasp/off2.ogg
+    path: /Audio/_Grosse/Mobs/Combine/off2.ogg
   askSound:
-    path: /Audio/_Grosse/audio/Effects/Gasp/off1.ogg
+    path: /Audio/_Grosse/Mobs/Combine/off1.ogg
   exclaimSound:
-    path: /Audio/_Grosse/audio/Effects/Gasp/off3.ogg
+    path: /Audio/_Grosse/Mobs/Combine/off3.ogg

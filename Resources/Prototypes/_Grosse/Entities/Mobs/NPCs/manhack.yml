@@ -63,7 +63,7 @@
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/_Grosse/audio/manhack/die.ogg
+          path: /Audio/_Grosse/Mobs/Manhack/die.ogg
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -86,7 +86,7 @@
   #  entity: ManhackInactiveC17
   #  qualityNeeded: PulsingCombine
   #  unpackSound:
-  #    path: /Audio/_Grosse/audio/blackmesa/hoppermine/blade_loop1.ogg
+  #    path: /Audio/_Grosse/Mobs/Manhack/blade_loop1.ogg
   #    params:
   #      volume: 2
   - type: Construction

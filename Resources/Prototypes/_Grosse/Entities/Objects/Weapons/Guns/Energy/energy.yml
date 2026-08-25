@@ -21,14 +21,14 @@
     availableModes:
       - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+      path: /Audio/_Grosse/Weapons/Ranged/batrifle.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
         startingItem: MagazineLightRifle
-        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        insertSound: /Audio/_Grosse/Weapons/Ranged/batrifle_magin.ogg
+        ejectSound: /Audio/_Grosse/Weapons/Ranged/batrifle_magout.ogg
         priority: 1
         whitelist:
           tags:
@@ -72,9 +72,9 @@
     minAngle: 24
     maxAngle: 45
     fireRate: 8
-    soundEmpty: /Audio/_Grosse/audio/blackmesa/hl2/weapon/ar2_empty.ogg
+    soundEmpty: /Audio/_Grosse/Weapons/Ranged/ar2_empty.ogg
     soundGunshot:
-      path: /Audio/_Grosse/audio/blackmesa/hl2/weapon/ar2_fire.ogg
+      path: /Audio/_Grosse/Weapons/Ranged/ar2_fire.ogg
   - type: MagazineAmmoProvider
     autoEject: false
   - type: ItemSlots
@@ -82,8 +82,8 @@
       gun_magazine:
         name: Magazine
         startingItem: MagazinePulseRifleC17
-        insertSound: /Audio/_Grosse/audio/blackmesa/hl2/weapon/ar2_reload.ogg
-        ejectSound: /Audio/_Grosse/audio/Weapon/Magout/divet_magout.ogg
+        insertSound: /Audio/_Grosse/Weapons/Ranged/ar2_reload.ogg
+        ejectSound: /Audio/_Grosse/Weapons/Ranged/divet_magout.ogg
         priority: 1
         whitelist:
           tags:
