@@ -39,15 +39,15 @@
   sprite: /Textures/_Grosse/Tiles/diraviyplate.png
 
 - type: tile
-  id: FloorLestnicaC17
+  id: FloorStairsC17
   parent: BaseTileC17
-  name: tiles-lestnica-c17
+  name: tiles-stairs-c17
   sprite: /Textures/_Grosse/Tiles/lestnitca.png
 
 - type: tile
-  id: FloorLestnicaCabAltC17
+  id: FloorStairsAltC17
   parent: BaseTileC17
-  name: tiles-lestnica-alt-c17
+  name: tiles-stairs-alt-c17
   sprite: /Textures/_Grosse/Tiles/lestnitcab.png
 
 - type: tile
