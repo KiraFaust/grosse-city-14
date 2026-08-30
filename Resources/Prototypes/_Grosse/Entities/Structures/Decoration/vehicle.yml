@@ -72,7 +72,7 @@
   description: Довоенный тяжелый транспорт для транспортировки множества вещей.
   components:
   - type: Sprite
-    sprite: _Grosse/rsi/Structures/Decoration/Transport/zil.rsi
+    sprite: _Grosse/Structures/Decoration/Vehicles/zil.rsi
     scale: 1.1, 1.1
     state: z1
   - type: InteractionOutline
@@ -94,7 +94,7 @@
   parent: ZILC17
   components:
   - type: Sprite
-    sprite: _Grosse/rsi/Structures/Decoration/Transport/zil.rsi
+    sprite: _Grosse/Structures/Decoration/Vehicles/zil.rsi
     scale: 1.1, 1.1
     state: z2
 
@@ -148,9 +148,9 @@
   description: Довоенный тяжелый транспорт для транспортировки различных жидкостей.
   components:
   - type: Sprite
-    sprite: _Grosse/Structures/Decoration/Vechicles/zil.rsi
+    sprite: _Grosse/Structures/Decoration/Vehicles/zil.rsi
     scale: 1.1, 1.1
-    state: z1
+    state: z3
   - type: InteractionOutline
   - type: Physics
   - type: Fixtures
