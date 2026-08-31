@@ -333,7 +333,7 @@
         acts: [ "Destruction" ]
   - type: IconSmooth
     key: walls
-    base: beton
+    base: betona
 
 - type: entity
   parent: BaseWall
@@ -354,7 +354,7 @@
         acts: [ "Destruction" ]
   - type: IconSmooth
     key: walls
-    base: beton
+    base: betonb
 
 - type: entity
   parent: BaseWall
