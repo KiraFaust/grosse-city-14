@@ -1,0 +1,111 @@
+- type: entity
+  parent: MarkerBase
+  id: AssaultCapturePoint
+  name: assault capture point
+  suffix: Штурм
+  components:
+  - type: AssaultCapturePoint
+    zoneIndex: 0
+    radius: 3
+    captureTime: 20
+  - type: Sprite
+    state: red
+
+# In-round overlay spawned from the marker on MapInit. Not a marker: MarkerSystem would hide it.
+- type: entity
+  id: AssaultCapturePointVisual
+  name: assault capture zone
+  categories: [ HideSpawnMenu ]
+  save: false
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    noRot: true
+    drawdepth: FloorObjects
+    layers:
+    - texture: Interface/NavMap/beveled_circle.png
+      map: [ "enum.AssaultCaptureVisualLayers.Zone" ]
+      color: "#88888866"
+      shader: unshaded
+
+- type: entity
+  parent: MarkerBase
+  id: AssaultSpawnPointAttackers
+  name: assault spawn (attackers)
+  suffix: Штурм, Атака
+  components:
+  - type: AssaultSpawnPoint
+    team: Attackers
+    zoneIndex: 0
+  - type: Sprite
+    state: green
+
+- type: entity
+  parent: MarkerBase
+  id: AssaultSpawnPointDefenders
+  name: assault spawn (defenders)
+  suffix: Штурм, Защита
+  components:
+  - type: AssaultSpawnPoint
+    team: Defenders
+    zoneIndex: 0
+  - type: Sprite
+    state: blue
+
+- type: entity
+  parent: MarkerBase
+  id: AssaultGate
+  name: assault gate
+  suffix: Штурм
+  components:
+  - type: AssaultGate
+    unlocksForZone: 1
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    state: red
+
+- type: entity
+  parent: AssaultGate
+  id: AssaultGatePrep
+  name: assault gate (prep)
+  suffix: Штурм, Подготовка
+  components:
+  - type: AssaultGate
+    unlocksForZone: 0
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    state: green
+
+- type: entity
+  id: AssaultSpawnBlocker
+  name: assault spawn blocker
+  suffix: Штурм
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Marker
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    drawdepth: Overdoors
+    sprite: Markers/cross.rsi
+    state: blue
+    color: "#5b9bd580"
+  - type: AssaultSpawnBlocker
+    team: Attackers
+    zoneIndex: 0
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: Fixtures
+    fixtures:
+      blocker:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 1000
+        hard: true
+        # Collision layer is set at runtime from team + current zone (AssaultAttackers/DefendersImpassable).

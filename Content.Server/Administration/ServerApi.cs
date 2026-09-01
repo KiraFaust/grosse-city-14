@@ -5,9 +5,11 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
+using Content.Server.Chat.Managers;
 using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
@@ -63,6 +65,7 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private ILocalizationManager _loc = default!;
     [Dependency] private IPlayerLocator _locator = default!;
     [Dependency] private IBanManager _bans = default!;
+    [Dependency] private IChatManager _chatManager = default!;
     [Dependency] private IServerDbManager _db = default!;
 
     private string _token = string.Empty;
@@ -87,6 +90,8 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/end_game_rule", ActionEndGameRule);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/force_preset", ActionForcePreset);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/set_motd", ActionForceMotd);
+        RegisterHandler(HttpMethod.Post, "/admin/actions/ooc", ActionOoc);
+        RegisterPublicHandler(HttpMethod.Get, "/players", PlayersHandler);
         RegisterActorHandler(HttpMethod.Patch, "/admin/actions/panic_bunker", ActionPanicPunker);
     }
 
@@ -204,6 +209,28 @@ public sealed partial class ServerApi : IPostInjectInit
 
         await RunOnMainThread(() => _config.SetCVar(CCVars.MOTD, motd.Motd));
         // A hook in the MOTD system sends the changes to each client
+        await RespondOk(context);
+    }
+
+    /// <summary>
+    ///     Broadcasts an OOC message to all connected players.
+    /// </summary>
+    private async Task ActionOoc(IStatusHandlerContext context)
+    {
+        var body = await ReadJson<OocActionBody>(context);
+        if (body == null)
+            return;
+
+        if (string.IsNullOrWhiteSpace(body.Message))
+        {
+            await RespondBadRequest(context, "Message must be supplied");
+            return;
+        }
+
+        var sender = string.IsNullOrWhiteSpace(body.Sender) ? "Server" : body.Sender;
+        _sawmill.Info($"OOC broadcast from {sender}: {body.Message}");
+
+        await RunOnMainThread(() => _chatManager.SendHookOOC(sender, body.Message));
         await RespondOk(context);
     }
 
@@ -526,6 +553,20 @@ public sealed partial class ServerApi : IPostInjectInit
 
 
     /// <summary>
+    ///     Public list of connected players' OOC names.
+    /// </summary>
+    private async Task PlayersHandler(IStatusHandlerContext context)
+    {
+        var players = await RunOnMainThread(() =>
+            _playerManager.Sessions
+                .Select(session => session.Name)
+                .OrderBy(name => name, StringComparer.OrdinalIgnoreCase)
+                .ToList());
+
+        await context.RespondJsonAsync(new PlayersResponse { Players = players });
+    }
+
+    /// <summary>
     ///     Handles fetching information.
     /// </summary>
     private async Task InfoHandler(IStatusHandlerContext context, Actor actor)
@@ -715,6 +756,15 @@ public sealed partial class ServerApi : IPostInjectInit
         public required string Motd { get; init; }
     }
 
+    private sealed class OocActionBody
+    {
+        [JsonPropertyName("sender")]
+        public string Sender { get; init; } = "Server";
+
+        [JsonPropertyName("message")]
+        public required string Message { get; init; }
+    }
+
     #endregion
 
     #region Responses
@@ -791,6 +841,12 @@ public sealed partial class ServerApi : IPostInjectInit
     private sealed class GameruleResponse
     {
         public required List<string> GameRules { get; init; }
+    }
+
+    private sealed class PlayersResponse
+    {
+        [JsonPropertyName("players")]
+        public required List<string> Players { get; init; }
     }
 
     #endregion
