@@ -105,16 +105,17 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
-# region Concrete Barricade
+#region TODO barricade
+
 - type: entity
-  id: BarricadeConcreteFullC17
-  parent: BarricadaCMBC17
+  id: BaseNeutralBarricadeC17
+  name: баррикада
+  description: Стандартная баррикада, помогающая не находить на вашем теле лишние дырки.
+  parent: BaseStructure
+  abstract: true
   components:
   - type: InteractionOutline
-  - type: Sprite
-    sprite: _Grosse/Structures/Decoration/Barricades/concrete_barricade.rsi
-    layers:
-    - state: icon1
+  - type: Physics
   - type: Fixtures
     fixtures:
       fix1:
@@ -126,182 +127,65 @@
         - MachineMask
         layer:
         - WallLayer
+  - type: Climbable
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          BarricadeConcreteDamagedC17:
-            min: 1
-            max: 1
+  - type: RequireProjectileTarget
+    active: true
 
 - type: entity
-  id: BarricadeConcreteDamagedC17
-  parent: BarricadeConcreteFullC17
+  id: BarricadeConcreteC17
+  parent: BaseNeutralBarricadeC17
   components:
   - type: Sprite
     sprite: _Grosse/Structures/Decoration/Barricades/concrete_barricade.rsi
-    layers:
-    - state: icon2
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          BarricadeConcreteCrushedC17:
-            min: 1
-            max: 1
-
-- type: entity
-  id: BarricadeConcreteCrushedC17
-  parent: BarricadeConcreteDamagedC17
-  components:
-  - type: Sprite
-    sprite: _Grosse/Structures/Decoration/Barricades/concrete_barricade.rsi
-    layers:
-    - state: icon3
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          BarricadeConcreteDestroyedC17:
-            min: 1
-            max: 1
-
-- type: entity
-  id: BarricadeConcreteDestroyedC17
-  parent: BarricadeConcreteCrushedC17
-  components:
-  - type: Sprite
-    sprite: _Grosse/Structures/Decoration/Barricades/concrete_barricade.rsi
-    layers:
-    - state: icon4
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-
-
-# region Concrete Barricade Full
-- type: entity
-  id: BarricadeFullConcreteFullC17
-  parent: BarricadaCMBC17
-  components:
-  - type: InteractionOutline
-  - type: Sprite
-    sprite: _Grosse/Structures/Decoration/Barricades/concrete_barricade_bars.rsi
     layers:
     - state: icon1
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.2,0.5,0.2"
-        density: 155
-        mask:
-        - MachineMask
-        layer:
-        - WallLayer
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 350
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
         spawn:
-          BarricadeFullConcreteDamagedC17:
+          SteelOre1:
             min: 1
-            max: 1
+            max: 3
 
 - type: entity
-  id: BarricadeFullConcreteDamagedC17
-  parent: BarricadeFullConcreteFullC17
+  id: BarricadeFullConcreteC17
+  parent: BaseNeutralBarricadeC17
   components:
   - type: Sprite
     sprite: _Grosse/Structures/Decoration/Barricades/concrete_barricade_bars.rsi
     layers:
-    - state: icon2
+      - state: DamageOverlay_1
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          BarricadeFullConcreteCrushedC17:
-            min: 1
-            max: 1
+      - trigger:
+          !type:DamageTrigger
+          damage: 500
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              SteelOre1:
+                min: 1
+                max: 3
 
-- type: entity
-  id: BarricadeFullConcreteCrushedC17
-  parent: BarricadeFullConcreteDamagedC17
-  components:
-  - type: Sprite
-    sprite: _Grosse/Structures/Decoration/Barricades/concrete_barricade_bars.rsi
-    layers:
-    - state: icon3
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          BarricadeFullConcreteDestroyedC17:
-            min: 1
-            max: 1
-
-- type: entity
-  id: BarricadeFullConcreteDestroyedC17
-  parent: BarricadeFullConcreteCrushedC17
-  components:
-  - type: Sprite
-    sprite: _Grosse/Structures/Decoration/Barricades/concrete_barricade_bars.rsi
-    layers:
-    - state: icon4
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-
-# region Sandbag Barricade Full
 - type: entity
   id: BarricadeSandbagFullC17
-  parent: BarricadaCMBC17
+  parent: BaseNeutralBarricadeC17
   components:
   - type: InteractionOutline
   - type: Sprite
@@ -323,81 +207,20 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 250
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
         spawn:
-          BarricadeSandbagDamagedC17:
+          SteelOre1:
             min: 1
-            max: 1
-
-- type: entity
-  id: BarricadeSandbagDamagedC17
-  parent: BarricadeSandbagFullC17
-  components:
-  - type: Sprite
-    sprite: _Grosse/Structures/Decoration/Barricades/sandbag_barricade.rsi
-    layers:
-    - state: icon2
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          BarricadeSandbagCrushedC17:
-            min: 1
-            max: 1
-
-- type: entity
-  id: BarricadeSandbagCrushedC17
-  parent: BarricadeSandbagDamagedC17
-  components:
-  - type: Sprite
-    sprite: _Grosse/Structures/Decoration/Barricades/sandbag_barricade.rsi
-    layers:
-    - state: icon3
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          BarricadeSandbagDestroyedC17:
-            min: 1
-            max: 1
-
-- type: entity
-  id: BarricadeSandbagDestroyedC17
-  parent: BarricadeSandbagCrushedC17
-  components:
-  - type: Sprite
-    sprite: _Grosse/Structures/Decoration/Barricades/sandbag_barricade.rsi
-    layers:
-    - state: icon4
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+            max: 2
 
 # region Wooden Barricades Full
 - type: entity
   id: BarricadeWoodenAC17
-  parent: BarricadaCMBC17
+  parent: BaseNeutralBarricadeC17
   name: деревянная баррикада
   description: Самая обычная мебель, переделанная в баррикаду.
   components:
