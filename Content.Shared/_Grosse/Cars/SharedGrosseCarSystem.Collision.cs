@@ -1,12 +1,15 @@
 using System.Numerics;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Effects;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Stunnable;
+using Content.Shared.Throwing;
 using Robust.Shared.Audio;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
@@ -20,6 +23,14 @@ public sealed partial class SharedGrosseCarSystem
     [Dependency] private SharedColorFlashEffectSystem _color = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+
+    [Dependency] private EntityQuery<DamageableComponent> _damageableQuery = default!;
+    [Dependency] private EntityQuery<GrosseCarRiderComponent> _riderQuery = default!;
+    [Dependency] private EntityQuery<InjurableComponent> _injurableQuery = default!;
+    [Dependency] private EntityQuery<MapGridComponent> _mapGridQuery = default!;
+    [Dependency] private EntityQuery<MobStateComponent> _mobStateQuery = default!;
+    [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
 
     private void InitializeCollision()
     {
@@ -37,14 +48,16 @@ public sealed partial class SharedGrosseCarSystem
         if (args.OtherEntity == ent.Owner)
             return;
 
-        if (HasComp<MapGridComponent>(args.OtherEntity))
-            return;
-
-        if (TryComp<GrosseCarRiderComponent>(args.OtherEntity, out var rider) && rider.Car == ent.Owner)
+        if (_riderQuery.TryComp(args.OtherEntity, out var rider) && rider.Car == ent.Owner)
             return;
 
         var now = _timing.CurTime;
         if (now - ent.Comp.LastImpact < ent.Comp.ImpactCooldown)
+            return;
+
+        // Sprint is 4.5 and minImpactSpeed is 4. Relative speed would treat walking into a parked truck as a ram.
+        var carSpeed = args.OurBody.LinearVelocity.Length();
+        if (carSpeed < 0.15f)
             return;
 
         var relVel = args.OurBody.LinearVelocity - args.OtherBody.LinearVelocity;
@@ -55,19 +68,30 @@ public sealed partial class SharedGrosseCarSystem
         var dir = relVel / relSpeed;
         var mCar = Math.Max(args.OurBody.FixturesMass, 1f);
 
-        if (TryComp<GrosseCarRammableComponent>(args.OtherEntity, out var rammable))
+        if (_mapGridQuery.HasComp(args.OtherEntity))
         {
-            HandleRammable(ent, args.OtherEntity, dir, relSpeed, mCar, rammable);
+            if (carSpeed >= ent.Comp.MinImpactSpeed)
+                HandleWall(ent, dir, relSpeed, mCar);
             return;
         }
 
-        if (HasComp<MobStateComponent>(args.OtherEntity))
+        if (_injurableQuery.HasComp(args.OtherEntity) || _damageableQuery.HasComp(args.OtherEntity))
         {
-            HandleMob(ent, args.OtherEntity, args.OtherBody, dir, relSpeed, mCar);
+            if (_mobStateQuery.HasComp(args.OtherEntity))
+            {
+                if (carSpeed >= ent.Comp.MinImpactSpeed)
+                    HandleMob(ent, args.OtherEntity, args.OtherBody, dir, relSpeed, mCar);
+            }
+            else if (carSpeed >= ent.Comp.RamMinSpeed)
+            {
+                HandleRammable(ent, args.OtherEntity, args.OtherBody, dir, relSpeed, mCar);
+            }
+
             return;
         }
 
-        if ((args.OtherFixture.CollisionLayer & (int) CollisionGroup.Impassable) != 0)
+        if ((args.OtherFixture.CollisionLayer & (int) CollisionGroup.Impassable) != 0 &&
+            carSpeed >= ent.Comp.MinImpactSpeed)
             HandleWall(ent, dir, relSpeed, mCar);
     }
 
@@ -84,21 +108,18 @@ public sealed partial class SharedGrosseCarSystem
 
         if (_net.IsServer)
         {
-            var push = dir * (mCar / (mCar + mOther) * relSpeed * ent.Comp.PushMultiplier);
-            _physics.SetLinearVelocity(other, otherBody.LinearVelocity + push);
+            TossTarget(other, dir, relSpeed, ent.Comp.PushMultiplier);
 
             if (relSpeed >= ent.Comp.MinImpactSpeed)
             {
                 var scale = relSpeed / ent.Comp.MinImpactSpeed;
                 ApplyCarDamage(ent, ent.Comp.SelfDamage * scale);
                 _damageable.TryChangeDamage(other, ent.Comp.HitDamage * scale);
-
-                if (relSpeed >= ent.Comp.MinImpactSpeed * 1.5f)
-                    _stun.TryKnockdown(other, ent.Comp.KnockdownTime, force: true);
+                _stun.TryKnockdown(other, ent.Comp.KnockdownTime, force: true);
             }
         }
 
-        PlayImpact(ent);
+        PlayImpact(ent, ent.Comp.HitSound);
     }
 
     private void HandleWall(Entity<GrosseCarComponent> ent, Vector2 dir, float relSpeed, float mCar)
@@ -111,33 +132,63 @@ public sealed partial class SharedGrosseCarSystem
             ApplyCarDamage(ent, ent.Comp.WallDamage * scale);
         }
 
-        PlayImpact(ent);
+        PlayImpact(ent, ent.Comp.WallImpactSound);
     }
 
     private void HandleRammable(
         Entity<GrosseCarComponent> ent,
         EntityUid other,
+        PhysicsComponent otherBody,
         Vector2 dir,
         float relSpeed,
-        float mCar,
-        GrosseCarRammableComponent rammable)
+        float mCar)
     {
-        var mOther = Math.Max(rammable.MassOverride, 1f);
+        var mOther = Math.Max(otherBody.FixturesMass, 1f);
         SlowCar(ent, dir, relSpeed, mCar, mOther);
 
-        if (_net.IsServer && relSpeed >= rammable.RamMinSpeed)
+        if (_net.IsServer && relSpeed >= ent.Comp.RamMinSpeed)
         {
-            var scale = relSpeed / Math.Max(rammable.RamMinSpeed, 0.01f);
+            var scale = relSpeed / Math.Max(ent.Comp.RamMinSpeed, 0.01f);
             _damageable.TryChangeDamage(other, ent.Comp.HitDamage * scale);
             ApplyCarDamage(ent, ent.Comp.SelfDamage * 0.5f * scale);
+
+            if (_injurableQuery.HasComp(other))
+                TossTarget(other, dir, relSpeed, ent.Comp.PushMultiplier);
         }
 
-        PlayImpact(ent);
+        PlayImpact(ent, _injurableQuery.HasComp(other) ? ent.Comp.HitSound : ent.Comp.ImpactSound);
+    }
+
+    private void TossTarget(EntityUid other, Vector2 dir, float relSpeed, float pushMultiplier)
+    {
+        if (!_physicsQuery.TryComp(other, out var physics))
+            return;
+
+        _transform.Unanchor(other);
+        if ((physics.BodyType & (BodyType.Dynamic | BodyType.KinematicController)) == 0)
+            _physics.SetBodyType(other, BodyType.Dynamic, body: physics);
+
+        var speed = Math.Max(relSpeed * pushMultiplier, 5f);
+        _throwing.TryThrow(
+            other,
+            dir * speed,
+            physics,
+            Transform(other),
+            speed,
+            recoil: false,
+            playSound: false,
+            doSpin: false,
+            unanchor: ThrowingUnanchorStrength.All);
+
+        // KinematicController bodies have InvMass 0, so TryThrow's impulse does nothing.
+        _physics.SetLinearVelocity(other, dir * speed, body: physics);
+        _physics.SetBodyStatus(other, physics, BodyStatus.InAir);
+        _physics.WakeBody(other);
     }
 
     private void SlowCar(Entity<GrosseCarComponent> ent, Vector2 dir, float relSpeed, float mCar, float mOther)
     {
-        if (!TryComp<PhysicsComponent>(ent.Owner, out var physics))
+        if (!_physicsQuery.TryComp(ent.Owner, out var physics))
             return;
 
         float reduce;
@@ -173,14 +224,14 @@ public sealed partial class SharedGrosseCarSystem
         }
     }
 
-    private void PlayImpact(Entity<GrosseCarComponent> ent)
+    private void PlayImpact(Entity<GrosseCarComponent> ent, SoundSpecifier? sound)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        if (ent.Comp.ImpactSound != null)
+        if (sound != null)
         {
-            _audio.PlayPredicted(ent.Comp.ImpactSound, ent.Owner, null,
+            _audio.PlayPredicted(sound, ent.Owner, null,
                 AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
         }
 

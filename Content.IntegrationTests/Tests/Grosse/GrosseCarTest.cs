@@ -3,12 +3,15 @@ using System.Linq;
 using Content.IntegrationTests.Fixtures;
 using Content.Shared._Grosse.Cars;
 using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Prototypes;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Localization;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 
 namespace Content.IntegrationTests.Tests.Grosse;
@@ -77,7 +80,13 @@ public sealed class GrosseCarTest : GameTest
                     Assert.That(proto.HasComponent<InputMoverComponent>(factory), $"{proto.ID} missing InputMover");
                     Assert.That(proto.HasComponent<AppearanceComponent>(factory), $"{proto.ID} missing Appearance");
                     Assert.That(proto.TryGetComponent(out PhysicsComponent? physics, factory), $"{proto.ID} missing Physics");
-                    Assert.That(physics!.BodyType, Is.EqualTo(BodyType.KinematicController), $"{proto.ID} must be KinematicController");
+                    Assert.That(physics!.BodyType, Is.EqualTo(BodyType.Dynamic), $"{proto.ID} must be Dynamic so it collides with walking mobs");
+                    Assert.That(proto.TryGetComponent(out FixturesComponent? fixtures, factory), $"{proto.ID} missing Fixtures");
+                    foreach (var fixture in fixtures!.Fixtures.Values)
+                    {
+                        if (fixture.Shape is PhysShapeAabb aabb)
+                            Assert.That(aabb.LocalBounds.Width, Is.LessThan(2.2f), $"{proto.ID} hitbox is wider than the south-facing sprite");
+                    }
                     Assert.That(proto.TryGetComponent(out ContainerManagerComponent? containers, factory), $"{proto.ID} missing ContainerContainer");
 
                     foreach (var slot in car.Slots)
@@ -133,6 +142,80 @@ public sealed class GrosseCarTest : GameTest
             Assert.That(entityManager.HasComponent<GrosseCarRiderComponent>(driver), Is.False);
             Assert.That(entityManager.HasComponent<RelayInputMoverComponent>(driver), Is.False);
             Assert.That(containers.TryGetContainer(car, "car-driver", out var emptyDriver) && emptyDriver.ContainedEntities.Count == 0);
+        });
+    }
+
+    [Test]
+    public async Task DriverControlIsRelayedToCar()
+    {
+        var pair = Pair;
+        var server = pair.Server;
+        var map = await pair.CreateTestMap();
+        var coords = map.GridCoords;
+        var entityManager = server.EntMan;
+        var cars = entityManager.System<SharedGrosseCarSystem>();
+        var mover = entityManager.System<SharedMoverController>();
+
+        await server.WaitAssertion(() =>
+        {
+            var car = entityManager.SpawnEntity("VehicleKraz17", coords);
+            var driver = entityManager.SpawnEntity(DummyId, coords);
+            var passenger = entityManager.SpawnEntity(DummyId, coords);
+
+            Assert.That(cars.TryEnterSlot(driver, car, "driver", skipDelay: true), Is.True);
+            Assert.That(cars.TryEnterSlot(passenger, car, "passenger", skipDelay: true), Is.True);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(entityManager.TryGetComponent(driver, out RelayInputMoverComponent? relay));
+                Assert.That(relay!.RelayEntity, Is.EqualTo(car), "driver WASD should be relayed to the car");
+                Assert.That(mover.GetEffectiveMover(driver), Is.EqualTo(car));
+                Assert.That(entityManager.GetComponent<InputMoverComponent>(driver).CanMove, Is.True, "driver CanMove must stay true or WASD will not relay");
+
+                Assert.That(entityManager.TryGetComponent(car, out MovementRelayTargetComponent? target));
+                Assert.That(target!.Source, Is.EqualTo(driver));
+                Assert.That(entityManager.HasComponent<SkipMobMovementComponent>(car), Is.True, "car must skip omni-walk");
+                Assert.That(entityManager.HasComponent<InputMoverComponent>(car), Is.True);
+
+                Assert.That(entityManager.HasComponent<RelayInputMoverComponent>(passenger), Is.False);
+                Assert.That(mover.GetEffectiveMover(passenger), Is.EqualTo(passenger));
+                Assert.That(entityManager.GetComponent<InputMoverComponent>(passenger).CanMove, Is.False, "passenger must not walk while seated");
+            });
+
+            Assert.That(cars.TryEject((car, entityManager.GetComponent<GrosseCarComponent>(car)), driver, driver, skipDelay: true), Is.True);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(entityManager.HasComponent<RelayInputMoverComponent>(driver), Is.False);
+                Assert.That(entityManager.HasComponent<MovementRelayTargetComponent>(car), Is.False);
+                Assert.That(mover.GetEffectiveMover(driver), Is.EqualTo(driver));
+                Assert.That(entityManager.GetComponent<InputMoverComponent>(driver).CanMove, Is.True);
+            });
+        });
+    }
+
+    [Test]
+    public async Task ParkedCarStaysIdleWithoutDriver()
+    {
+        var pair = Pair;
+        var server = pair.Server;
+        var map = await pair.CreateTestMap();
+        var coords = map.GridCoords;
+        var entityManager = server.EntMan;
+        EntityUid car = default;
+
+        await server.WaitAssertion(() =>
+        {
+            car = entityManager.SpawnEntity("VehicleKraz17", coords);
+            Assert.That(entityManager.HasComponent<MovementRelayTargetComponent>(car), Is.False);
+        });
+
+        await server.WaitRunTicks(10);
+
+        await server.WaitAssertion(() =>
+        {
+            var physics = entityManager.GetComponent<PhysicsComponent>(car);
+            Assert.That(physics.LinearVelocity.Length(), Is.LessThan(0.01f), "empty parked car must not be stepped as if driven");
         });
     }
 }
