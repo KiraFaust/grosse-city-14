@@ -88,6 +88,9 @@
     mode: PlaceFree
   components:
   - type: Animateable
+  - type: Anchorable
+  - type: Transform
+    anchored: true
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
