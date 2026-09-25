@@ -102,3 +102,64 @@
   - type: Sprite
     sprite: _Grosse/rsi/hlstaff/structure/decor.rsi
     state: public_phone
+
+- type: entity
+  id: BigCarpetC17
+  name: big carpet
+  description: This is a very big carpet...
+  components:
+  - type: Sprite
+    sprite: _Grosse/Structures/carpet_of_carpets.rsi
+    state: carpet
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCloth1:
+            min: 4
+            max: 8
+  - type: Fixtures
+    fixtures:
+     fix1:
+      shape:
+        !type:PhysShapeAabb
+         bounds: "-0.45,-0.45,0.45,0.1"
+         density: 190
+         hard: false
+         mask:
+         - MachineMask
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Physics
+    bodyType: Static
+
+- type: entity
+  parent: BaseStructure
+  id: BoxWoodenC17
+  name: wooden box
+  description: A big wooden box with many hidden toys. Maybe.
+  components:
+  - type: Sprite
+    sprite: _Grosse/Structures/Decoration/Box.rsi
+    state: box
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 3
+            max: 5
