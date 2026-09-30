@@ -4,14 +4,14 @@
   "copyright": "Made for Grosse-city-14 Project by yri_nuri",
   "size": {
     "x": 32,
-    "y": 32
+    "y": 65
   },
   "states": [
     {
-      "name": "cylinder-small"
+      "name": "cylinder-big"
     },
     {
-      "name": "cylinder-small-rust"
+      "name": "cylinder-big-rust"
     }
   ]
 }

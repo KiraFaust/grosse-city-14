@@ -85,7 +85,7 @@
   name: chairC17
   description: You sit in this. Either by will or force.
   placement:
-    mode: PlaceFree
+    mode: SnapgridCenter
   components:
   - type: Animateable
   - type: Anchorable

@@ -8,10 +8,10 @@
   },
   "states": [
     {
-      "name": "cylinder-small"
+      "name": "icon"
     },
     {
-      "name": "cylinder-small-rust"
+      "name": "rust"
     }
   ]
 }
