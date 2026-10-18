@@ -194,7 +194,7 @@
   description: Высокотехнологичный бронепоезд, собранный из земных материалов.
   components:
   - type: Sprite
-    sprite: _Grosse/Decoration/Structures/Railroad/trains.rsi
+    sprite: _Grosse/Structures/Decoration/Railroad/trains.rsi
     drawdepth: HighFloorObjects
     layers:
       - state: train
