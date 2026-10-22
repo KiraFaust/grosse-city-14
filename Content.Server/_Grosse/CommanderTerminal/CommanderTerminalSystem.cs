@@ -23,7 +23,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Grosse.CommanderTerminal;
 
-public sealed class CommanderTerminalSystem : EntitySystem
+public sealed partial class CommanderTerminalSystem : EntitySystem
 {
     [Dependency] private UserInterfaceSystem _ui = default!;
     [Dependency] private NavMapSystem _navMap = default!;
