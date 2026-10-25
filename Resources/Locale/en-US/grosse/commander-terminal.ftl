@@ -27,6 +27,7 @@ commander-terminal-unassigned = Unassigned
 commander-terminal-members = Members
 commander-terminal-no-crew = No Civil Protection personnel on station.
 commander-terminal-missing-member = out of contact
+commander-terminal-no-id = no ID
 
 ent-CommanderTerminalC17 = commander terminal
     .desc = Civil Protection console. Shows the station map through beacons, forms groups, and radios them a destination.

@@ -33,6 +33,12 @@ public sealed class CommanderTerminalBoundUserInterface : BoundUserInterface
         base.UpdateState(state);
 
         if (_window != null && state is CommanderTerminalState terminal)
-            _window.UpdateState(terminal);
+            _window.ApplyMenu(terminal);
+    }
+
+    protected override void ReceiveMessage(BoundUserInterfaceMessage message)
+    {
+        if (_window != null && message is CommanderMapUpdateMessage map)
+            _window.ApplyMap(map.Entries);
     }
 }

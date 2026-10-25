@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
@@ -11,7 +12,7 @@ public enum CommanderTerminalUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class CommanderTerminalState : BoundUserInterfaceState
+public sealed class CommanderTerminalState : BoundUserInterfaceState, IEquatable<CommanderTerminalState>
 {
     public string StationName { get; }
     public NetEntity? ConsoleGrid { get; }
@@ -32,17 +33,44 @@ public sealed class CommanderTerminalState : BoundUserInterfaceState
         Groups = groups;
         Floors = floors;
     }
+
+    public bool Equals(CommanderTerminalState? other)
+    {
+        return other != null
+               && StationName == other.StationName
+               && ConsoleGrid == other.ConsoleGrid
+               && Members.SequenceEqual(other.Members)
+               && Groups.SequenceEqual(other.Groups)
+               && Floors.SequenceEqual(other.Floors);
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return Equals(obj as CommanderTerminalState);
+    }
+
+    public override int GetHashCode()
+    {
+        var hash = new HashCode();
+        hash.Add(StationName);
+        hash.Add(ConsoleGrid);
+        foreach (var member in Members)
+            hash.Add(member);
+        foreach (var group in Groups)
+            hash.Add(group);
+        foreach (var floor in Floors)
+            hash.Add(floor);
+        return hash.ToHashCode();
+    }
 }
 
 [Serializable, NetSerializable]
-public sealed class CommanderMember
+public sealed class CommanderMember : IEquatable<CommanderMember>
 {
     public string MemberId { get; }
     public NetEntity Body { get; }
     public string Name { get; }
-    public string JobTitle { get; }
-    public string Location { get; }
-    public NetCoordinates Coordinates { get; }
+    public string IdName { get; }
     public string? GroupId { get; }
     public bool IsLeader { get; }
 
@@ -50,25 +78,71 @@ public sealed class CommanderMember
         string memberId,
         NetEntity body,
         string name,
-        string jobTitle,
-        string location,
-        NetCoordinates coordinates,
+        string idName,
         string? groupId,
         bool isLeader)
     {
         MemberId = memberId;
         Body = body;
         Name = name;
-        JobTitle = jobTitle;
-        Location = location;
-        Coordinates = coordinates;
+        IdName = idName;
         GroupId = groupId;
         IsLeader = isLeader;
+    }
+
+    public bool Equals(CommanderMember? other)
+    {
+        return other != null
+               && MemberId == other.MemberId
+               && Body.Equals(other.Body)
+               && Name == other.Name
+               && IdName == other.IdName
+               && GroupId == other.GroupId
+               && IsLeader == other.IsLeader;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return Equals(obj as CommanderMember);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(MemberId, Body, Name, IdName, GroupId, IsLeader);
+    }
+}
+
+/// <summary>
+/// Positions for the map and the beacon column. Sent on a timer, not when the roster changes.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class CommanderMapUpdateMessage : BoundUserInterfaceMessage
+{
+    public List<CommanderMapEntry> Entries { get; }
+
+    public CommanderMapUpdateMessage(List<CommanderMapEntry> entries)
+    {
+        Entries = entries;
     }
 }
 
 [Serializable, NetSerializable]
-public sealed class CommanderGroup
+public sealed class CommanderMapEntry
+{
+    public string MemberId { get; }
+    public string Location { get; }
+    public NetCoordinates Coordinates { get; }
+
+    public CommanderMapEntry(string memberId, string location, NetCoordinates coordinates)
+    {
+        MemberId = memberId;
+        Location = location;
+        Coordinates = coordinates;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class CommanderGroup : IEquatable<CommanderGroup>
 {
     public string GroupId { get; }
     public string Name { get; }
@@ -84,10 +158,37 @@ public sealed class CommanderGroup
         ColorIndex = colorIndex;
         Members = members;
     }
+
+    public bool Equals(CommanderGroup? other)
+    {
+        return other != null
+               && GroupId == other.GroupId
+               && Name == other.Name
+               && LeaderId == other.LeaderId
+               && ColorIndex == other.ColorIndex
+               && Members.SequenceEqual(other.Members);
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return Equals(obj as CommanderGroup);
+    }
+
+    public override int GetHashCode()
+    {
+        var hash = new HashCode();
+        hash.Add(GroupId);
+        hash.Add(Name);
+        hash.Add(LeaderId);
+        hash.Add(ColorIndex);
+        foreach (var member in Members)
+            hash.Add(member);
+        return hash.ToHashCode();
+    }
 }
 
 [Serializable, NetSerializable]
-public sealed class CommanderFloor
+public sealed class CommanderFloor : IEquatable<CommanderFloor>
 {
     public int Depth { get; }
     public NetEntity Grid { get; }
@@ -96,6 +197,21 @@ public sealed class CommanderFloor
     {
         Depth = depth;
         Grid = grid;
+    }
+
+    public bool Equals(CommanderFloor? other)
+    {
+        return other != null && Depth == other.Depth && Grid.Equals(other.Grid);
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return Equals(obj as CommanderFloor);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Depth, Grid);
     }
 }
 

@@ -27,6 +27,7 @@ commander-terminal-unassigned = Без группы
 commander-terminal-members = Состав
 commander-terminal-no-crew = На станции нет сотрудников ГО.
 commander-terminal-missing-member = не на связи
+commander-terminal-no-id = нет карты
 
 ent-CommanderTerminalC17 = терминал командира
     .desc = Консоль Гражданской обороны. Показывает карту по маякам, собирает группы и отдаёт им точку по рации Альянса.

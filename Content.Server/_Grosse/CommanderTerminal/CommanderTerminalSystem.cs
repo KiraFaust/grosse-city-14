@@ -1,6 +1,8 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Pinpointer;
+using Content.Shared.Access.Systems;
+using Content.Shared.Inventory;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Roles.Jobs;
 using Content.Server.Station.Systems;
@@ -29,6 +31,8 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
     [Dependency] private NavMapSystem _navMap = default!;
     [Dependency] private RadioSystem _radio = default!;
     [Dependency] private JobSystem _jobs = default!;
+    [Dependency] private SharedIdCardSystem _idCard = default!;
+    [Dependency] private InventorySystem _inventory = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private StationSystem _station = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
@@ -64,12 +68,12 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
             return;
 
         _nextUpdate = _timing.CurTime + TimeSpan.FromSeconds(2);
-        UpdateOpenTerminals();
+        RefreshOpenTerminals();
     }
 
     private void OnUiOpened(Entity<CommanderTerminalComponent> ent, ref BoundUIOpenedEvent args)
     {
-        UpdateUi(ent);
+        Publish(ent);
     }
 
     private void OnCreateGroup(Entity<CommanderTerminalComponent> ent, ref CreateCommanderGroupMessage args)
@@ -84,7 +88,7 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
         var data = GetScope(scope);
         data.Groups.Add(new CommanderGroupData(Guid.NewGuid().ToString("N"), name, data.NextColor));
         data.NextColor++;
-        UpdateOpenTerminals();
+        RefreshOpenTerminals();
     }
 
     private void OnRenameGroup(Entity<CommanderTerminalComponent> ent, ref RenameCommanderGroupMessage args)
@@ -97,7 +101,7 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
             return;
 
         group.Name = name;
-        UpdateOpenTerminals();
+        RefreshOpenTerminals();
     }
 
     private void OnDeleteGroup(Entity<CommanderTerminalComponent> ent, ref DeleteCommanderGroupMessage args)
@@ -107,7 +111,7 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
 
         var groupId = args.GroupId;
         data.Groups.RemoveAll(group => group.GroupId == groupId);
-        UpdateOpenTerminals();
+        RefreshOpenTerminals();
     }
 
     private void OnAssignMember(Entity<CommanderTerminalComponent> ent, ref AssignCommanderMemberMessage args)
@@ -131,7 +135,7 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
         }
 
         target.Members.Add(memberId);
-        UpdateOpenTerminals();
+        RefreshOpenTerminals();
     }
 
     private void OnRemoveMember(Entity<CommanderTerminalComponent> ent, ref RemoveCommanderMemberMessage args)
@@ -148,7 +152,7 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
                 group.LeaderId = null;
         }
 
-        UpdateOpenTerminals();
+        RefreshOpenTerminals();
     }
 
     private void OnSetLeader(Entity<CommanderTerminalComponent> ent, ref SetCommanderLeaderMessage args)
@@ -160,7 +164,7 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
             return;
 
         group.LeaderId = args.MemberId;
-        UpdateOpenTerminals();
+        RefreshOpenTerminals();
     }
 
     private void OnIssueOrder(Entity<CommanderTerminalComponent> ent, ref IssueCommanderOrderMessage args)
@@ -194,25 +198,52 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
         _scopes.Clear();
     }
 
-    private void UpdateOpenTerminals()
+    private void RefreshOpenTerminals()
     {
         var query = EntityQueryEnumerator<CommanderTerminalComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (_ui.IsUiOpen(uid, CommanderTerminalUiKey.Key))
-                UpdateUi((uid, comp));
+                Publish((uid, comp));
         }
     }
 
-    private void UpdateUi(Entity<CommanderTerminalComponent> ent)
+    private void Publish(Entity<CommanderTerminalComponent> ent)
     {
         if (!TryGetScope(ent, out var scope))
             return;
 
-        var members = CollectMembers(ent, scope);
-        var data = GetScope(scope);
-        var groups = new List<CommanderGroup>(data.Groups.Count);
+        var roster = CollectRoster(ent, scope);
+        var members = new List<CommanderMember>(roster.Count);
+        var map = new List<CommanderMapEntry>(roster.Count);
+        foreach (var entry in roster)
+        {
+            members.Add(entry.Member);
+            map.Add(entry.Map);
+        }
 
+        var station = _station.GetOwningStation(ent);
+        var stationName = station == null
+            ? Loc.GetString("commander-terminal-unknown-station")
+            : Name(station.Value);
+        var consoleGrid = Transform(ent).GridUid;
+
+        _ui.SetUiState(ent.Owner, CommanderTerminalUiKey.Key, new CommanderTerminalState(
+            stationName,
+            consoleGrid == null ? null : GetNetEntity(consoleGrid.Value),
+            members,
+            CopyGroups(scope),
+            GetFloors(ent)));
+
+        _ui.ServerSendUiMessage(ent.Owner, CommanderTerminalUiKey.Key, new CommanderMapUpdateMessage(map));
+    }
+
+    private List<CommanderGroup> CopyGroups(EntityUid scope)
+    {
+        if (!_scopes.TryGetValue(scope, out var data))
+            return new List<CommanderGroup>();
+
+        var groups = new List<CommanderGroup>(data.Groups.Count);
         foreach (var group in data.Groups)
         {
             groups.Add(new CommanderGroup(
@@ -223,29 +254,16 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
                 group.Members.ToList()));
         }
 
-        var station = _station.GetOwningStation(ent);
-        var stationName = station == null
-            ? Loc.GetString("commander-terminal-unknown-station")
-            : Name(station.Value);
-
-        var consoleGrid = Transform(ent).GridUid;
-        var state = new CommanderTerminalState(
-            stationName,
-            consoleGrid == null ? null : GetNetEntity(consoleGrid.Value),
-            members,
-            groups,
-            GetFloors(ent));
-
-        _ui.SetUiState(ent.Owner, CommanderTerminalUiKey.Key, state);
+        return groups;
     }
 
-    private List<CommanderMember> CollectMembers(Entity<CommanderTerminalComponent> ent, EntityUid scope)
+    private List<CommanderRosterEntry> CollectRoster(Entity<CommanderTerminalComponent> ent, EntityUid scope)
     {
         if (!_prototypes.TryIndex(ent.Comp.Department, out DepartmentPrototype? department))
-            return new List<CommanderMember>();
+            return new List<CommanderRosterEntry>();
 
         var membership = MembershipLookup(scope);
-        var members = new List<CommanderMember>();
+        var members = new List<CommanderRosterEntry>();
         var minds = EntityQueryEnumerator<MindComponent>();
 
         while (minds.MoveNext(out var mindId, out var mind))
@@ -264,22 +282,34 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
 
             var memberId = GetNetEntity(body).ToString();
             membership.TryGetValue(memberId, out var assigned);
-            _jobs.MindTryGetJobName(mindId, out var jobName);
 
             var name = string.IsNullOrWhiteSpace(mind.CharacterName) ? Name(body) : mind.CharacterName;
-            members.Add(new CommanderMember(
+            var member = new CommanderMember(
                 memberId,
                 GetNetEntity(body),
                 name,
-                jobName,
-                _navMap.GetNearestBeaconString(body, onlyName: true),
-                GetNetCoordinates(_transform.GetMoverCoordinates(body)),
+                IdDesignation(body),
                 assigned?.GroupId,
-                assigned?.LeaderId == memberId));
+                assigned?.LeaderId == memberId);
+            var map = new CommanderMapEntry(
+                memberId,
+                _navMap.GetNearestBeaconString(body, onlyName: true),
+                GetNetCoordinates(_transform.GetMoverCoordinates(body)));
+            members.Add(new CommanderRosterEntry(member, map));
         }
 
-        members.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
+        members.Sort((a, b) => string.Compare(a.Member.Name, b.Member.Name, StringComparison.Ordinal));
         return members;
+    }
+
+    private string IdDesignation(EntityUid body)
+    {
+        if (_inventory.TryGetSlotEntity(body, "id", out var idUid)
+            && _idCard.TryGetIdCard(idUid.Value, out var card)
+            && !string.IsNullOrWhiteSpace(card.Comp.FullName))
+            return card.Comp.FullName;
+
+        return Loc.GetString("commander-terminal-no-id");
     }
 
     private Dictionary<string, CommanderGroupData> MembershipLookup(EntityUid scope)
@@ -302,7 +332,7 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
         if (!TryGetScope(ent, out var scope))
             return false;
 
-        return CollectMembers(ent, scope).Any(member => member.MemberId == memberId);
+        return CollectRoster(ent, scope).Any(member => member.Member.MemberId == memberId);
     }
 
     private List<CommanderFloor> GetFloors(EntityUid console)
@@ -438,6 +468,18 @@ public sealed partial class CommanderTerminalSystem : EntitySystem
             sanitized = sanitized[..MaxGroupNameLength];
 
         return sanitized;
+    }
+}
+
+public sealed class CommanderRosterEntry
+{
+    public CommanderMember Member { get; }
+    public CommanderMapEntry Map { get; }
+
+    public CommanderRosterEntry(CommanderMember member, CommanderMapEntry map)
+    {
+        Member = member;
+        Map = map;
     }
 }
 

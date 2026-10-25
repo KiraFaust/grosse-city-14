@@ -48,7 +48,12 @@ public sealed partial class CommanderTerminalWindow : FancyWindow
     private NetEntity? _selectedGrid;
     private NetEntity? _shownGrid;
     private string? _floorSignature;
+    private string? _crewSignature;
+    private string? _orderSignature;
     private bool _suppressOrderSelect;
+    private readonly Dictionary<string, Label> _crewLocations = new();
+    private readonly Dictionary<string, string> _pendingAssign = new();
+    private readonly Dictionary<string, CommanderMapEntry> _positions = new();
 
     public event Action<string>? OnCreateGroup;
     public event Action<string, string>? OnRenameGroup;
@@ -104,7 +109,7 @@ public sealed partial class CommanderTerminalWindow : FancyWindow
         NavMap.MapClickedAction += OnMapClicked;
     }
 
-    public void UpdateState(CommanderTerminalState state)
+    public void ApplyMenu(CommanderTerminalState state)
     {
         _members = state.Members;
         _groups = state.Groups;
@@ -125,6 +130,17 @@ public sealed partial class CommanderTerminalWindow : FancyWindow
         RefreshGroupList();
         RefreshGroupDetail();
         UpdateOrderHint();
+        ApplyStoredLocations();
+    }
+
+    public void ApplyMap(List<CommanderMapEntry> entries)
+    {
+        _positions.Clear();
+        foreach (var entry in entries)
+            _positions[entry.MemberId] = entry;
+
+        ApplyStoredLocations();
+        RefreshBlips();
     }
 
     private void OnMapClicked(MapCoordinates coordinates)
@@ -224,7 +240,10 @@ public sealed partial class CommanderTerminalWindow : FancyWindow
 
         foreach (var member in _members)
         {
-            var coordinates = _entities.GetCoordinates(member.Coordinates);
+            if (!_positions.TryGetValue(member.MemberId, out var position))
+                continue;
+
+            var coordinates = _entities.GetCoordinates(position.Coordinates);
             if (_transform.ToMapCoordinates(coordinates).MapId != gridXform.MapID)
                 continue;
 
@@ -242,6 +261,12 @@ public sealed partial class CommanderTerminalWindow : FancyWindow
 
     private void RefreshCrew()
     {
+        var signature = CrewSignature();
+        if (signature == _crewSignature)
+            return;
+
+        _crewSignature = signature;
+        _crewLocations.Clear();
         CrewList.DisposeAllChildren();
         CrewEmpty.Visible = _members.Count == 0;
 
@@ -262,16 +287,18 @@ public sealed partial class CommanderTerminalWindow : FancyWindow
             });
             row.AddChild(new Label
             {
-                Text = member.JobTitle,
+                Text = member.IdName,
                 MinWidth = 180,
                 ClipText = true,
             });
-            row.AddChild(new Label
+            var locationLabel = new Label
             {
-                Text = member.Location,
+                Text = _positions.TryGetValue(member.MemberId, out var position) ? position.Location : string.Empty,
                 MinWidth = 140,
                 ClipText = true,
-            });
+            };
+            _crewLocations[member.MemberId] = locationLabel;
+            row.AddChild(locationLabel);
             row.AddChild(new Label
             {
                 Text = group?.Name ?? Loc.GetString("commander-terminal-unassigned"),
@@ -287,18 +314,42 @@ public sealed partial class CommanderTerminalWindow : FancyWindow
             {
                 options.AddItem(candidate.Name, optionId);
                 options.SetItemMetadata(options.GetIdx(optionId), candidate.GroupId);
-                if (candidate.GroupId == member.GroupId)
-                    options.SelectId(optionId);
                 optionId++;
             }
 
             var memberId = member.MemberId;
+            if (_pendingAssign.TryGetValue(memberId, out var pending) && pending == member.GroupId)
+                _pendingAssign.Remove(memberId);
+
+            var selectedGroup = _pendingAssign.GetValueOrDefault(memberId) ?? member.GroupId;
+            if (selectedGroup != null)
+            {
+                for (var i = 0; i < options.ItemCount; i++)
+                {
+                    if (options.GetItemMetadata(i) as string == selectedGroup)
+                    {
+                        options.Select(i);
+                        break;
+                    }
+                }
+            }
+
+            options.OnItemSelected += args =>
+            {
+                options.SelectId(args.Id);
+                if (options.SelectedMetadata is string picked)
+                    _pendingAssign[memberId] = picked;
+                else
+                    _pendingAssign.Remove(memberId);
+            };
+
             var assign = new Button { Text = Loc.GetString("commander-terminal-assign") };
             assign.OnPressed += _ =>
             {
                 if (options.SelectedMetadata is not string groupId)
                     return;
 
+                _pendingAssign[memberId] = groupId;
                 OnAssign?.Invoke(groupId, memberId);
             };
 
@@ -316,8 +367,30 @@ public sealed partial class CommanderTerminalWindow : FancyWindow
         }
     }
 
+    private void ApplyStoredLocations()
+    {
+        foreach (var (memberId, label) in _crewLocations)
+        {
+            if (_positions.TryGetValue(memberId, out var position))
+                label.Text = position.Location;
+        }
+    }
+
+    private string CrewSignature()
+    {
+        var members = string.Join("|", _members.Select(member =>
+            $"{member.MemberId}:{member.Name}:{member.IdName}:{member.GroupId}:{member.IsLeader}"));
+        var groups = string.Join("|", _groups.Select(group => $"{group.GroupId}:{group.Name}"));
+        return members + "#" + groups;
+    }
+
     private void RefreshOrderDropdown()
     {
+        var signature = string.Join("|", _groups.Select(group => $"{group.GroupId}:{group.Name}")) + "#" + _selectedGroupId;
+        if (signature == _orderSignature)
+            return;
+
+        _orderSignature = signature;
         _suppressOrderSelect = true;
         OrderGroup.Clear();
         OrderGroup.AddItem(Loc.GetString("commander-terminal-no-group-selected"), 0);
