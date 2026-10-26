@@ -112,7 +112,7 @@
     offset: 0, -0.5
   - type: Clickable
   - type: InteractionOutline
-  - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
@@ -169,8 +169,9 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shapes:
-        - bounds: -0.3, -0.45, 0.3, 0.45
+        shape:
+          !type:PhysShapeAabb
+          - bounds: -0.3, -0.45, 0.3, 0.45
         density: 100
         hard: true
         layer:
